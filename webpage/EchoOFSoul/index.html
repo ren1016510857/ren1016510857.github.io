@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>灵魂回响</title>
+<link href="css/base.css" rel="stylesheet"/>
+<link href="css/index.css" rel="stylesheet"/>
+<script src="js/jquery-1.7.2.js"></script>
+<script>
+	$(function(){
+		$('.april p a').mouseover(function(){
+			$('.april p a').removeClass('show2');
+			$(this).addClass('show2');
+			$('.april .img img').stop().animate({'opacity':'0'});
+			$('.april .img img').eq($(this).index()).stop().animate({'opacity':'1'});
+		});	
+		$('.xcom ul li').mouseover(function(){
+			$('.xcom ul li').css('background','');
+			$(this).css('background','url(img/sprite.jpg) no-repeat 0 -323px');
+			$('.xcom dl').hide();
+			$('.xcom dl').eq($(this).index()).show();
+		});
+		$('.figure .wz1 li').mouseover(function(){
+			$('.figure .wz1 li').css('background-position-y','-412px');
+			$(this).css('background-position-y','-471px');
+			$('.figure img').stop().animate({'opacity':'0'});
+			$('.figure img').eq($(this).index()).stop().animate({'opacity':'1'});
+		});
+		$('.activity dd').mouseover(function(){
+			$('.activity dd').attr({'class':''});
+			$(this).attr({'class':'show'});
+		});
+		abc('.media1 .tou a','.media1 .wj');
+		abc('.media2 .tou a','.media2 .wj');
+		abc('.media3 .tou a','.media3 .wj');
+		function abc(a,b){$(a).mouseover(function(){
+			$(a).removeClass('show3');
+			$(this).addClass('show3');
+			$(b).hide();
+			$(b).eq($(this).index()).show();
+		});}	
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+    	<a href="javascripa:;" class="assist"></a>
+    	<div class="bjhs">
+            <div class="logo clearfix auto">
+                <h1 class="fl"><a href="#">畅游</a></h1>
+                <ul class="fr clearfix lu1">
+                    <li class="fl login zcc"><a href="#">
+                        <i></i>
+                        注册
+                    </a></li>
+                    <li class="fl full zcc"><a href="#">
+                        <i></i>
+                        充值
+                    </a></li>
+                    <li class="fl swim zcc"><a href="#">
+                        <i></i>
+                        畅游+
+                    </a></li>
+                    <li class="fr whole kbu"><a href="#" class="kbyy">
+                    	畅游全游戏
+                    	<b></b>
+                    </a></li>
+                    <li class="fr serve kbu">
+                    	<a href="#" class="kbyy">畅游全服务<b></b></a>
+                        <ul class="lu2">
+                        	<li>
+                            	<h2><img src="img/a1.jpg"/>我的通行证</h2>
+                                <div class="clearfix"><a href="#">修改密码</a><a href="#">实名认证</a><a href="#" class="bk1">认证手机</a></div>
+                            </li>
+                            <li>
+                            	<h2><img src="img/a2.jpg"/>我的通行证</h2>
+                                <div class="clearfix"><a href="#">修改密码</a><a href="#">实名认证</a><a href="#" class="bk1">认证手机</a></div>
+                            </li>
+                            <li>
+                            	<h2><img src="img/a3.jpg"/>我的通行证</h2>
+                                <div class="clearfix"><a href="#">修改密码</a><a href="#">实名认证</a><a href="#" class="bk1">认证手机</a></div>
+                            </li>
+                            <li>
+                            	<h2><img src="img/a4.jpg"/>我的通行证</h2>
+                               <div class="clearfix"><a href="#">修改密码</a><a href="#">实名认证</a><a href="#" class="bk1">认证手机</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fr npc kbu"><a href="#" class="kbyy">
+                    	客服
+                    	<b></b>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mstj">
+        	<div class="auto season clearfix">
+            	<a href="#" class="fl"><img src="img/logo.gif"/></a>
+                <div class="page fr clearfix">
+                	<a href="javascript:;" class="hhh first"></a>
+                    <a href="javascript:;" class="bbb">
+                    	<span class="xw">游戏新闻<i></i></span><br/>
+                        <span>游戏新闻<i></i></span>
+                    </a>
+                    <a href="javascript:;" class="hhh"></a>
+                    <a href="javascript:;" class="bbb">
+                    	<span class="zn">新手指南<i></i></span><br/>
+                        <span>职业专题<i></i></span><br/>
+                        <span>资料站<i></i></span><br/>
+                        <span>常见问题<i></i></span>
+                    </a>
+                    <a href="javascript:;" class="hhh"></a>
+                    <a href="javascript:;" class="hhh"></a>
+                    <a href="javascript:;" class="bbb">
+                    	<span class="xw">游戏视频<i></i></span><br/>
+                        <span>壁纸截图<i></i></span>
+                    </a>
+                    <a href="javascript:;" class="hhh"></a>
+                    <a href="javascript:;" class="hhh foot1"></a>
+                </div>
+            </div>
+            <div class="body auto">
+            	<div class="clearfix">
+                    <div class="fl mumbo">
+                        <div class="down clearfix">
+                            <a href="javascript:;" class="load"></a>
+                            <a href="javascript:;" class="accounts"></a>
+                            <a href="javascript:;" class="recharge"></a>
+                            <a href="javascript:;" class="convert"></a>
+                            <a href="javascript:;" class="guide"></a>
+                        </div>
+                        <div class="april">
+                            <div class="img">
+                                <a href="javascript:;"><img src="img/main_a1 (1).jpg" style="opacity:1;"/></a>
+                                <a href="javascript:;"><img src="img/main_a1 (2).jpg"/></a>
+                                <a href="javascript:;"><img src="img/main_a1 (3).jpg"/></a>
+                                <a href="javascript:;"><img src="img/main_a1 (4).jpg"/></a>
+                                <a href="javascript:;"><img src="img/main_a1 (5).jpg"/></a>
+                            </div>
+                            <p>
+                                <a href="javascript:;" class="show2"></a>
+                                <a href="javascript:;"></a>
+                                <a href="javascript:;"></a>
+                                <a href="javascript:;"></a>
+                                <a href="javascript:;"></a>
+                            </p>
+                            <i></i>
+                            <b></b>
+                        </div>
+                    </div>
+                    <div class="fl notice">
+                        <div class="district">
+                            <p>电信一区<span>【元素殿堂】</span>欢迎进驻！</p>
+                            <p>网通一区<span>【雷霆之怒】</span>欢迎进驻！</p>
+                        </div>
+                        <div class="bk2">
+                            <div class="update clearfix">
+                                <p class="fl">距您上次访问有 <span>200</span> 条更新 <i></i></p>
+                                <div class="fr">
+                                    <span class="fl">关注:</span>
+                                    <a href="javascript:;" class="fr wb1"></a>
+                                    <a href="javascript:;" class="fr xl1"></a>
+                                    <a href="javascript:;" class="fr wx1"></a>
+                                </div>
+                            </div>
+                            <div class="xcom">
+                                <ul class="clearfix">
+                                    <li style="background:url(img/sprite.jpg) no-repeat -94px -323px;">综合</li>
+                                    <li>新闻</li>
+                                    <li>公告</li>
+                                    <li>媒体</li>
+                                </ul>
+                                <dl class="show clearfix">
+                                    <dt><a href="javascript:;">4月8日大版开启 新职业术士魔神天降</a></dt>
+                                    <dd><a href="javascript:;">【新闻】两大满级副本特色揭秘 终极BOSS曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】两大满级副本特色揭秘 终极BOSS曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】两大满级副本特色揭秘 终极BOSS曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】两大满级副本特色揭秘 终极BOSS曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】两大满级副本特色揭秘 终极BOSS曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】两大满级副本特色揭秘 终极BOSS曝光<span>03/24</span></a></dd>
+                                    <p class="fr"><a href="javascript:;">更多信息&gt;</a></p>
+                                </dl>
+                                <dl class="clearfix">
+                                    <dt><a href="javascript:;">6月8日大版开启 新职业术士魔神天降</a></dt>
+                                    <dd><a href="javascript:;">【新闻】竞技场上线！进入PVP激斗时代！<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】竞技场上线！进入PVP激斗时代！<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】竞技场上线！进入PVP激斗时代！<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】竞技场上线！进入PVP激斗时代！<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】竞技场上线！进入PVP激斗时代！<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】竞技场上线！进入PVP激斗时代！<span>03/24</span></a></dd>
+                                    <p class="fr"><a href="javascript:;">更多信息&gt;</a></p>
+                                </dl>
+                                <dl class="clearfix">
+                                    <dt><a href="javascript:;">7月8日大版开启 新职业术士魔神天降</a></dt>
+                                    <dd><a href="javascript:;">【新闻】揭秘术士进化史 多张设计稿曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】揭秘术士进化史 多张设计稿曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】揭秘术士进化史 多张设计稿曝<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】揭秘术士进化史 多张设计稿曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】揭秘术士进化史 多张设计稿曝光<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】揭秘术士进化史 多张设计稿曝光<span>03/24</span></a></dd>
+                                    <p class="fr"><a href="javascript:;">更多信息&gt;</a></p>
+                                </dl>
+                                <dl class="clearfix">
+                                    <dt><a href="javascript:;">9月8日大版开启 新职业术士魔神天降</a></dt>
+                                    <dd><a href="javascript:;">【新闻】决战开启！6月4日全新Raid本“暗黑城<span>03/24</span></a></dd>
+                                  <dd><a href="javascript:;">【新闻】决战开启！6月4日全新Raid本“暗黑城<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】决战开启！6月4日全新Raid本“暗黑城<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】决战开启！6月4日全新Raid本“暗黑城<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】决战开启！6月4日全新Raid本“暗黑城<span>03/24</span></a></dd>
+                                    <dd><a href="javascript:;">【新闻】决战开启！6月4日全新Raid本“暗黑城<span>03/24</span></a></dd>
+                                    <p class="fr"><a href="javascript:;">更多信息&gt;</a></p>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="picture">
+                	<a href="javascript:;"><img src="img/main_a2.jpg"/></a><a href="javascript:;"><img src="img/main_a2 (2).jpg"/></a><a href="javascript:;"><img src="img/main_a22.jpg"/></a><a href="javascript:;"><img src="img/main_a2 (1).jpg"class="yang"/></a>
+                </div>
+                <div class="clearfix profe">
+                	<div class="figure fl">
+                    	<ul class="wz1 clearfix">
+                        	<li class="bo1"></li>
+                            <li class="bo2"></li>
+                            <li class="bo3"></li>
+                            <li class="bo4"></li>
+                            <li class="bo5"></li>
+                            <li class="bo6"></li>
+                        </ul>
+                        <div>
+                        	<a href="javascript:;"><img src="img/shushi.jpg" style="opacity:1;"/></a>
+                            <a href="javascript:;"><img src="img/shenshe.jpg"/></a>
+                            <a href="javascript:;"><img src="img/shouhu.jpg"/></a>
+                            <a href="javascript:;"><img src="img/mofa.jpg"/></a>
+                            <a href="javascript:;"><img src="img/zhanshi.jpg"/></a>
+                            <a href="javascript:;"><img src="img/cike.jpg"/></a>
+                        </div>
+                    </div>
+                    <dl class="fr activity">
+                    	<dt><i class="fl"></i>活动中心</dt>
+                        <dd class="show">
+                        	<p class="clearfix"><a href="javascript:;" class="fl">神谕者的成长礼</a><span class="fr">进行中</span></p>
+                            <div><a href="javascript:;">
+                            	<img src="img/1.jpg"/>
+                                <h5 class="clearfix">女武神的秘宝<span class="fr">共7.294.712人关注</span></h5>
+                            </a></div>
+                        </dd>
+                        <dd>
+                        	<p class="clearfix"><a href="javascript:;" class="fl">神谕者的成长礼</a><span class="fr">进行中</span></p>
+                            <div><a href="javascript:;">
+                            	<img src="img/1.jpg"/>
+                                <h5 class="clearfix">女武神的秘宝<span class="fr">共7.294.712人关注</span></h5>
+                            </a></div>
+                        </dd>
+                        <dd>
+                        	<p class="clearfix"><a href="javascript:;" class="fl">神谕者的成长礼</a><span class="fr">进行中</span></p>
+                            <div><a href="javascript:;">
+                            	<img src="img/1.jpg"/>
+                                <h5 class="clearfix">女武神的秘宝<span class="fr">共7.294.712人关注</span></h5>
+                            </a></div>
+                        </dd>
+                        <dd>
+                        	<p class="clearfix"><a href="javascript:;" class="fl">神谕者的成长礼</a><span class="fr">进行中</span></p>
+                            <div><a href="javascript:;">
+                            	<img src="img/1.jpg"/>
+                                <h5 class="clearfix">女武神的秘宝<span class="fr">共7.294.712人关注</span></h5>
+                            </a></div>
+                        </dd>
+                        <dd>
+                        	<p class="clearfix"><a href="javascript:;" class="fl">神谕者的成长礼</a><span class="fr">进行中</span></p>
+                            <div><a href="javascript:;">
+                            	<img src="img/1.jpg"/>
+                                <h5 class="clearfix">女武神的秘宝<span class="fr">共7.294.712人关注</span></h5>
+                            </a></div>
+                        </dd>
+                        <dd>
+                        	<p class="clearfix"><a href="javascript:;" class="fl">神谕者的成长礼</a><span class="fr">进行中</span></p>
+                            <div><a href="javascript:;">
+                            	<img src="img/1.jpg"/>
+                                <h5 class="clearfix">女武神的秘宝<span class="fr">共7.294.712人关注</span></h5>
+                            </a></div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="clearfix">
+                	<div class="fl short">
+                    	<dl class="entr">
+                        	<dt><a href="javascript:;">快捷入口</a></dt>
+                            <div class="clearfix">
+                        	<dd><a href="javascript:;">·账号管理</a></dd>
+                            <dd><a href="javascript:;">·兑换中心</a></dd>
+                            <dd><a href="javascript:;">·账号安全</a></dd>
+                            <dd><a href="javascript:;">·畅游知道</a></dd>
+                            <dd><a href="javascript:;">·BUG提交</a></dd>
+                            <dd><a href="javascript:;">·客户端FAQ</a></dd>
+                            <dd><a href="javascript:;">·玩家社区</a></dd>
+                            <dd><a href="javascript:;">·加速器下载</a></dd>
+                            </div>
+                        </dl>
+                        <a href="javascript:;"><img src="img/main_a3.jpg"/></a> 
+                        <div class="media">
+                        	<a href="javascript:;" class="team">媒体合作专区</a>
+                            <p>
+                            	<a href="javascript:;">搜狐视频</a><br/><a href="javascript:;">17173</a><br/><a href="javascript:;">新浪</a><br/><a href="javascript:;">多玩</a><br/><a href="javascript:;">766</a>
+                            </p>
+                        </div> 
+                        <a href="javascript:;" class="rabbit"></a> 
+                    </div>
+                    <div class="fl player">
+                    	<div class="media1">
+						<h1><i></i>玩家交流</h1>
+                        <div class="tou clearfix">
+                            <a href="javascript:;" class="show3">玩家攻略</a>
+                            <a href="javascript:;">论坛热帖</a>
+                            <a href="javascript:;">社区精华</a>
+                            <p class="fl">更多信息&gt;</p>
+                        </div>
+                        <div class="wj clearfix show4">
+                            <a href="javascript:;" class="fl img"><img src="img/wj.jpg"/></a>
+                            <ul class="fl">
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·称号：发现森林之秘 任务全程攻略</a></li>
+                                <li><a href="javascript:;">·屌丝逆袭 大神成长计划开启</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·阻止科萨特复活【英雄】成就攻略！</a></li>
+                                <li><a href="javascript:;">·独家攻略！灵魂回响效率冲级攻略！</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(二)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                            </ul>
+                        </div>
+                        <div class="wj clearfix">
+                            <a href="javascript:;" class="fl img"><img src="img/wj.jpg"/></a>
+                            <ul class="fl">
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·称号：发现森林之秘 任务全程攻略</a></li>
+                                <li><a href="javascript:;">·屌丝逆袭 大神成长计划开启</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                            </ul>
+                        </div>
+                        <div class="wj clearfix">
+                            <a href="javascript:;" class="fl img"><img src="img/wj.jpg"/></a>
+                            <ul class="fl">
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                                <li><a href="javascript:;">·屌丝逆袭 大神成长计划开启</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(二)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="media2">
+                        <h1 class="prefe"><i></i>媒体专区</h1>
+                        <div class="tou clearfix">
+                            <a href="javascript:;" class="show3">17173</a>
+                            <a href="javascript:;">新浪爱问</a>
+                            <a href="javascript:;">太平洋游戏</a>
+                            <p class="fl">更多信息&gt;</p>
+                        </div>
+                        <div class="wj clearfix show4">
+                            <a href="javascript:;" class="fl img"><img src="img/1031.jpg"/></a>
+                            <ul class="fl">
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·称号：发现森林之秘 任务全程攻略</a></li>
+                                <li><a href="javascript:;">·屌丝逆袭 大神成长计划开启</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·阻止科萨特复活【英雄】成就攻略！</a></li>
+                                <li><a href="javascript:;">·独家攻略！灵魂回响效率冲级攻略！</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(二)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                            </ul>
+                        </div>
+                        <div class="wj clearfix">
+                            <a href="javascript:;" class="fl img"><img src="img/1031.jpg"/></a>
+                            <ul class="fl">
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·称号：发现森林之秘 任务全程攻略</a></li>
+                                <li><a href="javascript:;">·屌丝逆袭 大神成长计划开启</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                            </ul>
+                        </div>
+                        <div class="wj clearfix">
+                            <a href="javascript:;" class="fl img"><img src="img/1031.jpg"/></a>
+                            <ul class="fl">
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                                <li><a href="javascript:;">·屌丝逆袭 大神成长计划开启</a></li>
+                                <li><a href="javascript:;">·生活技能之烹饪技能详细解读</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(二)</a></li>
+                                <li><a href="javascript:;">·灵魂回响生活技能玩法介绍(一)</a></li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="fr player data">
+                    	<h1><i></i>游戏资料</h1>
+                        <ul class="game">
+                        	<li class="clearfix"><span class="fl">新手入门</span>
+                            <p class="fr"><a href="javascript:;">帐号注册</a><a href="javascript:;">下载游戏</a><a href="javascript:;" class="dl">登陆游戏</a></p></li>
+                            <li class="clearfix"><span class="fl">新手入门</span>
+                            <p class="fr"><a href="javascript:;">帐号注册</a><a href="javascript:;">下载游戏</a><a href="javascript:;" class="dl">登陆游戏</a></p></li>
+                            <li class="clearfix"><span class="fl">新手入门</span>
+                            <p class="fr"><a href="javascript:;">帐号注册</a><a href="javascript:;">下载游戏</a><a href="javascript:;" class="dl">登陆游戏</a></p></li>
+                            <li class="clearfix ha"><span class="fl">新手入门</span>
+                            <p class="fr"><a href="javascript:;">帐号注册</a><a href="javascript:;">下载游戏</a><a href="javascript:;" class="dl">登陆游戏</a></p></li>
+                            <li class="jr"><a href="javascript:;">进入资料站</a></li>
+                        </ul>
+                        <div class="media3">
+                        <h1 class="prefe enjoy"><i></i>视觉欣赏</h1>
+                        <div class="tou clearfix">
+                            <a href="javascript:;" class="show3">游戏视频</a>
+                            <a href="javascript:;">游戏截图</a>
+                            <p class="fl">更多信息&gt;</p>
+                        </div>
+                        <div class="wj clearfix show4">
+                        	<a href="javascript:;" class="fl"><img src="img/1 (1).jpg"/></a>
+                            <a href="javascript:;" class="fr"><img src="img/1 (2).jpg"/></a>
+                            <a href="javascript:;" class="fl"><img src="img/1 (1).jpg"/></a>
+                            <a href="javascript:;" class="fr"><img src="img/1 (2).jpg"/></a>
+                        </div>
+                        <div class="wj clearfix">
+                        	<a href="javascript:;" class="fl"><img src="img/3.jpg"/></a>
+                            <a href="javascript:;" class="fr"><img src="img/4.jpg"/></a>
+                            <a href="javascript:;" class="fl"><img src="img/4.jpg"/></a>
+                            <a href="javascript:;" class="fr"><img src="img/3.jpg"/></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        	</div>
+            <div class="notice1">
+                <h6>健康游戏公告</h6>
+                <p>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活<br/>本游戏适合18周岁以上的成年人用户，未满18周岁的未成年用户请在家长的监督下进行游戏。</p>
+            </div>
+            <div class="bjs">
+            	<div class="auto icp clearfix">
+                	<h1 class="fl"></h1>
+                    <i class="fl"></i>
+                    <p class="fl"> 北京畅游时代数码技术有限公司版权所有  Copyright © 2011 ChangYou.com Limited. All rights reserved. 法律声明  |  联系我们<br/>京网文[2011]0260-093号  |  京ICP证：070525号 </p>
+                </div>
+            </div>
+    	</div>
+    </div>
+</body>
+</html>

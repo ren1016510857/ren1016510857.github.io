@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<title>果壳</title>
+<style>
+	*{margin:0; padding:0;}
+	.fl{ float: left;}
+	.fr{ float: right;}
+	a{ text-decoration: none; color: #000;}
+	html{ font-size:20px;}
+	.box{width:16rem; overflow: hidden;}
+	header{width:100%; height:2.35rem; background: url(images/1.jpg) repeat-x; background-size: contain; display:-webkit-box;}
+	header a{ display:block; width:2.35rem; height: 2.35rem; background: url(images/2.jpg) no-repeat; background-size: 100%;}
+	header h1{-webkit-box-flex: 1; height:2.35rem; background: url(images/4.jpg) no-repeat center; text-indent: -999rem; background-size: contain;}
+	header div{width:2.35rem; height: 2.35rem; background: url(images/3.jpg) no-repeat; background-size: 100%; }
+	nav{ overflow: hidden;}
+	nav div{ width:50%; height:2.05rem; font-size:0.75rem; float: left; background-color: #f9f9f9; padding-left:3.4rem; box-sizing: border-box; line-height: 2.05rem;}
+	nav .login{ background:url(images/5.jpg) no-repeat  1.45rem 0.4rem;  background-size:1.45rem;}
+	nav .add{ background:url(images/6.jpg) no-repeat  1.45rem 0.4rem;  background-size:1.45rem; border-left:0.05rem solid #e0e0e0;}
+	section img{ display: block; width:16rem;}
+	section>ul{ margin: 0 0.25rem;}
+	section>ul li{ width:100%; border-bottom:0.05rem solid #ececec;}
+	
+	section>ul li a{ display: block;  font-size:0.75rem; line-height: 2rem; padding:0 1.2rem 0 0.25rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #191d1c;}
+	section>ul li:last-child{ border: none;}
+	.news>div{border-top:0.1rem solid #57c0af; width:100%;}
+	.news h2{ height: 2rem; padding-left: 0.75rem; font-size:0.75rem; line-height: 2rem; border-bottom:0.05rem solid #e8e8e8; background: url(images/8.jpg) no-repeat 13.8rem 0.25rem; background-size:1.5rem ;}
+	.news ul{ width:100%; border-bottom: 0.05rem solid #ececec; height:2.05rem;}
+	.news ul li{ width:3.1rem; height:2.05rem; float: left; position: relative; list-style: none; text-align: center; line-height:2.05rem; font-size:0.75rem;}
+	.news ul li i{ position: absolute; left: 0; bottom:-0.05rem; height:0.1rem; width:3.1rem; background: red; display:none;} 
+	.news ul li.active i{ display: block;}
+	.news dl{ display:none; width:100%;  margin: 0 0.25rem;}
+	.news dl.active{display: block;}
+	.news dl dt{ padding-left:0.3rem; overflow: hidden; font-size:0.75rem;}
+	.news dl dt span{ display:block; float: left; width:100%; line-height: 2rem;}
+	.news dl dt img{ width:5.2rem; height:3.7rem; float: left; margin-bottom: 0.75rem;}
+	.news dl dt p{ width:8.25rem; margin-left:0.75rem; font-size:0.65rem; line-height: 1.2rem; float:left;}
+	.news dl dd{ padding-left:0.3rem; border-top:0.05rem solid #ececec; height:2rem; line-height: 2rem; font-size:0.75rem; }
+	.box>a{ display:block; width:100%; height:3rem; background:url(images/10.jpg) no-repeat; background-size:100% ; border-top:0.05rem solid #ececec;}
+	
+	footer{overflow: hidden; border-top:0.1rem solid #57c0af; width:100%; background: #262626;}
+	footer div{float:left; width:50%; height:1.9rem; padding:0.925rem 0;}
+	footer div a{ display:block; height:1.9rem; font-size:0.75rem; line-height: 1.9rem; color:#fff; font-weight: bold;}
+	footer div:first-child a{ background: url(images/11.jpg) no-repeat; padding-left:4.1rem; background-size:3.5rem 1.9rem;}
+	footer div:last-child a{ background: url(images/12.jpg) no-repeat; padding-left:3.05rem; background-size:3.05rem 1.9rem;}
+</style>
+<script>
+	(function(global){
+        function remChange(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+        }
+        remChange();
+        global.addEventListener('resize',remChange,false);
+    })(window);
+    window.onload=function(){
+    	var aDiv=document.querySelectorAll('.news>div');
+    	for(var j=0;j<aDiv.length;j++)
+    	{
+    		(function(j){
+    			var oUl=aDiv[j].querySelector('ul');
+		    	var aLi=oUl.children;
+		    	var aDl=aDiv[j].querySelectorAll('dl');
+		    	for(var i=0;i<aLi.length;i++)
+		    	{
+		    		aLi[i].dataset.index=i;
+		    		aLi[i].onclick=function(){
+		    			for(var i=0;i<aLi.length;i++)
+		    			{
+		    				aLi[i].className='';	
+		    				aDl[i].className='';	
+		    			}
+		    			this.className='active';
+		    			aDl[this.dataset.index].className='active';
+		    		};
+		    	}
+    		})(j);
+    	}
+    };
+</script>
+</head>
+<body>
+	<div class="box">
+    	<header>
+    		<a href="javascript:;"></a>
+    		<h1>logo</h1>
+    		<div></div>
+    	</header>
+    	<section>
+    		<nav>
+    			<div class="login">用户登录</div>
+    			<div class="add">用户注册</div>
+    		</nav>
+    		<img src="images/7.jpg" alt="故宫"/>
+    		<ul>
+    			<li><a href="javascript:;">解读科学观点时，你应该知道的20个...</a></li>
+    			<li><a href="javascript:;">运动出点汗，更好来谈判</a></li>
+    			<li><a href="javascript:;">"关掉"旧习惯，本性不在难移</a></li>
+    			<li><a href="javascript:;">解读科学观点时，你应该知道的20个...</a></li>
+    			<li><a href="javascript:;">运动出点汗，更好来谈判</a></li>
+    			<li><a href="javascript:;">"关掉"旧习惯，本性不在难移</a></li>
+    			<li><a href="javascript:;">解读科学观点时，你应该知道的20个...</a></li>
+    		</ul>
+    		<div class="news">
+    			<div class="hot">
+    				<h2>热门问答</h2>
+    				<ul>
+    					<li class="active">科技<i></i></li>
+    					<li>生活<i></i></li>
+    					<li>人文<i></i></li>
+    					<li>自然<i></i></li>
+    				</ul>
+    				<dl class="active">
+    					<dt><a href="javascript:;">
+    						<span>如果把探测器撞到彗星上会怎么样？</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    				<dl>
+    					<dt><a href="javascript:;">
+    						<span>磁场是运动的电场吗？</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    				<dl>
+    					<dt><a href="javascript:;">
+    						<span>这个“肥皂放入牛奶”的效果是怎样产...</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    				<dl>
+    					<dt><a href="javascript:;">
+    						<span>制造出大于全画幅的光感元件有意义吗...</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    			</div>
+    			<div class="new">
+    				<h2>小组热帖</h2>
+    				<ul>
+    					<li class="active">科技<i></i></li>
+    					<li>生活<i></i></li>
+    					<li>人文<i></i></li>
+    					<li>自然<i></i></li>
+    				</ul>
+    				<dl class="active">
+    					<dt><a href="javascript:;">
+    						<span>如果把探测器撞到彗星上会怎么样？</span>  		
+    						<img src="images/13.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    				<dl>
+    					<dt><a href="javascript:;">
+    						<span>如果把探测器撞到彗星上会怎么样？</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    				<dl>
+    					<dt><a href="javascript:;">
+    						<span>如果把探测器撞到彗星上会怎么样？</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    				<dl>
+    					<dt><a href="javascript:;">
+    						<span>如果把探测器撞到彗星上会怎么样？</span>  		
+    						<img src="images/9.jpg"/>
+    						<p>撞上去的事情人类已经干过了。深度撞击号（英语：Deep Impact）是美国国家</p>
+    					</a></dt>
+    					<dd><a href="javascript:;">这个“肥皂放入牛奶”的效果是怎样产...</a></dd>
+    					<dd><a href="javascript:;">制造出大于全画幅的光感元件有意义吗...</a></dd>
+    					<dd><a href="javascript:;">磁场是运动的电场吗？</a></dd>
+    					<dd><a href="javascript:;">是么函数能描述你的人生？</a></dd>
+    				</dl>
+    			</div>
+    		</div>
+    	</section>
+    	<a href="#"></a>
+    	<footer>
+    		<div><a href="javascript:;">PC版</a></div>
+    		<div><a href="javascript:;">移动应用</a></div>
+    	</footer>
+    </div>
+</body>
+</html>

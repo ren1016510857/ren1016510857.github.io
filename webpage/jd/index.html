@@ -1,0 +1,3441 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>京东</title>
+<link href="css/base.css" rel="stylesheet"/>
+<style>
+	.fl{ float:left;}
+	.fr{ float:right;}
+	.auto{ width:1210px; margin:0 auto;}
+	.ccc{ height:31px; background:url(img/b1.png);}
+	.jd1>p,.hello>p{ height:30px; line-height:30px;}
+	.jd1 a{ color:#666;}
+	.store{ padding-left:16px; background:url(img/a1.jpg) no-repeat;}
+	.keep{ padding-left:18px; background:url(img/a2.jpg) no-repeat; margin:0 12px 0 20px;}
+	.site{ padding-left:18px; background:url(img/a3.jpg) no-repeat;}
+	.site span{ font-weight:bold; color:#666; margin-right:4px;}
+	.hello p,.hello div,.hello span{ float:left;}
+	.hello a{ display:block;}
+	.hello span{ line-height:30px; color:#ddd; margin-right:2px;}
+	.hello .a{padding:0 8px; line-height:30px;}
+	.hello .b{ padding:0 8px 0 5px; height:12px; margin-top:9px;}
+	.hello .c{ line-height:24px; width:68px; height:27px; margin-top:3px; padding-left:7px; background:url(img/a1.png) no-repeat 63px 10px;}
+	.hello .jd2{ width:100px; background:url(img/a1.png) no-repeat 88px 10px;}
+	.hello .jd2 i{ width:24px; height:27px; background:url(img/a6.jpg);}
+	.hello .d{ position:relative;}
+	.hello .d .im{ border:1px solid #ddd; display:none; position:absolute; top:30px; left:0; cursor:pointer; z-index:100;}
+	.hello .d:hover .c{line-height:22px; width:67px; height:27px; border:1px solid #ddd; border-bottom:none; position:relative; z-index:1; background:url(img/a2.png) no-repeat 62px 9px #fff; padding-left:6px; margin-top:3px; z-index:200;}
+	.hello .d:hover .jd2{ width:100px; background:url(img/a2.png) no-repeat 87px 9px #fff; color:#e4393c; text-decoration:underline; padding-left:5px;}
+	.hello .d:hover .jd2 i{ width:25px; height:23px; background:url(img/a7.jpg);}
+	.hello .d:hover .im{ display:block;}
+	.hello .d .op{ position:absolute; left:0; top:30px; border:1px solid #ddd; padding-left:6px; padding-right:19px; background:#fff; display:none; z-index:100;}
+	.hello .d .op a{ line-height:22px;}
+	.hello .d:hover .op{display:block;}
+	.hello .d ul{border:1px solid #ddd; background:#fff; padding:0 9px; position:absolute; right:0; top:30px; width:232px; display:none; z-index:100;}
+	.hello .d ul h4{ font-weight:bold; line-height:28px;}
+	.hello .d ul a{ float:left; line-height:22px; margin-right:10px;}
+	.hello .d:hover ul{display:block;}
+	.logo .app{ border:1px solid #efefef; position:relative; margin-top:10px;}
+	.logo .app a{ position:absolute; top:-1px; right:-1px; border:1px solid #efefef; width:11px; height:11px; color:ccc; text-align:center; line-height:11px;}
+	.seek{ padding-top:19px; width:762px;}
+	.text1{ width:411px; padding-left:5px; font-size:14px; border:3px solid #e4393c; height:30px; line-height:30px;}
+	.but1{ background:#e4393c; font-size:14px; color:#fff; width:78px; height:36px; line-height:36px; border:none;}
+	.we a{ display:inline-block; width:99px; height:30px; border:1px solid #efefef; color:#666; line-height:30px; padding-left:5px; text-align:center; background:url(img/b3.jpg) no-repeat; margin:5px 10px 0 20px;}
+	.gwc{ position:relative;}
+	.gwc a{display:inline-block; width:115px; height:30px; color:#666; border:1px solid #efefef; line-height:30px; padding-left:9px; text-align:center; background:url(img/b4.jpg); margin-top:5px;}
+	.gwc .hua{ position:absolute; top:-7px; left:22px; height:17px; background:#c00; color:#fff; line-height:17px; padding:0 5px;}
+	.gwc .hua i{ position:absolute; top:0; width:3px; height:19px;}
+	.gwc .hua .left{ left:-3px; background:url(img/b2.png);}
+	.gwc .hua .right{ right:-3px; background:url(img/b3.png);}
+	.seek p{ color:#999; line-height:23px;}
+	.seek p span{color:#e4393c;}
+	.goods dl{ background:#e4393c;}
+	.goods dl a{ display:block; color:#fff; font-size:16px; line-height:40px; text-align:center; height:40px;}
+	.goods dt a{ padding-left:20px; width:190px; text-align:left;}
+	.goods dd a{ padding:0 26px 0 27px;}
+	.goods .show1{ background:#a40000;}
+	.sort1{ background:#fafafa; width:200px; padding-right:6px; padding-top:2px; border:2px solid #e4393c; border-top:0; position:relative;}
+	.sort1 li{ background:url(img/b6.jpg) no-repeat; font-size:14px;}
+	.sort1 li a{ color:#333;}
+	.sort1 li p{ position:relative; height:28px; border-bottom:1px solid #fff; padding-left:14px; line-height:28px;}
+	.sort1 li img{ position:absolute; left:199px; top:2px; display:none; border:1px solid #ddd;}
+	.sort1 li:hover img{ display:block; z-index:1;}
+	.sort1 li:hover p{ background:#fff; height:27px; line-height:26px; border-bottom:1px solid #ddd; border-top:1px solid #ddd; z-index:2;}
+	.tv{ margin:10px 0 0 10px;}
+	.xuan1,.xuan1 img{ width:670px; height:240px; overflow:hidden; position:relative;}
+	.xuan1 ul{ width:4020px;}
+	.xuan1 li{ float:left;}
+	.xuan1 p{ position:absolute; right:5px; bottom:10px;}
+	.xuan1 a{ display:inline-block; border-radius:11px; width:22px; height:22px; line-height:22px; text-align:center; color:#fff; background:#999; margin-right:5px;}
+	.xuan1 .show2{ background:#e4393c;}
+	.sanjiao{ padding:0 30px; border:1px solid #eee; border-top:none; position:relative;}
+	.sanjiao .la{ position:absolute; left:0; top:0;}
+	.sanjiao .ra{ position:absolute; right:0; top:0;}
+	.sanjiao .bk{ border-left:1px solid #eee; border-right:1px solid #eee;}
+	.pop{ width:310px;}
+	.pop h2{ padding-top:18px; font-size:14px; color:#666; font-weight:bold; height:22px;border-bottom:2px solid #aaa;}
+	.pop h2 a{ float:right; color:#005ea7; margin-top:1px; font-weight:normal;}
+	.kill{ border:1px solid #eee; border-top:none; padding:5px 0;}
+	.kill li{ padding-left:10px; width:143px; line-height:25px;}
+	.kill .u2{ border-left:1px solid #eee; width:144px;}
+	.kill a{ color:#666;}
+	.easy{border-bottom:1px solid #eee; border-right:1px solid #eee; margin-top:10px;}
+	.easy li{ float:left; text-align:center; padding-bottom:18px; border-top:1px solid #eee; border-left:1px solid #eee;}
+	.easy li a{ color:#666;}
+	.life div{ margin-right:-10px;}
+	.life div a{ float:left; margin:0 10px 10px 0;}
+	.life h3{ font-size:22px; color:#666; line-height:44px; font-weight:bold;}
+	.life h3 span{ font-size:12px; font-style:italic; color:#999;}
+	.f1{ border-bottom:2px solid #aaa; width:1210px;}
+	.f1 h2{ font-size:22px; font-weight:bold; width:149px; color:#666; margin-top:20px; }
+	.f1 a{ color:#005ea7; background:url(img/d1.png) no-repeat right 0; padding-right:13px;margin-left:18px; margin-top:27px;}
+	.f1 li{ float:left; font-weight:bold; font-size:14px; margin-top:18px; line-height:30px; text-align:center; width:158px; color:#666; position:relative; cursor:pointer;}
+	.f1 li i{ position:absolute; left:0; bottom:-2px; height:7px; width:100%; background:url(img/d3.png) no-repeat center; display:none;}
+	.f1 .show3 i{ display:block;}
+	.f1 .show3{ color:#e4393c;}
+	.phone{ padding:6px 6px 0 5px; border-bottom:1px solid #eee; border-right:1px solid #eee; width:198px;}
+	.phone dd{ float:left; width:99px; line-height:25px;}
+	.phone dd a{ color:#666;}
+	.dfj{ width:1000px; display:none;}
+	.auto .show6{display:block;}
+	.dfj>li{ float:left; height:180px; border-bottom:1px solid #eee; border-right:1px solid #eee;}
+	.dfj .fr{ width:209px; border-right:none;}
+	.dfj .zzj p{ padding:0 0 0 10px; color:#666; line-height:18px;}
+	.dfj .zzj p span{ color:#e4393c; display:block; margin-top:6px;}
+	.xxk{ width:473px; position:relative; overflow:hidden;}
+	.xxk ul{ width:2000px;}
+	.xxk p{ position:absolute; left:161px; bottom:6px;}
+	.xxk p a,.adc p a{ float:left; width:36px; height:5px; margin-right:2px; background:#999;}
+	.xxk .show4,.adc .show5{ background:#7abd54;}
+	.adc{ width:209px; position:relative; overflow:hidden;}
+	.adc ul{ width:500px;}
+	.adc p{ position:absolute; left:67px; bottom:6px;}
+	.message3 .f1 a{ background:none; padding:0; margin-top:20px;}
+	.message3 .phone{width:209px; padding:0;}
+	.message3 .phone dl{ padding:6px 0 0 5px;}
+	.message3 .phone dd{ float:none; width:59px; line-height:25px;}
+	.message3 .woman{ height:361px; background:#000; width:790px;}
+	.woman li{transition:all 1s;}
+	.woman li div{ width:158px; overflow:hidden; position:relative;}
+	.woman li p{ color:#777; position:absolute; left:10px; top:23px;}
+	.woman li p span{ display:block; font-weight:bold; font-size:14px; color:#555; margin-bottom:4px;}
+	.woman li i{ position:absolute; width:100%; height:100%; background:#7f66de; opacity:0.5; display:none;}
+	.woman li h4{ width:173px; transition:all 1s;}
+	.woman:hover li{ width:150px; overflow:hidden;}
+	.woman li:hover{ width:190px;}
+	.woman:hover i{ display:block;}
+	.woman li a:hover i{ display:none;}
+	.woman a:hover h4{margin-left:-15px;}
+	.message8 .dfj{ width:791px;}
+	.message8 .f1 ol li{ font-size:14px; margin-top:18px; line-height:30px; text-align:center; width:40px; color:#666; position:relative; cursor:pointer;}
+	.message8 .f1 .book{ width:50px;}
+	.music{ border-bottom:1px solid #ddd; width:209px; height:361px; display:none;}
+	.music li{ margin:12px 5px 0;}
+	.music a{ color:#666; line-height:18px; width:120px; overflow:hidden;}
+	.music a:hover{ color:#f0573c; text-decoration:underline;}
+	.music i{ line-height:18px; font-size:18px; color:#d6d6d6; margin-right:5px;}
+	.music span,.music .hong{ color:#f0573c; line-height:18px;}
+	/*尾部*/
+	.hot{ margin-top:20px; margin-bottom:10px;}
+	.hot>div{border-top:1px solid #aaa;}
+	.single{ border-left:1px solid #ddd; border-bottom:1px solid #ddd; width:444px;}
+	.single h6{border-top:1px solid #aaa; font-size:14px; color:#666; font-weight:bold; height:29px; line-height:29px; padding-left:8px;}
+	.kuang{ height:161px; overflow:hidden;}
+	.single ul{ padding:0 10px; height:1000px; margin-top:-162px; animation:run 30s ease-in-out infinite;}
+	.single ul li{ border-bottom:1px dotted #cbcbcb; height:80px; background:url(img/f1.png) no-repeat 386px 38px;}
+	.zoom{ width:50px; height:50px; margin:15px; position:relative;}
+	.zoom img{ width:50px;}
+	.single .zoom i{ position:absolute; width:17px; height:20px; background:url(img/a4.png) no-repeat; top:-5px; right:-9px;}
+	.single li h4{ margin-top:16px; margin-bottom:6px;}
+	.single li h4:hover{ text-decoration:underline;}
+	.single li h4 a{ color:#005ea7;}
+	.single li p a{ color:#999; line-height:18px;}
+	.single li p:hover{ text-decoration:underline;}
+	.single1{ border:1px solid #ddd; border-top:none; width:443px;}
+	.single1 .zoom i{ background:url(img/a3.png) no-repeat; width:19px; height:19px; right:-10px;}
+	.study{ border:1px solid #ddd; border-top:none;}
+	.study h3{ width:308px; border-top:1px solid #aaa;}
+	.study h3 span{ font-size:14px; color:#666; font-weight:bold; height:28px; line-height:28px; padding-left:8px;}
+	.study h3 a{ color:#005ea7; padding:9px 8px 0 0;}
+	.study div>a{ margin:6px 9px 5px 10px;}
+	.study a:hover{ text-decoration:underline;}
+	.study li{ margin-top:13px;}
+	.study li a{color:#005ea7;}
+	.hot>.fr h5{ font-size:14px; color:#666; font-weight:bold; height:26px; line-height:26px;}
+	.text{ height:23px; width:215px; padding-left:25px; border:1px solid #bbb; border-top:1px solid #676767; border-left:1px solid #676767; background:url(img/m1.jpg) no-repeat; margin-right:5px;}
+	.button{ width:63px; height:25px; color:#fff; background:#e4393c; border:none;}
+	@-webkit-keyframes run{
+		0%{ margin-top:-405px;}
+		1%{ margin-top:-324px;}
+		20%{ margin-top:-324px;}
+		21%{ margin-top:-243px;}
+		40%{ margin-top:-243px;}
+		41%{ margin-top:-162px;}
+		60%{ margin-top:-162px;}
+		61%{ margin-top:-81px;}
+		80%{ margin-top:-81px;}
+		81%{ margin-top:-0px;}
+		100%{ margin-top:-0px;}
+	}
+	.footer{ border-top:1px solid #bbb; padding-left:24px; padding-top:11px;}
+	.footer dl{ padding-left:40px; width:152px; background:url(img/n1.jpg) no-repeat;}
+	.footer dt,.china h3{font-size:14px; color:#666; font-weight:bold; height:30px; line-height:30px;}
+	.footer dd a{ color:#666;}
+	.footer dd a:hover{ color:red;} 
+	.footer dd{ line-height:20px; height:20px;}
+	.china{ padding-left:6px; width:200px; background:url(img/20130330B_1.png) no-repeat 7px -132px; height:165px;}
+	.china p{ color:#666; line-height:21px;}
+	.china a{margin-top:18px; color:#005ea7;}
+	.china a:hover{ text-decoration:underline;}
+	.base{ border-top:1px solid #f1f1f1; padding-top:23px; text-align:center; color:#666;}
+	.base a{ color:#666; line-height:18px;}
+	.base a:hover{ color:red; text-decoration:underline;}
+	.base p{ margin-bottom:13px;}
+	.base div{ margin-top:13px;}
+	.base div a{ margin-right:10px;}
+</style>
+<script src="js/jquery-1.7.2.js"></script>
+<script>
+	$(function(){
+		$('.logo .app a').click(function(){
+			$('.logo .app').hide();
+		});	
+		$('.goods dd').click(function(){
+			$('.goods dd').removeClass('show1');
+			$(this).addClass('show1');
+		});
+		/*var oul=document.getElementById('woman');
+		var aDiv=oul.getElementsByTagName('div');
+		var aH4=oul.getElementsByTagName('h4');
+		for(var i=0;i<aDiv.length;i++){
+			aDiv[i].index=i;
+			aDiv[i].onmouseover=function(){
+				for(var i=0;i<aDiv.length;i++){
+					$(aH4[i]).stop().animate({'margin-left':'0'});	
+				}
+				$(aH4[this.index]).stop().animate({'margin-left':'-15px'});
+			};
+		}*/
+		abc('.xuan1 a','.xuan1 ul','show2',-670);
+		abc('.message1 .xxk p a','.message1 .xxk ul','show4',-473);
+		abc('.message1 .adc p a','.message1 .adc ul','show5',-209);
+		abc('.message2 .xxk p a','.message2 .xxk ul','show4',-473);
+		abc('.message2 .adc p a','.message2 .adc ul','show5',-209);
+		abc('.message3 .adc p a','.message3 .adc ul','show5',-209);
+		abc('.message4 .xxk p a','.message4 .xxk ul','show4',-473);
+		abc('.message4 .adc p a','.message4 .adc ul','show5',-209);
+		abc('.message5 .xxk p a','.message5 .xxk ul','show4',-473);
+		abc('.message5 .adc p a','.message5 .adc ul','show5',-209);
+		abc('.message6 .xxk p a','.message6 .xxk ul','show4',-473);
+		abc('.message6 .adc p a','.message6 .adc ul','show5',-209);
+		abc('.message7 .xxk p a','.message7 .xxk ul','show4',-473);
+		abc('.message7 .adc p a','.message7 .adc ul','show5',-209);
+		abc('.message8 .xxk p a','.message8 .xxk ul','show4',-473);
+		function abc(a,b,c,d)
+		{
+			$(a).mouseover(function(){
+			$(a).removeClass(c);
+			$(this).addClass(c);
+			$(b).stop().animate({'margin-left':$(this).index()*d+'px'})	
+		});};
+		adc('.message1 .f1 li','.message1 .dfj');
+		adc('.message2 .f1 li','.message2 .dfj');
+		adc('.message3 .f1 li','.message3 .dfj');
+		adc('.message4 .f1 li','.message4 .dfj');
+		adc('.message5 .f1 li','.message5 .dfj');
+		adc('.message6 .f1 li','.message6 .dfj');
+		adc('.message7 .f1 li','.message7 .dfj');
+		adc('.message8 .f1 ul li','.message8 .dfj');
+		adc('.message8 .f1 ol li','.message8 .music');
+		function adc(a,b){$(a).click(function(){
+			$(a).removeClass('show3');
+			$(this).addClass('show3');
+			$(b).removeClass('show6');
+			$(b).eq($(this).index()).addClass('show6');
+		});};
+	})
+</script>
+</head>
+<body>
+	<div class="box">
+    	<div class="ccc">
+        	<div class="auto clearfix jd1">
+                	<p class="fl store">
+                    	<a href="#">收藏京东</a>
+                    </p>
+                    <p class="fl keep"><a href="#">
+                    	关注京东
+                    </a></p>
+                    <p class="fl site">
+						<span>北京</span><a href="#">[更换]</a>
+                    </p>
+                    <div class="fr clearfix hello">
+                    	<p>您好，请登录</p>
+                        <div><a href="#" class="a">免费注册</a></div><span>|</span>
+                        <div><a href="#" class="a">我的订单</a></div><span>|</span>
+                        <div><a href="#" class="b"><img src="img/a4.jpg"/>会员俱乐部</a></div><span>|</span>
+                        <div><a href="#" class="b"><img src="img/a5.jpg"/>企业频道</a></div><span>|</span>
+                        <div class="d"><a href="#" class="c jd2"><i class="fl"></i>手机京东</a><img src="img/a8.jpg" class="im"/></div><span>|</span>
+                        <div class="d"><a href="#" class="c">客户服务</a>
+                        	<p class="op">
+                            	<a href="#">帮助中心</a><a href="#">售后服务</a><a href="#">在线客服</a><a href="#">投诉中心</a><a href="#">客服邮箱</a>
+                            </p>
+                        </div><span>|</span>
+                        <div class="d"><a href="#" class="c">网站导航</a>
+                        	<ul>
+                            	<li class="clearfix">
+                                	<h4>特色栏目</h4>
+                                    <a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a><a href="#">京东通讯</a>
+                                </li>
+                                <li class="clearfix">
+                                	<h4>特色栏目</h4>
+                                    <a href="#">京东通讯</a><a href="#">京东通讯</a>
+                                </li>
+                                 <li class="clearfix">
+                                	<h4>特色栏目</h4>
+                                    <a href="#">京东通讯</a><a href="#">京东通讯</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="auto">
+        	<div class="logo clearfix">
+            	<a href="#" class="fl"><img src="img/b1.jpg"/></a>
+                <div class="app fr"><img src="img/b2.jpg"/><a href="javascript:;">×</a></div>
+                <div class="fl seek">
+                	<input type="text" placeholder="流量充值" class="fl text1"/>
+                    <input type="button" value="搜索" class="fl but1"/>
+                    <div class="fl we">
+                    	<a href="#">我的京东</a>
+                    </div>
+                    <div class="fl gwc">
+                    	<a href="#">去购物车结算</a>
+                        <div class="hua">0<i class="left"></i><i class="right"></i></div>
+                    </div>
+                    <p>热门搜索：<a href="#"><span>上新满减</span></a>&nbsp;<a href="#">潮流换新</a>&nbsp;<a href="#">4K电视</a>&nbsp;<a href="#">母婴节</a>&nbsp;<a href="#">美翻了</a>&nbsp;<a href="#">手机特惠</a>&nbsp;<a href="#">程序猿</a>&nbsp;<a href="#">领100</a></p>
+                </div>
+            </div>
+            <div class="goods clearfix">
+            	<dl class="clearfix auto fl">
+                	<dt class="fl"><a href="#">全部商品分类</a></dt>
+                    <dd class="fl show1"><a href="#">首页</a></dd>
+                    <dd class="fl"><a href="#">服装城</a></dd>
+                    <dd class="fl"><a href="#">食品</a></dd>
+                    <dd class="fl"><a href="#">团购</a></dd>
+                    <dd class="fl"><a href="#">夺宝岛</a></dd>
+                    <dd class="fl"><a href="#">闪够</a></dd>
+                    <dd class="fl"><a href="#">金融</a></dd>
+                   	<dd class="fr"><img src="img/b5.jpg"/></dd>
+                </dl>
+                <ul class="fl sort1">
+                	<li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                    <li><p><a href="#">图书、</a><a href="#">音像、</a><a href="#">数字商品</a></p><img src="img/a5.png"/></li>
+                </ul>
+                <div class="fl tv">
+                	<div class="xuan1">
+                    	<ul class="clearfix">
+                        	<li><img src="img/4 (1).jpg"/></li>
+                            <li><img src="img/4 (2).jpg"/></li>
+                            <li><img src="img/4 (3).jpg"/></li>
+                            <li><img src="img/4 (4).jpg"/></li>
+                            <li><img src="img/4 (5).jpg"/></li>
+                            <li><img src="img/4 (6).jpg"/></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show2">1</a><a href="javascript:;">2</a><a href="javascript:;">3</a><a href="javascript:;">4</a><a href="javascript:;">5</a><a href="javascript:;">6</a>
+                        </p>
+                    </div>
+                    <div class="sanjiao">
+                    	<a href="javascript:;" class="la"><img src="img/c4.jpg"/></a>
+                        <a href="javascript:;" class="ra"><img src="img/c5.jpg"/></a>
+                        <ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/c3.jpg"/></a></li>
+                            <li class="fl bk"><a href="javascript:;"><img src="img/c1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/c2.jpg"/></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fr pop">
+                    <img src="img/c6.jpg"/>
+                    <h2 class="clearfix">京东快报<a href="#">更多快报&gt;</a></h2>
+                    <div class="kill clearfix">
+                    	<ul class="fl">
+                        	<li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                            <li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                            <li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                            <li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                        </ul>
+                        <ul class="u2 fl">
+                        	<li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                            <li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                            <li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                            <li><a href="#">腕表劲爆秒杀 限量抢</a></li>
+                        </ul>
+                    </div>
+                    <ul class="clearfix easy">
+                    	<li><a href="javascript:;"><img src="img/c1.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c2.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c3.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c4.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c5.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c6.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c7.png"/><br/>话费</a></li>
+                        <li><a href="javascript:;"><img src="img/c8.png"/><br/>话费</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="life">
+            	<h3>生活的橱窗<span>每一天展示精彩</span></h3>
+                <div class="clearfix">
+                	<a href="#"><img src="img/d1.jpg"/></a>
+                    <a href="#"><img src="img/d2.jpg"/></a>
+                    <a href="#"><img src="img/d3.jpg"/></a>
+                    <a href="#"><img src="img/d4.jpg"/></a>
+                    <a href="#"><img src="img/d5.jpg"/></a>
+                    <a href="#"><img src="img/d6.jpg"/></a>
+                    <a href="#"><img src="img/d7.jpg"/></a>
+                    <a href="#"><img src="img/d8.jpg"/></a>
+                </div>
+                <img src="img/d9.jpg"/>
+            </div>
+            <div class="message1 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d2.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr">大家电配送</a>
+                    <a href="#" class="fr">合约计划说明</a>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message2 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d4.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr">大家电配送</a>
+                    <a href="#" class="fr">合约计划说明</a>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message3 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d6.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr"><img src="img/e5.jpg"/></a>
+                 </div>
+                <div class="clearfix fl phone">
+                <dl class="fl">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                 </dl>
+                 <a href="#" class="fr"><img src="img/q1 (12).jpg"/></a>
+                 </div>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="woman">
+                    	<ul class="clearfix" id="woman">
+                        	<li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (10).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (9).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (5).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (6).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (7).jpg"/></h4>
+                                </a></div>
+                            </li>
+                             <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (1).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (11).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (8).jpg"/></h4>
+                                </a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="woman">
+                    	<ul class="clearfix">
+                        	<li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (10).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (9).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (1).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (6).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (7).jpg"/></h4>
+                                </a></div>
+                            </li>
+                             <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (5).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (11).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (8).jpg"/></h4>
+                                </a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="woman">
+                    	<ul class="clearfix">
+                        	<li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (10).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (9).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (5).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (6).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (7).jpg"/></h4>
+                                </a></div>
+                            </li>
+                             <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (1).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (11).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (8).jpg"/></h4>
+                                </a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="woman">
+                    	<ul class="clearfix">
+                        	<li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (10).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (9).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (1).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (6).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (7).jpg"/></h4>
+                                </a></div>
+                            </li>
+                             <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (5).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (11).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (8).jpg"/></h4>
+                                </a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="woman">
+                    	<ul class="clearfix">
+                        	<li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (10).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (9).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (5).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (6).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (7).jpg"/></h4>
+                                </a></div>
+                            </li>
+                             <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (1).jpg"/></h4>
+                                </a></div>
+                            </li>
+                            <li class="fl">
+                            	<div class="div"><a href="javascript:;">
+                                	<i></i>
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <h4><img src="img/q1 (11).jpg"/></h4>
+                                </a></div>
+                                <div class="div"><a href="javascript:;">
+                                	<p><span>春款发布</span>满减专场</p>
+                                    <i></i>
+                                    <h4><img src="img/q1 (8).jpg"/></h4>
+                                </a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message4 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d7.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr">大家电配送</a>
+                    <a href="#" class="fr">合约计划说明</a>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message5 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d8.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr">大家电配送</a>
+                    <a href="#" class="fr">合约计划说明</a>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message6 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d9.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr">大家电配送</a>
+                    <a href="#" class="fr">合约计划说明</a>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message7 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d10.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <a href="#" class="fr">大家电配送</a>
+                    <a href="#" class="fr">合约计划说明</a>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="fr"><a href="#"><img src="img/e4.jpg"/></a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="adc fr">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/j1.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/j2.jpg"/></a></li>
+                        </ul>
+                        <p><a href="javascript:;" class="show5"></a><a href="javascript:;"></a></p>
+                    </li>
+                 </ul>
+            </div>
+            <div class="message8 clearfix">
+				<div class="f1 clearfix fl">
+                	<img src="img/d11.png" class="fl"/>
+                	<h2 class="fl">家电通讯</h2>
+                    <ul class="fl clearfix">
+                    	<li class="show3">特价商品<i></i></li>
+                        <li>大家电<i></i></li>
+                        <li>小家电<i></i></li>
+                        <li>手机通讯<i></i></li>
+                        <li>汽车五金<i></i></li>
+                    </ul>
+                    <ol class="fl clearfix">
+                    	<li class="show3">图书<i></i></li>
+                        <li>音乐<i></i></li>
+                        <li>影视<i></i></li>
+                        <li>教育<i></i></li>
+                        <li class="book">电子书<i></i></li>
+                    </ol>
+                 </div>
+                <dl class="clearfix fl phone">
+                 	<dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dd><a href="#">手机配件</a></dd>
+                    <dt class="fl"><a href="#"><img src="img/e1.jpg"/></a></dt>
+                 </dl>
+                 <ul class="dfj clearfix fl show6">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a41.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a46.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                 </ul>
+                 <ul class="dfj clearfix fl">
+                 	<li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="xxk">
+                    	<ul class="clearfix">
+                        	<li class="fl"><a href="javascript:;"><img src="img/a44 (2).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a42.jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a44 (1).jpg"/></a></li>
+                            <li class="fl"><a href="javascript:;"><img src="img/a45.jpg"/></a></li>
+                        </ul>
+                        <p>
+                        	<a href="javascript:;" class="show4"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+                        </p>
+                    </li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e2.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                    <li class="zzj"><a href="#">
+                    	<img src="img/e3.jpg"/>
+                        <p>	
+                        	SKG2025立式原汁机 慢<br/>速榨汁机 中国红<br/><span>￥459.00</span>
+                        </p>
+                    </a></li>
+                 </ul>
+                 <ol class="music show6 fl">
+                 	<li class="clearfix"><i class="hong fl">①</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">②</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">③</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">④</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑤</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑥</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑦</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑨</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑩</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                 </ol>
+                 <ol class="music fl">
+                 	<li class="clearfix"><i class="fl">①</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">②</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">③</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">④</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑤</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑥</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑦</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑨</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑩</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                 </ol>
+                 <ol class="music fl">
+                 	<li class="clearfix"><i class="fl">①</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">②</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">③</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">④</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑤</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑥</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑦</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑨</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑩</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                 </ol>
+                 <ol class="music fl">
+                 	<li class="clearfix"><i class="hong fl">①</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">②</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">③</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">④</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑤</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑥</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑦</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑨</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑩</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                 </ol>
+                 <ol class="music fl">
+                 	<li class="clearfix"><i class="fl">①</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">②</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">③</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">④</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑤</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑥</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑦</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="fl">⑨</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑩</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                    <li class="clearfix"><i class="hong fl">⑧</i><a href="#" class="fl">从0到1开启商业与未</a><span class="fr">￥27.00</span></li>
+                 </ol>
+            </div>
+        	<div class="hot clearfix">
+            	<div class="fl clearfix">
+                    <div class="single fl">
+                        <h6>热门晒单</h6>
+                        <div class="kuang">
+                        <ul>
+                        <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g5.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g1.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g2.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g3.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g4.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                             <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g5.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g1.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="single1 single fl">
+                        <h6>热门晒单</h6>
+                        <div class="kuang">
+                        <ul>
+                        <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g5.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g1.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g2.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g3.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g4.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                             <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g5.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <a href="javascript:;" class="zoom fl"><img src="img/g1.jpg"/><i></i></a>
+                                <div class="fl">
+                                    <h4><a href="javascript:;">嘉实多（Castrol）磁护5W-30 4L启停保全合成机油润滑剂</a></h4>
+                                    <p><a href="javascript:;">嘉实多启停保全合成机油润滑剂<br/>再也不花冤枉钱了</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr">
+                	<div class="study">
+                    	<h3 class="clearfix"><span class="fl">在线读书</span><a href="javascript:;" class="fr">更多在线读书&gt;</a></h3>
+                        <div class="clearfix">
+                        	<a href="javascript:;" class="fl"><img src="img/a8 (2).jpg"/></a>
+                            <ul class="fl">
+                            	<li><a href="javascript:;">·从0到1开启商业与未来的秘密</a></li>
+                                <li><a href="javascript:;">·从0到1开启商业与未来的秘密</a></li>
+                                <li><a href="javascript:;">·从0到1开启商业与未来的秘密</a></li>
+                                <li><a href="javascript:;">·从0到1开启商业与未来的秘密</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h5>订阅促销信息</h5>
+                    <input type="text" placeholder="请输入您的Email地址" class="text"/><input type="button" value="订阅" class="button"/>
+            	</div>
+            </div>
+            <div class="footer clearfix">
+                <dl class="fl">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                </dl>
+                <dl class="fl">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                </dl>
+                <dl class="fl">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                </dl>
+                <dl class="fl">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                </dl>
+                <dl class="fl">
+                    <dt>购物指南</dt>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                    <dd><a href="#">购物流程</a></dd>
+                </dl>
+                <div class="china fl clearfix">
+                	<h3 class="fl">京东自营覆盖县区</h3>
+                    <p class="fl">京东已向全国1941个县区提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+                    <a href="#" class="fr">查看详情&gt;</a>
+                </div>
+        	</div>
+            <div class="base">
+            	<P><a href="#">关于我们</a>│<a href="#">联系我们</a>│<a href="#">商家入驻</a>│<a href="#">营销中心</a>│<a href="#">手机京东</a>│<a href="#">友情链接</a>│<a href="#">销售联盟</a>│<a href="#">京东社区</a>│<a href="#">京东公益</a>│<a href="#">English Site</a>│<a href="#">Contact Us</a></P>
+                <a href="#">北京市公安局朝阳分局备案编号110105014669</a>│<a href="#">京ICP证070359号</a>│<a href="#">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>│<a href="#">新出发京零 字第大120007号</a><br/><a href="#">音像制品经营许可证苏宿批005号</a>│<a href="#">出版物经营许可证编号新出发(苏)批字第N-012号</a>│<a href="#">互联网出版许可证编号新出网证(京)字150号</a><br/><a href="#">网络文化经营许可证京网文[2011]0168-061号</a>  <a href="#">违法和不良信息举报电话：4006561155  Copyright © 2004-2015  京东JD.com 版权所有</a><br/>京东旗下网站：<a href="#">360TOP</a> <a href="#">拍拍网</a> <a href="#">网银在线</a>
+                <div>
+                	<a href="#"><img src="img/l1.jpg"/></a><a href="#"><img src="img/l2.jpg"/></a><a href="#"><img src="img/l3.jpg"/></a><a href="#"><img src="img/l4.jpg"/></a>
+                </div>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>

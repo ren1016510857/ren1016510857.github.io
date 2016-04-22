@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+/* 基础css */
+
+*{ padding:0; margin:0; line-height:100%;}
+body{ font-size:12px; line-height:12px;}
+ul,ol{ list-style:none;}
+a{ color:#000; text-decoration:none;}
+h1,h2,h3,h4,h5,h6{ font-size:12px; font-weight:normal;}
+i,em{ font-style:normal;}
+b,strong{ font-weight:normal;}
+a img{ border:none;}
+img{ vertical-align:top;}/*清除图片的BUG*/
+.clearfix:after{display:block; content:''; clear:both;}/*清浮动*/
+.clearfix{zoom:1;}
+input{outline:none;}/*清除input边框变色*/
+textarer{resize:none;}/*清楚文本域的拖拽角*/
+table{ border-collapse:collapse;}
+th,td{ padding:0;}/*表格默认样式清楚*/

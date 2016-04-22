@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>手风琴</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+body{ background: url(../img/background/accordion.jpg) no-repeat; background-size: 100%;}
+#div1 {width:940px; height:305px; border:1px solid black; margin:100px auto; position:relative; overflow:hidden;}
+#div1 span {width:20px; height:305px; display:block; position:absolute; left:0; top:0;}
+#div1 div {width:840px; height:305; position:absolute; left:0; top:0; background:#CCC;}
+</style>
+<script src="../js/move.js"></script>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('div1');
+		var aDiv=oDiv.getElementsByTagName('div');
+		var aSpan=oDiv.getElementsByTagName('span');
+		var w=aDiv[0].offsetWidth;
+		var sW=aSpan[0].offsetWidth;
+		for(var i=0;i<aDiv.length;i++)
+		{
+			if(i>0)
+			{
+				aDiv[i].style.left=w+sW*(i-1)+'px';
+			}
+			aDiv[i].index=i;
+			aDiv[i].onmouseover=function(){
+				for(var i=0;i<aDiv.length;i++)
+				{
+					if(i<=this.index)
+					{
+						move(aDiv[i],{'left':sW*i},{duration:500});
+					}
+					else
+					{
+						move(aDiv[i],{'left':w+sW*(i-1)},{duration:500});
+					}
+				}
+			};
+		}
+	};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div><img src="../img/accordion/0.jpg" /><span style="background:#C00;">第一项</span></div>
+	<div><img src="../img/accordion/1.jpg" /><span style="background:#0fc;">第二项</span></div>
+	<div><img src="../img/accordion/2.jpg" /><span style="background:#af0;">第三项</span></div>
+	<div><img src="../img/accordion/3.jpg" /><span style="background:#c0f;">第四项</span></div>
+	<div><img src="../img/accordion/0.jpg" /><span style="background:#e0f;">第五项</span></div>
+	<div><img src="../img/accordion/1.jpg" /><span style="background:#a90;">第六项</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D照片环</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+        	width:100%;
+        	height:100%;
+            background: #000;
+        }
+        #aDul1{
+            width:133px;
+            height:200px;
+            position: absolute;
+            left:50%;
+            margin-left: -67px;
+            top:160px;
+            -webkit-transform-style:-webkit-preserve-3d;
+            -moz-transform-style:-moz-preserve-3d;
+            -ms-transform-style:-ms-preserve-3d;
+            -o-transform-style:-o-preserve-3d;
+            transform-style:preserve-3d;
+            -webkit-transform:-webkit-perspective(800px) -webkit-rotateX(-10deg);
+            -moz-transform:-moz-perspective(800px) -moz-rotateX(-10deg);
+            -ms-transform:-ms-perspective(800px) -ms-rotateX(-10deg);
+            -o-transform:-o-perspective(800px) -o-rotateX(-10deg);
+            transform:perspective(800px) rotateX(-10deg);
+        }
+        #aDul1 li{
+            color: #fff;
+            position: absolute;
+            left: 0;
+            top:0;
+            width:100%;
+            height:100%;
+            background: url(../img/img3d/1.jpg) no-repeat;
+            border-radius: 5px;
+            box-shadow: 0 0 20px #fff;
+            -webkit-box-reflect: below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.4));
+            -moz-box-reflect: below 100px -moz-linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.4));
+    	    -ms-box-reflect: below 100px -ms-linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.4));
+    	    box-reflect: below 100px linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.4));
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+    		var oUl=document.getElementById('aDul1');
+            var N=11;
+            for(var i=0; i<N; i++){
+                var oLi=document.createElement('li');
+                oLi.style.backgroundImage='url(../img/img3d/'+(i+1)+'.jpg)';
+                oUl.appendChild(oLi);
+
+                oLi.style.WebkitTransition='1s all ease '+(N-i)*200+'ms';
+                oLi.style.MozTransition='1s all ease '+(N-i)*200+'ms';
+                oLi.style.MsTransition='1s all ease '+(N-i)*200+'ms';
+                oLi.style.OTransition='1s all ease '+(N-i)*200+'ms';
+                oLi.style.transition='1s all ease '+(N-i)*200+'ms';
+
+                (function(oLi,i){
+                    setTimeout(function(){
+                        oLi.style.transform='rotateY('+360/N*i+'deg) translateZ(340px)';
+                    },0)
+                })(oLi,i);
+            }
+
+            var aLi=oUl.children;
+
+            function close(){
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].style.transition='none';
+                }
+            }
+
+            //
+            aLi[0].addEventListener('transitionend',function(){
+                rotateChange();
+            },false);
+
+            var x=0;
+            var y=0; //拖拽刚好跟旋转相反
+            var iSpeedX=0;
+            var lastX=0;
+            var iSpeedY=0;
+            var lastY=0;
+            var timer=null;
+
+            document.onmousedown=function(ev){
+                var oEvent=ev || event;
+                var disX=oEvent.clientX-y;
+                var disY=oEvent.clientY-x;
+                clearInterval(timer);
+
+                document.onmousemove=function(ev){
+                    var oEvent=ev || event;
+                    y=oEvent.clientX-disX;
+                    x=oEvent.clientY-disY;
+                    close();
+                    rotateChange();
+
+                    iSpeedX=oEvent.clientX-lastX;
+                    lastX=oEvent.clientX;
+                    iSpeedY=oEvent.clientY-lastY;
+                    lastY=oEvent.clientY;
+                };
+                document.onmouseup=function(){
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                    timer=setInterval(function(){
+                        iSpeedX*=0.95;
+						iSpeedY*=0.95;
+                        y+=iSpeedX;
+						x+=iSpeedY;
+                        rotateChange();
+                    },30);
+                };
+                return false;
+            };
+
+
+            function rotateChange(){
+            	oUl.style.transform='perspective(800px) rotateX('+(x-10)+'deg)';
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].style.transform='rotateY('+(360/N*i+y)+'deg) translateZ(340px)';
+                    var d=Math.abs(Math.abs((360/N*i+y)%360)-180);
+
+                    var scale=d/180;
+
+                    scale<0.2 && (scale=0.2);
+
+                    aLi[i].style.opacity=scale;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+	<ul id="aDul1"></ul>
+</body>
+</html>
+
+
+
+

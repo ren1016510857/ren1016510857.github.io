@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS3图片展示效果</title>
+<style>
+	*{ margin: 0; padding: 0;}
+	html,body{ height: 100%;}
+	body{ background:url(../img/background/css3.jpg) no-repeat; background-size:cover; text-align: center; overflow: hidden;}
+	input{ width:100px; line-height: 50px; font-size:20px; font-weight: bold; color: #fff; border:1px solid rgba(0,0,0,0.4); text-shadow: 0 -1px 1px black; box-shadow:inset 0 1px 0 rgba(255,255,255,0.9); outline: none;}
+	.box{ width:700px; height:400px; background: rgba(255,255,255,0.5); margin:80px auto 20px; padding: 25px;}
+	.photo{ width: 700px; height:400px; background: url(../img/css3Photo/1.jpg) no-repeat; position: relative; display: none;}
+	.photo span{ position: absolute;background: url(../img/css3Photo/0.jpg) no-repeat;}
+
+	#box{ background:none; transform-style:preserve-3d;}
+    #box div{ position: absolute; left:0; top:0; width:100%; height:100%; overflow: hidden; }
+    #box .front{ background:url(../img/css3Photo/0.jpg) no-repeat; transform:scale3d(0.741,0.741,0.741) rotate3d(0,1,0,0deg) translate3d(0,0,350px); }
+    #box .right{ background:url(../img/css3Photo/1.jpg) no-repeat; transform: scale3d(0.741,0.741,0.741) rotate3d(0,1,0,90deg) translate3d(0,0,350px); }
+    #box .left{ background:url(../img/css3Photo/0.jpg) no-repeat; transform:scale3d(0.741,0.741,0.741) rotate3d(0,1,0,-90deg) translate3d(0,0,350px);}
+    #box .back{background:url(../img/css3Photo/2.jpg) no-repeat; transform:scale3d(0.741,0.741,0.741) rotate3d(0,1,0,180deg) translate3d(0,0,350px);}
+    
+    img{ width:100%; height:100%; }
+    #span span{ position:absolute; background:no-repeat; opacity:0;}
+
+    .flip .page{position: absolute; right:0; top:0;  width:50%; height:100%; transition: 1s all ease; transform-origin: left center; transform-style:preserve-3d; z-index: 2; transform:perspective(800px) rotateY(0deg); }
+    .flip .page div{ position: absolute; left:0; top:0; width:100%; height:100%; }
+    .flip .page .front{ background: url(../img/css3Photo/0.jpg) no-repeat right top; z-index: 2; backface-visibility: hidden; }
+    .flip .page .back{ background: url(../img/css3Photo/1.jpg) no-repeat left top; z-index:1; transform:scale(-1,1); }
+    .flip .page2{ position: absolute; right:0; top:0; width:50%; height:100%; background: url(../img/css3Photo/1.jpg) no-repeat right top;  z-index: 1;}
+</style>
+<script>
+	var bFlag=false;      
+   	var iNow=0;
+	domReady(function(){
+		var aBtn=document.querySelectorAll('input');	
+		var aBox=document.querySelectorAll('.photo');		
+        var R=4;
+        var C=7;
+        //爆炸点击  
+        for(var r=0; r<R; r++){
+            for(var c=0; c<C; c++){
+                var oSpan=document.createElement('span');
+                oSpan.style.width=aBox[0].offsetWidth/C+'px';
+                oSpan.style.height=aBox[0].offsetHeight/R+'px';
+                aBox[0].appendChild(oSpan);
+                oSpan.style.left=oSpan.offsetWidth*c+'px';
+                oSpan.style.top=oSpan.offsetHeight*r+'px';
+                oSpan.style.backgroundPosition='-'+oSpan.offsetWidth*c+'px -'+oSpan.offsetHeight*r+'px'; 
+            }
+        }
+        aBtn[0].onclick=function(){
+        	if(bFlag)return;
+        	bFlag=true;	
+			var oBox=aBox[0];
+			var aSpan=oBox.children; 
+			if(oBox.style.display=='none')
+			{
+				for(var i=0;i<aBox.length;i++)
+				{
+					aBox[i].style.display='none';
+				}
+				oBox.style.display='block';
+				oBox.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+				for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.transition='none';
+                    aSpan[i].style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+                }
+			}
+            iNow++;
+            //准备爆炸explode
+            for(var i=0; i<aSpan.length; i++){
+                aSpan[i].style.transition='.5s all cubic-bezier(0.44,-0.38, 0.4, 1.32)';
+                var x=aSpan[i].offsetWidth/2+aSpan[i].offsetLeft-oBox.offsetWidth/2;
+                var y=aSpan[i].offsetHeight/2+aSpan[i].offsetTop-oBox.offsetHeight/2;
+                aSpan[i].style.transform='perspective(800px) translate('+x+'px,'+y+'px) scale(1.5) rotateX('+rnd(-180,180)+'deg) rotateY('+rnd(-180,180)+'deg)';
+                aSpan[i].style.opacity=0;
+            }
+            //运动结束
+            aSpan[0].addEventListener('transitionend',bz,false);
+            function bz(){
+                for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.transition='none';
+                    aSpan[i].style.transform='perspective(800px) translate(0px,0px) scale(1) rotateX(0deg) rotateY(0deg)';
+                    aSpan[i].style.opacity=1;
+                    //换图
+                    oBox.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+                    aSpan[i].style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+                }
+                aSpan[0].removeEventListener('transitionend',bz,false);
+                bFlag=false;
+            }
+        };
+		//点击翻转
+		aBtn[1].onclick=function(){			
+			if(bFlag)return;
+			bFlag=true;		
+			var oBox=aBox[1];
+			var aSpan=oBox.children; 
+			if(oBox.style.display!='block')
+			{
+				for(var i=0;i<aBox.length;i++)
+				{
+					aBox[i].style.display='none';
+				}
+				oBox.style.display='block';
+				oBox.style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+				for(var r=0; r<R; r++){
+		            for(var c=0; c<C; c++){
+		                var oSpan=document.createElement('span');
+		                oSpan.style.width=oBox.offsetWidth/C+'px';
+		                oSpan.style.height=oBox.offsetHeight/R+'px';
+		                oBox.appendChild(oSpan);
+		                oSpan.style.left=oSpan.offsetWidth*c+'px';
+		                oSpan.style.top=oSpan.offsetHeight*r+'px';
+		                oSpan.style.backgroundPosition='-'+oSpan.offsetWidth*c+'px -'+oSpan.offsetHeight*r+'px';
+		                oSpan.style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';	
+		                oSpan.dataset.r=r;
+		                oSpan.dataset.c=c;
+		            }
+		        }
+				setTimeout(tile,0);
+				return;
+			}
+			tile();
+            function tile()
+            {
+            	iNow++;
+	            //准备翻转tile
+	            oBox.style.background='none';
+	            for(var i=0; i<aSpan.length; i++){
+	        		var cur=parseInt(aSpan[i].dataset.r)+parseInt(aSpan[i].dataset.c);
+	                aSpan[i].style.transition='.4s all '+cur*100+'ms ease';    
+	                aSpan[i].style.transform='perspective(800px) scale(-1,1) rotateY(180deg)';
+	                aSpan[i].style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';	
+	            }
+	            //运动结束
+	            aSpan[aSpan.length-1].addEventListener('transitionend',fz,false);
+	            function fz(){
+	                oBox.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+	                for(var i=0; i<aSpan.length; i++){
+	                	aSpan[i].style.transition='none';
+		                aSpan[i].style.transform='perspective(800px) scale(1,1) rotateY(0deg)';	
+		                aSpan[i].style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';	
+		            }
+	                aSpan[aSpan.length-1].removeEventListener('transitionend',fz,false);
+	                bFlag=false;
+	            }
+            }
+		};
+		//立方体cube
+		aBtn[2].onclick=function(){			
+			if(bFlag)return;
+        	bFlag=true;
+        	var oBox=document.querySelector('#box');
+			if(oBox.style.display!='block')
+			{
+				for(var i=0;i<aBox.length;i++)
+				{
+					aBox[i].style.display='none';
+				}
+				oBox.style.display='block';
+				oBox.style.transition='none';
+          		if((iNow+1)%4==0)
+          		{
+          			oBox.style.transform='perspective(1000px) rotateY(0)';
+          			iNow=0;
+          		}else{
+          			oBox.style.transform='perspective(1000px) rotateY('+-iNow*90+'deg)';
+          		}
+          		setTimeout(cube,0);
+          		return;
+			}
+            cube();
+          	function cube(){
+      			iNow++;
+				oBox.style.transition='.4s all ease';   
+	            oBox.style.transform='perspective(1000px) rotateY('+-iNow*90+'deg)'; 
+	          	oBox.addEventListener('transitionend',lft,false);
+	          	function lft(){
+	      			if((iNow+1)%4==0)
+	          		{
+	          			oBox.style.transition='none';
+	          			oBox.style.transform='perspective(1000px) rotateY(0)';
+	          			iNow=0;
+	          		}else{
+	          			oBox.style.transform='perspective(1000px) rotateY('+-iNow*90+'deg)';
+	          		}
+	          		oBox.removeEventListener('transitionend',lft,false);
+	                bFlag=false;
+	            }
+      		}
+		};
+		//翻页turn
+        var oPage=document.querySelector('.flip .page');
+        var oFront=document.querySelector('.flip .front');
+        var oBack=document.querySelector('.flip .back');
+        var oPage2=document.querySelector('.flip .page2');
+        aBtn[3].onclick=function(){
+           	if(bFlag)return;
+        	bFlag=true;
+            var oBox=document.querySelector('.flip');
+			if(oBox.style.display!='block')
+			{
+				for(var i=0;i<aBox.length;i++)
+				{
+					aBox[i].style.display='none';
+				}
+				oBox.style.display='block';
+				oBox.style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+				oFront.style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+                oBack.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+                oPage2.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+				setTimeout(turn,0);
+				return;
+			}
+            turn()
+            function turn(){
+				iNow++;
+	            oPage.style.transition='1s all ease';
+	            oPage.style.transform='perspective(800px) rotateY(-180deg)';
+	            oPage.addEventListener('transitionend',function(){
+	                bFlag=false;
+	                oPage.style.transition='none';
+	                oPage.style.transform='perspective(800px) rotateY(0deg)';
+	                //换图
+	                oBox.style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+	                oFront.style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+	
+	                oBack.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+	                oPage2.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+	
+	            },false);
+			}
+        };
+	});
+	function rnd(n,m){
+        return parseInt(Math.random()*(m-n))+n;
+    }
+	function domReady (fn)
+	{
+		if(document.addEventListener)
+		{
+			document.addEventListener('DOMContentLoaded',function()
+			{
+				fn && fn();
+			},false);
+		}else{
+			document.attachEvent('onreadystatechange',function()
+			{
+				if(document.readyState=='complete')
+				{
+					fn && fn();
+				}
+			});
+		}
+	}
+</script>
+<script src="../js/jquery-1.7.2.js"></script>
+<script>
+	$(function(){
+		var aBox=document.querySelectorAll('.photo');	
+		var oBox=$('#span');
+		var col=7;
+		var row=4;
+		var w=oBox.width()/col;
+		var h=oBox.height()/row;
+		for(var r=0;r<row;r++)
+		{
+			for(var c=0;c<col;c++)
+			{
+				var oSpan=$('<span></span>');
+				var left=c*w;
+				var top=r*h;
+				oSpan.css({
+					width:w+'px',
+					height:h+'px',
+					left:left+'px',
+					top:top+'px',
+					backgroundPosition:-left+'px -'+top+'px'
+				});
+				oSpan.attr({
+					'c':c,
+					'r':r
+				});
+				oSpan.appendTo(oBox);
+			}
+		}
+		var aSpan=$('#span span');
+		var num=col+row-2;
+		var n=0;
+		var arr2=0;
+		$('div input').eq(4).click(function(){
+			if(bFlag)return;
+			bFlag=true;
+			if(oBox.css('display')!='block')
+			{
+				for(var i=0;i<aBox.length;i++)
+				{
+					aBox[i].style.display='none';
+				}
+				oBox.css('display','block');
+				$('#span img').attr('src','../img/css3Photo/'+iNow%3+'.jpg');
+			}
+			span();
+			function span(){
+				iNow++;
+				aSpan.css({'backgroundImage':'url(../img/css3Photo/'+iNow%3+'.jpg)',opacity:0});
+				aSpan.each(function(index){
+					var c=parseInt(aSpan.eq(index).attr('c'));
+					var r=parseInt(aSpan.eq(index).attr('r'));
+					document.title=iNow%4;
+					switch(iNow%4)
+					{
+						case 0:
+							arr2=(9-r-c)*100;
+							n=0;
+							break;
+						case 1:
+							arr2=(6-c+r)*100;
+							n=21;
+							break;
+						case 2:
+							arr2=(3-r+c)*100;
+							n=6;
+							break;
+						case 3:
+							arr2=(c+r)*100;
+							n=27;
+							break;
+					}
+					setTimeout(function(){
+						aSpan.eq(index).stop().animate({opacity:1},{
+							complete:function(){
+								if(index==n)
+								{
+									$('#span img').attr('src','../img/css3Photo/'+iNow%3+'.jpg');
+									bFlag=false;
+								}
+							}
+						});
+					},arr2);
+				});
+				return false;
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="box">
+		<div class="photo" style="display: block;"></div>
+		<div class="photo"></div>
+		<div class="photo flip">
+			<div class="page">
+	            <div class="front"></div>
+	            <div class="back"></div>
+	        </div>
+	        <div class="page2"></div>
+		</div>
+		<div class="photo" id="box">
+			<div class="front"></div>
+			<div class="right"></div>
+			<div class="back"></div>
+			<div class="left"></div>
+		</div>
+		<div class="photo" id="span">
+			<img src="../img/css3Photo/0.jpg"  alt=""/>
+		</div>
+	</div>
+	<div>
+		<input type="button" value="爆炸" style="background: #783B81;"/>
+		<input type="button" value="翻转"  style="background: #FA1527;"/>
+		<input type="button" value="立方体"  style="background: #81D343;"/>
+		<input type="button" value="翻页"  style="background: #29D5DC;"/>
+		<input type="button" value="碎块"  style="background: #EAD85E;"/>
+	</div>
+</body>
+</html>

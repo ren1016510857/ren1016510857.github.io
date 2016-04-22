@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS3图片展示效果</title>
+<style>
+	*{ margin: 0; padding: 0;}
+	html,body{ height: 100%;}
+	body{ background:url(../img/background/css3.jpg) no-repeat; background-size:cover; text-align: center; overflow: hidden;}
+	input{ width:100px; line-height: 50px; font-size:20px; font-weight: bold; color: #fff; border:1px solid rgba(0,0,0,0.4); text-shadow: 0 -1px 1px black; box-shadow:inset 0 1px 0 rgba(255,255,255,0.9); outline: none;}
+	.box{ width:700px; height:400px; background: rgba(255,255,255,0.5); margin:80px auto 20px; padding: 25px;}
+	.photo{ width: 700px; height:400px; background: url(../img/css3Photo/1.jpg) no-repeat; position: relative;}
+	.photo span{ position: absolute;background: url(../img/css3Photo/0.jpg) no-repeat;}
+
+	#box{ width:700px; height:400px; position: absolute; left: 0; top: 0; transform-style:preserve-3d; }
+    #box div{ position: absolute; left:0; top:0; width:100%; height:100%; overflow: hidden; }
+    .front{ background:url(../img/css3Photo/0.jpg) no-repeat; transform: translateZ(350px); }
+    .back{ background:url(../img/css3Photo/2.jpg) no-repeat; transform: translateZ(-350px)  rotateY(-180deg); }
+    .left{ background:url(../img/css3Photo/0.jpg) no-repeat; transform:translateX(-350px) rotateY(-90deg);}
+    .right{background:url(../img/css3Photo/1.jpg) no-repeat; transform:translateX(350px) rotateY(90deg);}
+</style>
+<script>
+	domReady(function(){
+		var aBtn=document.querySelectorAll('input');
+		var oBox=document.querySelector('.photo');
+        var R=4;
+        var C=7;
+        var bFlog=false;
+        for(var r=0; r<R; r++){
+            for(var c=0; c<C; c++){
+                var oSpan=document.createElement('span');
+                oSpan.style.width=oBox.offsetWidth/C+'px';
+                oSpan.style.height=oBox.offsetHeight/R+'px';
+                oBox.appendChild(oSpan);
+                oSpan.style.left=oSpan.offsetWidth*c+'px';
+                oSpan.style.top=oSpan.offsetHeight*r+'px';
+                oSpan.style.backgroundPosition='-'+oSpan.offsetWidth*c+'px -'+oSpan.offsetHeight*r+'px';
+                oSpan.dataset.r=r;
+                oSpan.dataset.c=c;
+            }
+        }
+        var iHTML=oBox.innerHTML;
+		var aSpan=oBox.children;
+        var iNow=0;
+        //爆炸点击
+        aBtn[0].onclick=function(){
+        	if(bFlog)return;
+        	/*if(oBox.id)
+        	{
+        		oBox.removeAttribute('id');
+        		oBox.innerHTML=iHTML;
+        		oBox.style.transition='none';
+        		oBox.style.transform='rotateY(0deg)';
+        	}*/
+        	bFlog=true;
+            iNow++;
+            alert(iNow);
+            //准备爆炸
+            for(var i=0; i<aSpan.length; i++){
+                aSpan[i].style.transition='.5s all cubic-bezier(0.44,-0.38, 0.4, 1.32)';
+                var x=aSpan[i].offsetWidth/2+aSpan[i].offsetLeft-oBox.offsetWidth/2;
+                var y=aSpan[i].offsetHeight/2+aSpan[i].offsetTop-oBox.offsetHeight/2;
+                aSpan[i].style.transform='perspective(800px) translate('+x+'px,'+y+'px) scale(1.5) rotateX('+rnd(-180,180)+'deg) rotateY('+rnd(-180,180)+'deg)';
+                aSpan[i].style.opacity=0;
+            }
+            //运动结束
+            aSpan[aSpan.length-1].addEventListener('transitionend',function(){
+                for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.transition='none';
+                    aSpan[i].style.transform='perspective(800px) translate(0px,0px) scale(1) rotateX(0deg) rotateY(0deg)';
+                    aSpan[i].style.opacity=1;
+
+                    //换图
+                    oBox.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+                    aSpan[i].style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';
+                }
+                aSpan[aSpan.length-1].removeEventListener('transitionend',false);
+                bFlog=false;
+                iHTML=oBox.innerHTML;
+            },false);
+        };
+		//点击翻转
+		aBtn[1].onclick=function(){
+			if(bFlog)return;
+			/*if(oBox.id)
+        	{
+        		oBox.removeAttribute('id');
+        		oBox.innerHTML=iHTML;
+        		oBox.style.transition='none';
+        		oBox.style.transform='rotateY(0deg)';
+        	}*/
+        	bFlog=true;
+            iNow++;
+            //准备翻转
+            oBox.style.background='none';
+            for(var i=0; i<aSpan.length; i++){
+        		var cur=parseInt(aSpan[i].dataset.r)+parseInt(aSpan[i].dataset.c);
+                aSpan[i].style.transition='.4s all '+cur*200+'ms ease';    
+                aSpan[i].style.transform='perspective(800px) scale(-1,1) rotateY(180deg)';
+                aSpan[i].style.backgroundImage='url(../img/css3Photo/'+iNow%3+'.jpg)';	
+            }
+            //运动结束
+            aSpan[aSpan.length-1].addEventListener('transitionend',function(){
+                oBox.style.backgroundImage='url(../img/css3Photo/'+(iNow+1)%3+'.jpg)';
+                for(var i=0; i<aSpan.length; i++){
+                	aSpan[i].style.transition='none';
+	                aSpan[i].style.transform='perspective(800px) scale(1,1) rotateY(0deg)';	                
+	            }
+                aSpan[aSpan.length-1].removeEventListener('transitionend',false);
+                bFlog=false;
+                iHTML=oBox.innerHTML;
+            },false);
+		};
+		//立方体
+		aBtn[2].onclick=function(){			
+			if(bFlog)return;
+        	bFlog=true;
+        	/*if(!oBox.id)
+        	{
+        		oBox.style.transition='none';//没生效
+        		oBox.style.transform='rotateY('+-iNow*90+'deg)'; 
+        	}*/
+            
+            if(!aSpan[0].id)
+            {
+            	oBox.style.background='none';
+            	oBox.innerHTML='<div id="box"><div class="front"></div><div class="right"></div><div class="back"></div><div class="left"></div></div>';    
+            	aSpan[0].style.transform='rotateY('+-iNow*90+'deg)';
+            	bFlog=false;
+            }
+        	iNow++;
+            aSpan[0].style.transition='.4s all ease'; 
+            aSpan[0].style.transform='perspectwive(30000000000000px) rotateY('+-iNow*90+'deg)'; 
+            alert(iNow);
+          	aSpan[0].addEventListener('transitionend',function(){
+          		alert(bFlog);
+      			if(iNow%3==0)
+          		{
+          			aSpan[0].style.transition='none';
+          			aSpan[0].style.transform='perspective(0) rotateY(0)';
+          			iNow=0;
+          		}else{
+          			aSpan[0].style.transform='perspective(0) rotateY('+-iNow*90+'deg)';
+          		}
+          		aSpan[0].removeEventListener('transitionend',false);
+                bFlog=false;
+            },false);
+		};
+	});
+	function rnd(n,m){
+        return parseInt(Math.random()*(m-n))+n;
+    }
+	function domReady (fn)
+	{
+		if(document.addEventListener)
+		{
+			document.addEventListener('DOMContentLoaded',function()
+			{
+				fn && fn();
+			},false);
+		}else{
+			document.attachEvent('onreadystatechange',function()
+			{
+				if(document.readyState=='complete')
+				{
+					fn && fn();
+				}
+			});
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="box">
+		<div class="photo"></div>
+	</div>
+	<input type="button" value="爆炸" style="background: #783B81;"/>
+	<input type="button" value="翻转"  style="background: #FA1527;"/>
+	<input type="button" value="立方体"  style="background: #81D343;"/>
+	<input type="button" value="翻页"  style="background: #29D5DC;"/>
+	<input type="button" value="扭曲"  style="background: #F95E28;"/>
+	<input type="button" value="碎块"  style="background: #EAD85E;"/>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>利用after和before制作提示框</title>
+<style>
+	*{ margin: 0; padding: 0;}
+	body{ background: url(../img/background/body_bg.jpg) no-repeat;}
+	.box{ width:800px; height: 400px; margin:100px auto; background: #FFF; overflow: hidden;}
+	.auto{ width:268px; margin:0 auto;}
+	.auto div{ width:200px; height: 50px; background: #09F; border:4px solid #ccc; margin:30px; position: relative;}
+	.top:after,.top:before{ content: ''; bottom:100%; position: absolute; pointer-events: none;} 
+	.top:after{ border:10px solid rgba(0,0,0,0); border-bottom-color: #09f; left:50%;  margin-left:-10px;}
+	.top:before{ border:16px solid rgba(0,0,0,0); border-bottom-color: #ccc; left:50%;  margin-left:-16px;}
+	
+	.right:after,.right:before{ content: ''; left:100%; position: absolute; pointer-events: none;} 
+	.right:after{ border:10px solid rgba(0,0,0,0); border-left-color: #09f; top:50%;  margin-top:-10px;}
+	.right:before{ border:16px solid rgba(0,0,0,0); border-left-color: #ccc; top:50%;  margin-top:-16px;}
+	
+	.bottom:after,.bottom:before{ content: ''; top:100%; position: absolute; pointer-events: none;} 
+	.bottom:after{ border:10px solid rgba(0,0,0,0); border-top-color: #09f; left:50%;  margin-left:-10px;}
+	.bottom:before{ border:16px solid rgba(0,0,0,0); border-top-color: #ccc; left:50%;  margin-left:-16px;}
+	
+	.left:after,.left:before{ content: ''; right:100%; position: absolute; pointer-events: none;} 
+	.left:after{ border:10px solid rgba(0,0,0,0); border-right-color: #09f; top:50%;  margin-top:-10px;}
+	.left:before{ border:16px solid rgba(0,0,0,0); border-right-color: #ccc; top:50%;  margin-top:-16px;}
+</style>
+</head>
+<body>
+	<div class="box">
+		<div class="auto">
+			<p>单标签利用after和before制作提示框</p>
+			<div class="top"></div>
+			<div class="right"></div>
+			<div class="bottom"></div>
+			<div class="left"></div>	
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* 基础css */
+
+*{ padding:0; margin:0;}
+body{ font-size:12px;line-height:100%;}
+ul,ol{ list-style:none;}
+a{ color:#000; text-decoration:none;}
+h1,h2,h3,h4,h5,h6{ font-size:12px; font-weight:normal;}
+i,em{ font-style:normal;}
+b,strong{ font-weight:normal;}
+a img{ border:none;}
+img{ vertical-align:top;}
+.clearfix:after{display:block;content:'';clear:both;}/* 给元素后加块。after:后的意思，先转块，内容为零，清左右浮动，both：左右；*/
+input{outline:none;border:none 0;}/*清除焦点边框*/
+textarea{resize:none;}/*清除文本域大小按钮。重置大小*/
+table{border-collapse:collapse;}
+th,td{border:1px solid #000;padding:0;}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>简易瀑布流</title>
+<style>
+	*{ margin:0; padding:0;}
+	div{width:966px; overflow:hidden; margin:0 auto;}
+	ul{ float:left; width:300px; margin:10px; border:1px solid red;}
+	li{ list-style:none; margin:5px; background:#ccc; font-size:50px; font-weight:bold; text-align:center;}
+	a{ width:100%; height:50px; background:red; display:none; text-align:center; line-height:50px;}
+</style>
+<script>
+	window.onload=function(){
+		var aUl=document.getElementsByTagName('ul');
+		var oIn=document.getElementsByTagName('a')[0];
+		var arr=[];
+		var n=0;
+		for(var i=0;i<aUl.length;i++)
+		{
+			arr.push(aUl[i]);
+		}
+		createLi();
+		window.onscroll=function(){
+			var scrollTop=document.body.scrollTop || document.documentElement.scrollTop;
+			var h=document.documentElement.clientHeight+scrollTop;
+			if(h+100>=document.body.offsetHeight)
+			{
+				createLi();
+			}
+		};
+		oIn.onclick=function(){
+			n=2;
+			createLi();
+		};
+		function createLi(){
+			n++;
+			if(n>3)
+			{
+				oIn.style.display='block';
+				return;
+			}
+			for(var i=0;i<20;i++)
+			{
+				var oLi=document.createElement('li');
+				oLi.style.height=ran(200,400)+'px';
+				oLi.innerHTML=i;
+				oLi.style.background='rgb('+ran(0,256)+','+ran(0,256)+','+ran(0,256)+')';
+				arr.sort(function(ul1,ul2){
+					return ul1.offsetHeight-ul2.offsetHeight;
+				});
+				arr[0].appendChild(oLi);
+			}
+		};
+		function ran(n,m){
+			return Math.floor(Math.random()*(m-n)+n);
+		};
+	};
+</script>
+</head>
+<body>
+    <div>
+    	<ul></ul>
+    	<ul></ul>
+    	<ul></ul>
+    </div>
+    <a href="javascript:;">下一页</a>
+</body>
+</html>

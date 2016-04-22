@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>拉钩</title>
+<style>
+	*{ margin:0; padding:0;}
+	body{ background: url(../img/background/body_bg.jpg) no-repeat;}
+	.box{width: 880px; height: 440px; margin:100px auto; background: #ccc; }
+	.box div{ width:200px; height:200px; position:relative; overflow:hidden; float:left; margin:10px;}
+	span{ width:200px; height:200px; position:absolute; background:rgba(0,255,0,0.3); left:0; top:-200px;}
+	p{ position: absolute; left: 50%; top: 50%; margin: -9px 0 0 -80px;}
+</style>
+<script src="../js/jquery-1.7.2.js"></script>
+<script src="../js/common.js"></script>
+<script>
+	$(function(){
+		var oDiv=$('.box div');
+		var n=0;
+		oDiv.hover(function (ev){	
+			var oSpan=$(this).find('span');		
+			oSpan.css('background',rndColor());
+			n=getN($(this),ev);
+			switch(n)
+			{
+				case 0://right
+					oSpan.css({left:'200px',top:0});
+					break;
+				case 1://bottom
+					oSpan.css({left:0,top:'200px'});
+					break;
+				case 2://left
+					oSpan.css({left:'-200px',top:0});
+					break;
+				case 3://top
+					oSpan.css({left:0,top:'-200px'});
+					break;
+			}
+			oSpan.stop().animate({left:0,top:0});
+		},function (ev){
+			var oSpan=$(this).find('span');			
+			n=getN($(this),ev);
+			switch(n)
+			{
+				case 0://right
+					oSpan.stop().animate({left:'200px',top:0});
+					break;
+				case 1://bottom
+					oSpan.stop().animate({left:0,top:'200px'});
+					break;
+				case 2://left
+					oSpan.stop().animate({left:'-200px',top:0});
+					break;
+				case 3://top
+					oSpan.stop().animate({left:0,top:'-200px'});
+					break;
+			}
+		});
+		function getN(oDiv,ev)
+		{
+			var x=oDiv.offset().left+oDiv.outerWidth()/2-ev.clientX;
+			var y=oDiv.offset().top+oDiv.outerHeight()/2-ev.clientY-$(document).scrollTop();
+			var a=d2a(Math.atan2(y,x));
+			return Math.round((a+180)/90)%4;
+		}
+		function d2a(d)
+		{
+			return d*180/Math.PI;
+		}
+	});
+</script>
+</head>
+<body>
+	<div class="box">
+		<p>鼠标移入展示拉钩效果</p>
+	    <div><span></span></div>
+	    <div><span></span></div>
+	    <div><span></span></div>
+	    <div><span></span></div>
+	    <div><span></span></div>
+	    <div><span></span></div>
+	    <div><span></span></div>
+	    <div><span></span></div>
+    </div>
+</body>
+</html>

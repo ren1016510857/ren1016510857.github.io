@@ -1,0 +1,350 @@
+/*聚划算*/
+html{
+    font-size:20px;
+}
+header{
+    width:16rem;
+    height: 2.5rem;
+    margin:0 auto;
+    background: url(../images/bg1.png);
+}
+header>a{
+    float: left;
+    margin-left: 0.55rem;
+    margin-top: 0.55rem;
+}
+header img{
+    width: 3.175rem;
+    height: 1.55rem;
+}
+header h1{
+    width:3.7rem;
+    height: 0.975rem;
+    background: url(../images/logo.png) no-repeat;
+    background-size: 100%;
+    float: left;
+    margin-left: 2.5rem;
+    margin-top: 0.75rem;
+}
+header h1 a{
+    text-indent: -999em;
+    display: block;
+    height: 100%;
+}
+/*轮播图 */
+.tab{
+    width: 16rem;
+    height: 7.95rem;
+    margin: 0 auto;
+    position: relative;
+}
+.tab .nav>li{
+    display: none;
+}
+.tab .nav .active{
+    display: block;
+}
+.tab img{
+    width: 16rem;
+    height: 6.675rem;
+}
+.tab .pot{
+    width:2.25rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.125rem;
+}
+.tab .pot li{
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #a9a9a9;
+    float: left;
+    border-radius: 50%;
+    margin: 0.5rem  0.25rem 0  0;
+}
+.tab .pot>li:last-child{
+    margin-right: 0;
+}.tab .pot .active{
+    background: #ff4300;
+}
+/*列表 */
+.list{
+    width: 16rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 0.625rem;
+}
+.list  li{
+    float: left;
+    width: 25%;
+    margin-bottom: 1rem;
+}
+.list img{
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 0.45rem;
+}
+.list em{
+    color: #9f9f9f;
+    font-size: 0.6rem;
+}
+/*热卖排行 */
+.hot{
+    width: 16rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+.hot h2{
+    border-bottom: 0.1rem solid #dcdcdc;
+    box-sizing: border-box;
+    height: 1.375rem;
+}
+.hot  h2 p{
+    float: left;
+    border-left: 0.1rem solid #d51938;
+    padding-left: 0.45rem;
+    font-size: 0.7rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+}
+.hot h2 span{
+    float: right;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+.hot .nav{
+    margin-top: 0.775rem;
+}
+.hot .nav>li{
+    box-sizing: border-box;
+    height: 3rem;
+    background: #f4f4f4;
+    margin-bottom: 0.5rem;
+}
+.hot .one{
+    background: #e00202;
+}
+.hot .two{
+    background: #ff4800;
+}
+.hot .three{
+    background: #ff7300;
+}
+.hot .four{
+    background: #ff9d00;
+}
+.hot .five{
+    background: #ffa800;
+}
+.hot .six{
+    background: #ffb400;
+}
+.hot .senven{
+    background: #ffba00;
+}
+.hot .eight{
+    background: #fcd000;
+}
+.hot .nine{
+    background: #ffd719;
+}
+.hot .ten{
+    background: #ffe152;
+}
+.hot .num{
+    width: 1.45rem;
+    height: 3rem;
+    float: left;
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family:'Arial';
+    color: #fff;
+}
+.hot .pg{
+    width: 4.5rem;
+    height: 3rem;
+    float: left;
+}
+.hot .msg{
+    box-sizing: border-box;
+    padding-left:0.55rem;
+    font-size: 0.6rem;
+    color:#999;
+    float: left;
+    padding-top: 0.29rem;
+    line-height: 0.925rem;
+}
+.hot .msg span{
+    color:#c7223d;
+}
+.hot  .msg i{
+    text-decoration: line-through;
+}
+.hot .icon{
+    float: right;
+    width: 0.325rem;
+    height: 0.55rem;
+    background: url(../images/icon.png) no-repeat;
+    background-size: 100%;
+    margin-right: 0.5rem;
+    margin-top: 1.1rem;
+}
+.hot .price{
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    font-weight: bold;
+    float: right;
+    color: #d51938;
+    margin-top: 1.2rem;
+    margin-right:0.35rem;
+}
+/*更多划算*/
+.more{
+    text-align: center;
+    line-height: 2rem;
+    height: 2rem;
+    font-size: 0.7rem;
+    color: #666666;
+    background: #f5f5f5;
+    margin-bottom: 0.5rem;
+}
+/*商品团*/
+.content {
+    margin-bottom: 0.5rem;
+}
+.content img {
+    width:3.75rem;
+    height: 8.8rem;
+    float: left;
+}
+.content .right{
+    width: 11.25rem;
+    height: 8.8rem;
+    box-sizing: border-box;
+    float: left;
+    border-bottom: 1px solid #eee;
+}
+.content .right>li{
+    width:3.725rem;
+    height: 2.15rem;
+    float: left;
+    border-top: 1px solid #eee;
+    border-right: 1px solid #eee;
+    text-align: center;
+    line-height:2.15rem;
+    font-size: 0.65rem;
+    box-sizing: border-box;
+}
+.content .right>li a{
+    color: #666;
+    display: block;
+    height: 100%;
+}
+.content .right>li  .red{
+    color: #d51942;
+}
+/*下载链接*/
+.download{
+    margin-bottom: 0.45rem;
+    text-align: center;
+}
+.download  a{
+ display:block;
+ height:100%;
+ color: #fff;
+}
+ .download  li{
+    width: 5rem;
+    height: 4rem;
+    float: left;
+	text-align:center;
+	box-sizing:border-box;
+	font-size: 0.575rem;
+}
+.download>li:nth-child(1){
+    background: #38a4f1;
+	padding-top:0.8rem;
+}
+.download>li:nth-child(2){
+    background: #8bca11;
+	padding-top:0.85rem;
+}
+.download>li:nth-child(3){
+    background: #ff7404;
+	padding-top:0.85rem;
+}
+.download>li:nth-child(1) img {
+    width: 0.95rem;
+    height: 1.1rem;
+    margin-bottom: 0.9rem;
+}
+.download>li:nth-child(2) img {
+    width: 0.925rem;
+    height: 1.05rem;
+    margin-bottom: 0.9rem;
+}
+.download>li:nth-child(3) img {
+    width: 0.95rem;
+    height: 0.925rem;
+    margin-bottom: 1rem;
+}
+/*下载链接*/
+.login{
+    width: 16rem;
+    height: 2.2rem;
+    background: #f8f8f8;
+    line-height: 2.2rem;
+}
+.login a{
+    font-size: 0.7rem;
+    color: #333333;
+    font-weight: bold;
+}
+.login .log{
+    float: left;
+    margin-left: 0.75rem;
+}
+.login .reg{
+    float: left;
+    margin-left: 1.2rem;
+}
+.login .top{
+    float: right;
+}
+.login i{
+    background: url("../images/up.png") no-repeat;
+    width: 0.425rem;
+    height: 0.225rem;
+    display: block;
+    float: right;
+    background-size: 100%;
+    margin: 0.925rem 0.7rem 0 0.5rem;
+}
+/*尾部*/
+footer{
+    width: 16rem;
+    height: 3.65rem;
+    background: #eeeeee;
+    padding-top: 1.05rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+footer .p1 a {
+    font-size: 0.65rem;
+    color: #333;
+    font-weight: bold;
+    line-height: 0.65rem;
+    display: inline-block;
+}
+footer .p1 a:nth-child(1) {
+    margin-right: 0.65rem;
+}
+footer .p2 {
+    margin-top: 0.8rem;
+    font-size: 0.5rem;
+    color: #999;
+    line-height: 0.5rem;
+}
