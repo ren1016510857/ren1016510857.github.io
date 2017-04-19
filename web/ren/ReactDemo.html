@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任豪杰的代码</title>
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+<style>
+    .box{ display:-webkit-flex; display:flex; flex-wrap:wrap;}
+    .box>div{flex:1; height:100px; background:red; margin:10px; width:auto;}
+    .box .flex1{ flex:0 0 25%;}
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="flex1"></div>
+        <div class="flex1"></div>
+        <div class=""></div>
+        <div class="flex1"></div>
+        <div class="flex1"></div>
+        <div class=""></div>
+    </div>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+	</ul>
+    <script type="text/babel">
+    	var aLi=document.querySelectorAll('li');
+    	ReactDOM.render(
+    		<a href="javascript:">hellow,world</a>,
+			aLi[0]
+    	);
+    	var arr=['小明','xiaohong','Eve','joke'];
+    	ReactDOM.render(
+    		<div>
+    		{
+    			arr.map(name => <div key={name.toString()}>hellow,{name}!</div>)
+    		}
+    		</div>,
+			aLi[1]
+    	);
+    	var arr2=[
+    		<div class="tip-tit" key="1">预约参加提醒</div>,
+            <div class="tip-cnt" key="2">添加游戏后，可获得与游戏相关的游戏提醒</div>
+    	];
+    	ReactDOM.render(
+    		<div>{arr2}</div>,
+    		aLi[2]
+    	);
+    	//组件第一个字母要大写  组件一定要有render用来输出组件返回值只能有一个顶层元素
+    	var HellowMessage=React.createClass({
+    		render:function(){
+    			return <h1>{this.props.name ? 'kongdehaha':this.props.name}</h1>;
+    		}
+    	});
+    	ReactDOM.render(
+    		<HellowMessage name="hahawoyou"/>,//属性不能用js保留字
+    		aLi[3]
+    	);
+        var NodesList=React.createClass({
+            render:function(){
+                return <ol>
+                {
+                    React.Children.map(this.props.children,function(a,index){
+                        return <li key={index}>{a}</li>;
+                    })
+                }
+                </ol>
+            }
+        });
+        ReactDOM.render(
+            <NodesList>
+                <span>hehe</span>
+                <span>gagag</span>
+            </NodesList>,
+            aLi[4]
+        );
+        var MyTitle=React.createClass({
+            propTypes:{
+                title:React.PropTypes.number.isRequired
+            },
+            getDefaultProps:function(){
+                return {
+                    title:'Hello world'
+                };
+            },
+            render:function(){
+                return <h1>{this.props.title}</h1>;
+            }
+        });
+        var data=123;
+        ReactDOM.render(
+            <MyTitle title={data}/>,
+            aLi[5]
+        );
+        var MyClick=React.createClass({
+            clickFn:function(){
+                this.refs.psw.focus();
+            },
+            render:function(){
+                return (<div>
+                    <input type="text" ref="psw"/>
+                    <input type="button" value="按钮" onClick={this.clickFn}/>
+                </div>);
+            }
+        });
+        ReactDOM.render(
+            <MyClick/>,
+            aLi[6]
+        );
+        var LikeButton=React.createClass({
+            getInitialState:function(){
+                return {liked:false};
+            },
+            changeLike:function(event){
+                this.setState({liked:!this.state.liked});
+            },
+            render:function(){
+                var text=this.state.liked ? 'nice' : 'sorry';
+                return (<div onClick={this.changeLike}>
+                    这是一个{text}主意！可点击
+                </div>);
+            }
+        });
+        ReactDOM.render(
+            <LikeButton/>,
+            aLi[7]
+        );
+        var Input=React.createClass({
+            getInitialState:function(){
+                return {value:'Hello'};
+            },
+            changeFn:function(event){
+                this.setState({value:event.target.value});
+            },
+            render:function(){
+                var value=this.state.value;
+                return (<div>
+                    <input type="text" value={value} onChange={this.changeFn}/>
+                    <p>{value}</p>
+                </div>);
+            }
+        });
+        ReactDOM.render(
+            <Input/>,
+            aLi[8]
+        );
+        var WillDid=React.createClass({
+            getInitialState:function(){
+                return {
+                    opacity:1.0
+                };
+            },
+            componentDidMount:function(){
+                this.timer=setInterval(function(){
+                    var opacity=this.state.opacity;
+                    opacity-=0.2;
+                    if(opacity<0.2){
+                        opacity=1.0;
+                    }
+                    this.setState({opacity:opacity});
+                }.bind(this),300);
+            },
+            render:function(){
+                return (<div style={{opacity:this.state.opacity,width:'100px',height:'100px',background:'red'}}>
+                    hello{this.props.name}
+                </div>);
+            }
+        });
+        ReactDOM.render(
+            <WillDid name="world"/>,
+            aLi[9]
+        );
+        var UserList=React.createClass({
+            ajax:function(options){
+                /*{
+                    'url':'index.php',
+                    'data':{},
+                    'type':'GET',
+                    'async':true,//异步
+                    'dataType':'jsonp',
+                    'timeout':,
+                    success:function(){},
+                    fail:function(){}
+                }*/
+                options=options || {};
+                if(!options.url)return;
+                var data=options.data || {};
+                var type=options.type || 'get';
+                var cbName=options.cbName || 'cb';
+                var async=typeof options.async === 'undefined' ? true : options.async;
+                var timeout=options.timeout || 3000;
+                //jsonp
+                var jsonp=options.jsonp || 'callback';
+                if(options.dataType=='jsonp')
+                {
+                    var fnName=('callback'+Math.random()).replace('.', '');
+                    data[cbName]=fnName;
+                    window[fnName]=function (res){
+                        options.success && options.success(res);
+                        oHead.removeChild(oS);
+                    };
+                    
+                    var oS=document.createElement('script');
+                    oS.src=options.url+'?'+this.json2url(data);
+                    var oHead=document.getElementsByTagName('head')[0];
+                    oHead.appendChild(oS);
+                    return;
+                }
+
+                //ajax
+                if(window.XMLHttpRequest)
+                {
+                    var oAjax=new XMLHttpRequest();
+                }else{
+                    var oAjax=new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                var arr=[];
+                data.t=Math.random();
+                for(var name in data)
+                {
+                    arr.push(name+'='+data[name]);
+                }
+                var str=arr.join('&');
+                switch(type.toLowerCase())
+                {
+                    case 'get':
+                        oAjax.open('get',options.url+'?'+str,async);
+                        oAjax.send();
+                        break;
+                    case 'post':
+                        oAjax.open('post',options.url,async);
+                        oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                        oAjax.send(str);
+                        break;
+                }
+                oAjax.onreadystatechange=function(){
+                    if(oAjax.readyState==4)
+                    {
+                        clearTimeout(timer);
+                        if(oAjax.status>=200 && oAjax.status<300 || oAjax.status==304)
+                        {
+                            options.success && options.success(oAjax.responseText);
+                        }else{
+                            options.fail && options.fail(oAjax.status);
+                        }
+                    }
+                };
+                if(!async){
+                    oAjax.onreadystatechange();
+                }
+                var timer=setTimeout(function(){
+                    options.fail && options.fail('链接超时，请重新加载！');
+                    oAjax.onreadystatechange=null;
+                },timeout);
+            },
+            json2url:function(json){
+                json.t=Math.random();
+                var arr=[];
+                for(var name in json){
+                    arr.push(name+'='+json[name]);
+                }
+                return arr.join('&');
+            },
+            getInitialState:function(){
+                return {dataArr:[]};
+            },
+            componentDidMount:function(){
+                var _this=this;
+                this.ajax({
+                    url:'http://gameapi.kugou.com/game/loginrecords',
+                    dataType:'jsonp',
+                    cbName:'callback',
+                    success:function(json){
+                        if(json.code == 1){
+                            _this.setState({
+                                dataArr:json.data
+                            });
+                        }
+                    }
+                });
+            },
+            render:function(){
+                return (<div style={{overflow:'hidden'}}>{
+                    this.state.dataArr.map((data,index) => 
+                        <div key={index} style={{float:'left',margin:'10px'}}>
+                            <img src={data.image}/>
+                            <p>{data.gamename}</p>
+                        </div>
+                    )
+                }</div>);
+            }
+        });
+        ReactDOM.render(
+            <UserList/>,
+            aLi[10]
+        );
+    </script>
+    <script>
+
+    </script>
+</body>
+</html>
