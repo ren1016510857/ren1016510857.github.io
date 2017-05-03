@@ -1,0 +1,2860 @@
+硬盘里边window默认一个存储空间是4kb且只能放一个东西；
+切图片切4kb以内尽量大；效率高渲染次数少
+
+火狐浏览器配上微软的鼠标会出BUG无法解决；
+
+JS开启严格模式'use strict';可以放在函数里边
+只对之后的起作用不能跨script标签；（3.24笔记里有详解）
+
+arguments 参数集
+
+设置contenteditable属性可编辑HTML标签的内容(可代替textarea)
+
+在iphone里fixed不起作用是因为body上有transform 样式
+
+word-break:break-all;word-wrap:break-word;保证字母数字也可以换行
+html解析的时候没有read到space的话    会认为是一个word  
+
+边框环绕效果  IE6+
+<fieldset> 
+	<legend>健康信息</legend>
+	身高：<input type="text">
+	体重：<input type="text">
+</fieldset>
+
+
+<a href="mailto:hrm@quakegame.cn;" class="job_apply">申请职位</a>
+
+z-index= 2 的 32 次方；
+
+alert(null==undefined) 	true
+alert(NaN==undefined) 	false
+object.hasOwnProperty(name); 返回boolean 对象有没有这个属性
+window.location.reload();刷新网页
+window.location.href="";     //在同当前窗口中打开窗口
+<meta http-equiv="refresh" content="5;url=http://www.lanrentuku.com">
+自动跳转网页				content 这个是秒数
+
+分号
+		1. 函数调用
+			show();
+		2. 赋值
+			a=12;
+			oBtn.onclick=function (){};
+
+引用   数组arr2=arr1 还有子集   下边变上边也变；
+	但是当下边的整个改变的时候上边就不变了
+	eg:var arr=[1,2,3,4];
+	   var arr2=arr;
+	   arr2.push(2);//引用
+	   arr2=[0];//这个不是引用
+【引用类型】
+基本类型在内存中占据固定大小的空间，因此被保存在栈内存中；
+基本类型的变量复制时只是创建这个值的副本；
+引用类型的值是对象，保存在堆内存中；
+包含引用类型值的变量实际上包含的不是对象本身，而是一个指向该对象的一个指针；
+引用类型的变量复制时，复制的是指针，因此两个变量最终都指向同一个对象；
+基本类型用 typeof  判断
+引用类型用 instanceof 判断
+--------------------------
+
+script是一次性的用过就不能在用了如不能改他的src
+
+对象都是不相等的;
+
+雪碧图：css sprites  /css精灵
+
+合写--font:bold italic 10px '黑体';
+
+
+1 如果当JS对象获取不到的时候：id写错了//或着没写window.onload；
+
+2 当出错写 cannot...的时候找那个东西的对象；
+
+空格 &nbsp;  小于 &lt; 大于 &gt;
+
+text-align:center; 可以使图片横向居中
+
+==双等会把两边转成相同类型，只比较值；
+
+3 cursor:pointer; 手型    fixed十字 default没有手型 
+【自定义鼠标样式】
+cursor:url(http://youxi.kugou.com/favicon.ico),auto;//ico,cur文件
+
+4 边框透明 border:1px solid transparent;transparent透明
+
+5 在JS里获取元素的直接子集个数 oDiv.children;一组元素
+ 
+6 	innerHTML获取里边的内容
+
+	eval();操作字符串执行字符串里的内容；
+	当字符串里是json时eval('('+{'name':'haojie'}+')')
+	var json=new Function('return '+str)();
+
+7  for while setInterval等循环里边的东西 循环一次复制一次 循环体是什么就是什么；
+	for 知道次数用for 数字用
+	while 不知道次数用   条件用；
+	var a=0;//后测试循环
+	do{
+		a+=2
+	} while(a<10);
+	alert(a);-->10;
+		（在赋值的时候后边的会把前边的覆盖）；
+
+8 当变量名与函数名冲突的时候变量覆盖函数；
+
+9 js里能操作属性的方法 . [];
+
+【 . 与 [] 】
+		.   不能加变量
+		[]  可以加变量
+
+		. 出现的地方 一定可以出现 []
+		[] 出现的地方 不一定能用 .
+		他们不能操作行间的自定义属性（高级浏览器）
+	！ 8['add']，而不是8.add，是因为数值后面的点，会被解释为小数点，而不是点运算符。-->(8).add
+		2. getAttribute
+			obj.getAttribute('属性名');
+
+		  setAttribute
+			obj.setAttribute('属性名', '属性值');
+
+		   removeAttribute() 删除属性
+
+		   区别：
+			1. . [] 不能操作行间自定义属性
+				set / get 行间自定义属性
+
+			2. . [] 不改变属性值的类型
+				set 改变属性值的类型 -> string
+
+			3. 	. [] 行间看不到
+				set 行间看得到
+
+	【true】
+		1. 非空字符串
+		2. 非 0 数字
+		3. 非空对象
+
+	【false】
+		1. 空字符串
+		2. 数字 0
+		3. 空对象 null
+		4. undefined
+		5. NaN
+//检测是不是NaN的方法  只有NaN是不等于自己的
+function(x){
+	return x !== x;
+}
+
+10 功能越多的函数效率越低；只要一个函数执行完就会反悔函数调用的地方；
+
+11 获取父集下所有的元素
+		var aChild=oParent.getElementsByTagName('*');
+
+12 a=12;复制表达式出现的地方相当于值；
+
+13
+	focus();
+【事件】
+		onclick
+		onmousedown
+		onmouseup
+		onmousemove
+		onmouseover
+		onmouseout
+		oncontextmenu
+		window.onscroll
+		window.onresize
+		window.onload
+		oImg.onload     new Image();在.onload时创建完有延时
+		onerror
+		oSel.onchange //select
+		onfocus  聚焦 //input
+		onblur  失去焦点
+		onmouseenter  进入 不是w3c标准事件可以代替move out
+		onmouseleave  离开
+
+14
+	批量设置样式
+	oDiv.style.cssText='width:500px;height:50px;';会把原来的样式清掉;
+	with(oDiv.style)
+	{
+	  width:'500px';
+	  不能用变量
+	}
+
+15 
+    前边必须用【document】获取
+	document.getElementsByName 父级只能是document
+	document.createElement()
+	document.getElementById();
+
+16【call】用来改变this指向
+		fn()
+		调用函数
+		fn.call(this, 1, 2, 3)
+		fn.apply(this,[1,2,3])
+
+17 ps快捷键
+
+psd  -  ps软件打开的源文件格式 
+
+	ps 清除辅助线 - ctrl+h
+
+	合并图层 ： ctrl+e
+
+	显示文字样式：ctrl+t
+
+	web保存格式：ctrl+alt+shift+s 
+
+18 在屏幕阅读器中隐藏元素？
+	display:none;  常见
+	visibility:hidden;  隐藏元素 - 占位置的
+	opacity:0;
+	poasition:absolute;
+		top:-2000px;
+		left:-2000px;
+	margin-left:-2000px;
+	overflow:hidden;
+		width:0;
+		height:0;
+
+
+19性能优化：
+	网络性能：
+	执行性能：
+		var s=new Date().getTime();
+		//测试程序
+		alert(new Date().getTime()-s);
+
+		console.time(name);
+		//测试程序
+		console.timeEnd(name);
+
+20  对象具体类型：
+instanceof: 可以检测自己直接父级，父级的父级...
+	
+	arr instanceof Array 可以用来检测是不是数组等  在多框架中容易出现多个Array不准确
+	Array.isArray(arr);ie9+
+	
+constructor: 检测直接父级
+
+
+21:主动触发一个事件
+1	$('#button').trigger('click');
+2   $(function(){   
+     $('#button').click(function(){        
+         alert('button is clicking！');  
+      });
+ })
+ $('#button').click();
+
+ 22 : css3的 pointer-events:none; auto 其他值都被应用在SVG上
+ 	这个样式可以让元素身上的鼠标事件被干掉；
+ 	ie11+
+....................................................
+
+绝对居中的块：(水平垂直居中)
+	div {
+	    position: relative;/* 相对定位或绝对定位均可 */
+	    width:500px;
+	    height:300px;
+	    top: 50%;
+	    left: 50%;
+	    margin: -150px 0 0 -250px;/* 外边距为自身宽高的一半 */或未知宽高transform: translate(-50%, -50%);
+	    background-color: pink;/* 方便看效果 */
+
+	 }
+
+	
+
+	div {//不兼容ie6
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: pink; /* 方便看效果 */
+    }
+
+简单写出一个div层垂直水平居中的代码？
+	2T	* { margin:0; padding:0; }
+		html, body { height:100%; }
+		div { display:table; width:100%; height:100%;}
+		p { display:table-cell; text-align:center; vertical-align:middle; }
+
+		
+		<div>
+			<p>智能社 - www.zhinengshe.com</p>
+		</div>
+
+........................................
+
+伪类选择器
+	a
+        a:link{  }点击之前
+	a:hover{  } 鼠标滑入
+	a:active{  }鼠标按下
+	a:visited{  } 点击之后
+
+.............................
+
+超出隐藏
+
+	p{width:50px;
+	border:1px solid #000;
+	white-space:nowrap;强制不换行
+	overflow:hidden;超出隐藏
+	text-overflow:ellipsis;	省略号	
+	}
+p{移动端 文字2行两端对齐结尾省略号
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+text-indent：5em--缩进单位字体大小倍数
+     缩紧   缩进距离
+text-indent：5em--缩进单位字体大小倍数
+     缩紧   缩进距离
+white 
+white-space：nowrap、normal‘’‘’强制不换行
+overflow:hidden---隐藏
+text-overflow:ellipsis--省略号
+      溢出  
+
+overflow:hidden; 溢出:隐藏;
+overflow:scroll; 溢出:滚动;
+overflow:auto;   溢出:自动
+overflow:visible;默认
+.....................................................
+
+浮动：
+	作用：放在一行！
+
+	特点：
+		 1.半脱离文档流
+		 2.元素变成块
+		 3.顶对齐
+
+	浮动三要素：
+		 1.清浮动！
+		 2.同级元素只要有一个浮动，其他都浮动！
+		 3.尽量写宽！
+..................................................................
+
+margin - bug
+	1. margin 塌陷！
+			只有上下重叠！
+	   避免：1.只写一个方向！
+	   	     2.用padding
+	2. margin 拖拽父级！
+			 上下拖拽父级！
+		避免：1.用padding（推荐）
+			  2.给父级加border
+			  3.给父级加overflow:hidden;
+margin 的优点：
+	 1.可以写负值！
+	 	1. 有固定宽高，改变元素位置！
+	 	2. 没有固定宽高，改变元素的大小！
+.......................................................
+
+overflow:hidden;
+第二种清除浮动方式：不常用！
+ clear:both; 清除俩边浮动！
+ 	<div style=" clear:both;"></div>
+
+第三种清除浮动：
+ .clearfix:after{ display:block; content:''; clear:both;}
+..............................................................
+
+透明度：太强了！它会把所有子级包含的元素都变透明！
+ opacity:0.6; 0-1
+ filter:alpha(opacity:60);  0-100
+
+
+input标签：单标签
+
+表单 的标签拿取里边的东西全动用value；
+      在value里边换行用\n；
+
+
+类型属性：
+	type="" 
+		text     文本输入框
+		password 密码输入框
+		radio    单选按钮 （必须写name）
+		checkbox 多选按钮
+		submit   提交按钮
+		button   普通按钮
+		reset	 重置按钮
+		number   数字框
+		hidden   隐藏域#
+<input type="number" min="1" max="10"/>
+
+不能提交：disabled属性
+不能修改：readonly只读
+清除默认样式：-webkit-appearance: none;
+提示属性：
+	 placeholder="请输入用户名" (提示文字)
+提交数据：oForm.onsubmit 当提交表单的时候
+	  oForm.onreset	 当重置表单的时候
+	<form method="get/post" action="提交路径">
+		<input type="radio" name=""/>
+		<input type="submit"/>
+	</form>可以加name
+	name=value&name=value
+
+锚点：对应标签上的id 用#表示
+
+	<a href="#yi">第一章</a>
+
+默认选中：
+	checked    oIn[i].checked=false/true; oIn[i].disabled=true；
+tab健执行顺序
+	tabindex='1';
+选择标签：
+	<input type="radio" id="nan" />
+	<label for="nan">汉字</label>
+下拉菜单：
+	<select>  selected="selected" 选中状态
+   		<option>北京</option>
+        <option>上海</option>
+        <option>广州</option>
+   </select>
+文本域：
+	<textarea></textarea> maxlength="4"
+	resize: none;
+	resize: both;
+	resize: vertical;
+	resize: horizontal;
+
+input/textarea清除焦点边框：
+	outline:none;
+textarea重置大小：
+	resize:none;
+input{ border:none 0;}
+
+单选框，复选框 不支持样式修改  和文字对齐vertical-align: middle;
+				vertical-align:top;  用于解决行内快对不齐的情况
+
+下拉菜单，样式部分支持 - 低版本浏览器有问题！
+----------------------------------------------
+按钮下的  value="保存" 显示文字
+
+...............................................
+表格2015.12.10
+
+列合并：colspan="3"
+行合并：rowspan="3"
+
+默认对齐方式：
+	td 横向居左 纵向居中
+
+	th 横向居中 纵向居中
+table
+	thead
+		tr  th
+	tbody
+		tr  td
+	tfoot
+		tr  td
+属性：
+	横向对齐： align="center/left/right"
+	纵向对齐：valign="middle/bottom/top"
+
+样式：
+	横向对齐： text-align:right/left/center;
+	纵向对齐： vertical-align:top/middle/bottom;
+清除table默认样式：
+table{ border-collapse:collapse;}
+th,td{border:1px solid #000; padding:0;}
+.........................................
+
+框架：
+	<iframe src="test.html" id="iframeSon" width="700″ height="300″ frameborder="0″ scrolling="auto"></iframe>
+	作用：引入广告
+		  系统项目
+	main = $(window.parent.document).find("#iframe");//从主页面获取元素
+	window.frames["iframeSon"].document
+a锚点：
+	<h2 id="name2">锚点位置</h2>
+	<a href="#name2">链接</a>
+
+a的打开方式：
+	target
+		_blank 新窗口
+		_self  自身窗口
+		_parent父级窗口
+		_top   顶级窗口
+		new    只在一个新窗口 
+
+
+
+补充：元素的嵌套关系--
+      硬的包软的
+		块级元素可以包任何元素  ---但是p只能包裹行内元素
+		行内元素只能包行内元素  ---但是a既能包行内也能包块/但是不能包a；
+
+
+0000000000000000000000000000000000000000000000000000000000000000000000000
+jq选项卡
+$(function(){
+		$('.box input').click(function(){
+			$('.box input').removeClass('active');
+			$('.box div').removeClass('show');
+			$(this).addClass('active');
+			$('.box div').eq($(this).index()).addClass('show');
+		})	
+	})
+自定义属性 data-abc前缀 在JS中调用this.dataset.abc  /*有兼容问题IE*/
+
+jq笔记在12.18
+11111111111111111111111111111111111111111111111111111111111111111
+<meat name="viewport" content="width:device-width,user-scalable=no,initial-scale=1">
+手机移动端必写的viewport  = 视口设置
+		device-width = 设备宽度
+		user-scalable = 用户缩放权限
+		initial-scale = 初始缩放比例
+
+@media screen and (min-width:960px){
+
+	
+}  媒体查询
+
+移动端：
+	min-width:320px; 
+	max-width:640px;
+
+怎样让图片自适应宽度：width:100%;
+
+背景图自适应：background-size:100%;
+
+模拟table：
+ 	display:table;
+
+ 	display:table-cell;
+
+移动端常用rem
+   1 rem 字体大小 -  根目录标签定的 HTML标签 默认16像素
+
+   1 em 单位名称 - 一个字的大小  浏览器默认字体大小-16像素
+ 	相对于自己的字体大小
+
+ bootstrap 
+ //移动端 打电话 发短信 写邮件
+<a href="tel:0755-10086">打电话给:0755-10086</a>
+<a href="sms:10086">发短信给: 10086</a>//winphone无效
+<a href="mailto:peun@foxmail.com">peun@foxmail.com</a>
+<!-- 选择照片 -->
+<input type=file accept="image/*">
+<!-- 选择视频 -->
+<input type=file accept="video/*">
+
+...................................................................................
+h5：
+	H5标签
+		header
+		section
+		footer
+		nav
+		artile
+		aside
+		video
+		audio
+	H5表单元素
+		search
+		email
+		url
+		number
+		date
+		time
+		week
+		color
+		range
+	
+css3：
+	圆角  border-radius
+	阴影  box-shadow:X Y 模糊值 阴影大小 red inset;   
+	         text-shadow:X Y 模糊值 red
+	渐变  linear-gradient(red,yellow)  线性渐变
+	         radial-gradient(red,yellow)  径向渐变
+
+	变形 transform
+		旋转 rotate();
+		平移 translate()
+		缩放 scale()
+		倾斜 skew()
+	过渡 transition:all 1s linear/ease-in/ease-out/ease-in-out;
+		            全部样式  运动时间 运动形式：匀速/加速/减速/先加后减
+
+	动画
+		animation:run 1s linear infinite;
+		 调用run动画   动画时长  运动形式  无限次运动
+ 
+		@-webkit-keyframes run{
+			from{}
+			to{}
+		}
+
+
+	-webkit- chrome
+	-moz-   firefox
+	-ms-     IE
+	-o-       opera
+
+	box-sizing:border-box; 改变盒模型 
+		width/height = 内容+border+padding;
+
+	background-size:100;  背景图大小 和 元素一样大
+
+	rgba(0,0,0,0.5);  颜色透明
+
+	媒体查询：
+	@media screen and (max-width:500){}
+
+	定义字体：
+	@font-face{
+		font-family:'abc';
+		src:url(字体路径);
+	}
+	调用字体：
+	div{ font-family:'abc';}
+
+	等高布局：
+		padding:2000px;
+		margin:-2000px;
+		父级：overflow:hidden;
+
+	自适应高的透明层：
+		父级  绝对定位 下面
+			子级 透明层  绝对定位 height:100%
+			子级 内容层  相对定位
+
+	单行文本省略：
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis; 
+CSS3 过渡
+	transition:all 1s;
+
+
+
+动画：
+	@-webkit-keyframes run{
+		from{
+			width:200px;	
+			border-radius:0px;	
+		}
+		to{
+			width:400px;	
+			border-radius:50%;		
+		}
+	}
+
+	animation:run 1s infinite;
+
+.................................................................................................
+严格判断 判断值和类型
+switch(a){
+	case 12 :
+		alert(12);
+		break;
+	case 13 :
+		alert(13);
+		break;
+	case 14 :
+		alert('什么都不是');
+		break;
+	default :
+		代码
+		break;
+}
+break; 跳出
+代码一样可以合写
+continue; 暂停 暂时跳出！
+break continue 只影响最近的一层循环；
+----------------------------------------------------------------
+if 判断 条件
+	true 真  非0数字 非空字符串 非空对象(null) 
+
+	false 假  数字0  空字符串   空对象 undefined  NaN
+---------------------------------------------------------------------
+
+undefined： 
+	1. 没有传参
+	2. 没有定义变量
+	3. 定义了 没有值	
+	4. 函数没有定义return的值
+	5. 函数定义了return 但是没有值
+【报错】
+		出现了没定义变量或函数，
+		前面有 typeof 不报错。
+
+.............................................................................................................
+获取行间样式：
+function abc(a,b){
+			if(a.currentStyle){ var w=a.currentStyle[b];/*IE低版本支持*/}
+			else{ var w=getComputedStyle(a,false)[b];/*谷歌火狐支持*/}
+			return w;
+		}
+function getStyle(obj,sName)
+{
+	return (obj.currentStyle || getComputedStyle(obj,false))[sName];
+}简化版终极版
+
+怎么判断一个浏览器是IE6    window.navigator 当前浏览器版本
+	Chrom
+	Firefox  （FireFox低版本火狐）.toLowerCase()火狐谷歌加这个可以不区分大小写
+	MSIE 7.0
+	可以查看是不是这个浏览器
+	if(window.navigator.userAgent.indexOf('MSIE 6.0')!=-1)
+	{ alert('是IE6')}
+	else{alert('非IE6')}
+
+
+=====================================================================================================
+	【正则】
+	
+		nameReg=/^([a-zA-Z0-9\u4e00-\u9fa5\·]{1,10})$/;
+		phoneReg=/^1[3|4|5|7|8][0-9]{9}$/;
+		变量 '/'+obj+'/'
+		str.replace(要，谁)
+		str.replace(正则,谁)
+		str.replace(正则,fn)
+
+		str.search(正则)   str.indexOf(小字符串)
+		str.match(正则)	 -> 匹配结果
+		reg.test(str);
+
+		‘i’   ignore  忽略大小写 
+		‘g’   global  全局   
+		‘m’  multi-line 多行模式  
+
+
+	【字符串】目前这些方法不改变字符串本身；
+		字符串拼接如果引号比较多可以使用转义  \
+		var str='<a href="javascript:;" onclick="clickBtn(\'_gogame\',\'http://www.baidu.com\');">点击</a>';
+		encodeURI(中文); 
+		decodeURI(编码);
+
+		escape()中文转码
+		unescape()
+
+		str.charAt(下标)
+		str.toUpperCase()大写
+		str.toLowerCase()小写
+		str.indexOf()左到右
+		str.replace('','')替换
+		str.lastIndexOf()右到左
+			找到了，下标
+			没找到，-1
+			找一次
+			严格区分大小写
+		str.split('-')	字符串 -> 数组
+		str.slice(start,end)不包含结束下标 截取字符串
+		str.substring()截取
+			substring(开始下标)   从开始截取到最后一个下标
+			substring(开始下标, 结束下标)   
+				不包含结束下标
+		str.charCodeAt(下标)字符串 -> 编码
+		String.fromCharCode(编码);编码 -> 字符串
+ 
+	【数组】 里边最好存同类型的东西或者批量处理的东西；
+		有些方法改变数组本身：
+		有的不变：jion concat
+		arr.map(x => x+1)  返回值是一个数组
+		arr.filter(x => x>1)  返回值是一个数组
+		arr.forEach((value,key,arr) => value+1)  没有返回值
+
+		arr.join() 数组 -> 字符串
+		arr.reverse() 翻转
+		arr.concat(可以放多个数组，放数字会进行转换变成数组)  拼接
+		arr.push(x)    后添加 //函数返回值是 添加后的数组length
+		arr.unshift(x) 前添加
+		arr.indexOf() 返回下标 没有返回-1
+		arr.pop()    后删除  //函数返回值是 删除的那个东西
+		arr.shift()  前删除
+		arr.slice()  可以得到一个不是引用关系的数组
+		arr.splice() //函数返回值是 删除的那个数组
+			删除
+				splice(开始下标, 个数)
+			替换
+				splice(开始下标, 1, 内容...)
+			插入
+				splice(开始下标, 0, 内容...)
+		
+		arr.sort()   排序（默认字符串方法排序）
+			sort(function (a, b){ //a b代表数组的某一个项；
+				return a-b; // 小到大
+				return b-a; // 大到小
+			})
+
+		\ 反斜杠  转义 \n
+		/ 正斜杠 （推荐）
+			路径
+			windows \ /
+			Linux   / （服务器）
+
+
+		Array.from(伪数组);
+		let json={
+			0:'a',
+			1:'b',
+			2:'c',
+			length:3,
+			[Symbol.iterator]:Array.prototype[Symbol.iterator]//有这个属性就可以用数组的遍历方法 for of
+		}
+
+	【json】 当不强调顺序的时候用json,当存不一样类型的东西的时候；
+			
+            var json={
+				'name':'老炮儿',
+				下标    值
+				'age': 20,
+				'sex':'男'
+			};
+			json['name'] 
+	如何向json里加东西 json['marry']='已婚';
+		for in	for(var name in json)
+			{
+			  json的for循环方法name是个变量代表下标；
+			}
+	alert(JSON.stringify(json));obj.toJSONString()  能看出json里的是什么东西；
+	JSON.parse(str)/str.parseJSON(); 字符串转json ie低版本要借助json2.js
+	【eval】处理后台给的数据
+		n="{'name':'haojie'}"后台给的可能没（）
+		eval();操作字符串执行字符串里的内容；
+			当字符串里是json时eval('('+n+')')
+
+	当不让用eval时用
+
+		//var show=function(){};等价于下边的
+		var str='{"age":18,"sex":2}';//处理后台数据
+		var json=new Function('return '+str)();
+		//执行的代码只能在最后一个引号里；
+		alert(json.age);
+
+	【Math】
+		Number() --> 可以用于任何数据类型
+		parseInt()和parseFloat()  --> 用于将string转换成Number
+		parseInt(num,10) 可以规定几进制 --> 10进制
+		parseFloat() 只能解析10进制其他都是NaN
+		随机数：
+			Math.random()  0-1数字  1 永远不会出现的！
+
+			获取到 10-20随机数！
+			Math.random()*(20-10)+10;
+
+		Math.max(1,2);  返回最大
+		Math.min(1,2);	返回最小
+		Math.round(4.5);5//4舍5入
+		Math.ceil(4.5); 5//向上取整
+		Math.floor(4.5); 4//向下取整+
+		Math.PI;代表π这个数不加();
+		Math.sqrt();//开平方
+		Math.pow(n,m);//n的m次方
+		Math.cos();
+		Math.sin();
+		Math.atan2(对边，邻边);
+		Math.abs();绝对值
+		num.toFixed(2);保留两位小数
+
+ 	【select】
+	window.onload=function(){
+		var oSel=document.getElementsByTagName('select')[0];
+		var oNew=new Option();
+		oNew.text='郑州';
+		oNew.value='zz';
+		oSel.options.add(oNew);//添加option
+		oSel.options.remove(0);//删除option;删掉一个后边会补上去所以连续删除0 0;
+		oSel.options.remove(0);
+
+		oSel.onchange=function(){/
+			alert(oSel.selectedIndex);option下标
+			alert(oSel.options[oSel.selectedIndex].text);option里边的内容
+			alert(oSel.options[oSel.selectedIndex].value);optionvalue
+		};
+	};
+	<select>
+		<option value="bj" selected="selected">北京</option>
+		<option value="xc">许昌</option>
+		<option value="hz">杭州</option>
+	</select>
+
+
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+【第二阶段】
+	****【不加var】
+		js变全局有两种方法：1种不加var 不用  可读性太差不容易查错；
+				    2种 在前边加window. 推荐；
+				window.show=function(){
+					alert('a');
+				};
+		所有全局的东西都是window的；
+	**【负值表达式】
+		带等号的
+		赋值表达式出现的地方就是他的值；
+		a && a.b   如果有a.b 就输出a.b  如果不存在a 或 a.b  就输出undefined
+
+	**【逗号表达式】必须有（）包起来是一个整体才是逗号表达式；if for 自带其他要自己加；
+		前边有多少都执行但以最后一个为结果；
+		if(0,1,2,'a',5,null){ alert(true);}
+		else{ alert(false)}
+
+		for(var i=0,j=0;i<3,j<5;i++,j++)
+		{
+			alert(i)
+		}//弹0 1 2 3 4;
+
+		var a;
+		a=12,5;等价于a=12; 5;
+		a=(12,5);加括号才变成逗号表达式
+		
+		alert(12,5)弹12 相当于传参
+		alert((12,5))弹5
+
+
+
+	*****【预解析】
+		预解析，在所有代码执行之前执行！
+		定义：把变量的定义提到最上面。
+				函数也有预解析；
+			定义：仅仅是定义，没有赋值
+			最上面：作用域的最上面
+				局部：到function
+				全局：script
+		预解析顺序：var 的变量的定义最先、function(){} 其次 、赋值语句等都在预解析之后执行
+		but：
+			全局变量在定义之后（比如在上一个script标签中的 事件/定时器 中能调用下边script中定义的变量）是能在整个页面中调用的；
+			这和预解析并不冲突；
+
+	*【异常】
+		用：应急！处理线上bug，快速解决
+		缺点：
+			1. 速度慢！
+			2. 不容易调错
+
+		优点：
+			屏蔽错误，后面代码正常执行
+
+		try
+		{
+			// 有可能出错代码
+		}
+		catch(e) // error 错误对象
+		{
+			// 有错执行
+		}
+
+	**【字符编码】
+		字符串 -> 编码
+			'abc'.charCodeAt(下标)
+			'abc'.codePointAt(下标) 可以识别大于 \u0000--\uFFFF的字符
+		编码 -> 字符串
+			String.fromCharCode(编码);
+			String.fromCodePoint(编码);
+		中文
+			4E00 - 9FA5 十六进制
+			19968 - 40869 十进制
+
+		十六进制 转换为 十进制
+			0X4E00
+			0X十六进制 -> 十进制
+
+		十六进制 转换为 汉字 unicode
+			JS  必须加''
+				\u
+				\u4E00  一   
+			CSS 引号加不加都行
+				\
+				'宋体' ->   \5b8b\4f53
+							\5B8B\4F53
+
+		一个汉字多少个字节
+			gb2312 2字节
+			utf-8  3字节
+		for 循环不能识别大于 \u0000--\uFFFF的字符
+		for of  可以
+
+	"{'age':18}" -> 长像json字符串
+	{'age':18}  -> json
+
+
+下拉标签 子集 数组 都是会自动补齐的；
+
+
+
+
+	【函数】
+		定义
+			function show(){} （推荐）
+			// 定义后同一个script标签，任何位置都可以调用
+
+			var show=function (){}
+			// 只能在定以后调用
+			(function (){
+				window.show=function (){};
+			})();
+			show();
+
+			var show=new Function(); 处理json
+			show=new Function('return'+str)();
+
+		调用
+			show();
+
+		封闭空间 - 自执行匿名函数
+			(function (){})();
+			+function (){}();
+			-function (){}();
+			~function (){}();
+			!function (){}();
+			1. 解决重名
+			2. 循环 i
+
+		传参
+
+		返回值
+
+
+【给整个页面加事件 —— document】
+		body 不行
+
+		document
+		document.documentElement   HTML
+		document.body
+
+	【事件对象】—— 保存事件相关的东西
+		event 兼容非 firefox
+		ev    兼容高级浏览器
+		var oEvent=ev || event; 兼容所有浏览器
+
+		oEvent.clientX / Y  鼠标坐标
+		*可视区 为参照物计算的坐标
+		oEvent.keyCode
+		oEvent.ctrlKey / altKey / shiftKey
+
+	【事件冒泡】
+		触发子级事件相当于在触发父级事件
+			div  onclick
+				input onclick
+
+		注意：
+			1. 冒泡与位置无关
+			2. 一般情况不需要处理冒泡
+
+	【取消冒泡】P
+		必须 *子级 身上加 
+		oEvent.cancelBubble=true; 老IE
+		oEvent.stopPropagation(); 高级阻止冒泡和捕获
+		
+	【键盘】
+		onkeydown  按下去 先执行
+		onkeyup    抬起来 后执行
+
+		down
+		字进去
+		up
+
+		键盘编码是连续的
+			oEvent.keyCode  || oEvent.which  //firefox  opera
+			数字
+			(keyCode >= 48 && keyCode<=57) ||(keyCode >= 96 && keyCode<=105) || keyCode==8 
+			回车 13
+			空格 32
+			a    65
+			0    48
+			左   37
+			上   38
+			右   39
+			下   40
+			退格 8
+
+			ctrl   oEvent.ctrlKey
+			shift  oEvent.shiftKey
+			alt    oEvent.altKey
+
+		注意：
+			允许 ctrl + a
+			不允许 a + b
+
+	【优化】
+		不要频繁开关定时器
+
+	【阻止选中文字】
+		onmousedown
+			return false; IE678有问题
+		obj.setCapture && obj.setCapture() 兼容IE;
+		obj.releaseCapture && obj.releaseCapture();
+
+	【阻止默认事件】
+		return false;
+		不能在addEventListener阻止默认事件；
+		不能阻止IE低版本选中文字；
+
+	【事件绑定】所有事件都必须绑定！
+		解决 给同一个元素加多个相同事件
+
+		obj.addEventListener('click', function (){
+			...
+		}, false);
+
+		obj.attachEvent('onclick', function (){
+			...
+		});
+		addEventListener(事件名, fn, false) 高级
+		attachEvent('on'+事件名, fn)  IE 除了IE11
+
+		.onclick 别用！
+
+		注意：
+			1. addEventListener 有瑕疵
+				return false 不能阻止默认事件
+				oEvent.preventDefault && oEvent.preventDefault();高级
+				阻止默认事件
+
+			2. attachEvent 有瑕疵
+				this 不能用了总是指向 window
+
+			3. addEventListener 的 false *
+				false 冒泡
+				true  事件捕获 下沉 （不兼容）
+	【DOM 事件】
+		注意：DOM事件必须都是绑定！
+
+	【不能用 this】
+		1. 套一层 _this
+		2. 定时器 _this
+		3. 行间
+		4. attachEvent
+
+	【解除绑定】
+		removeEventListener()
+		detachEvent()
+
+		注意：不能解除匿名函数的绑定！
+		因为new了一次！
+
+	【未定义变量 未定义属性】
+		a     变量 -> 未定义 -> 报错
+		obj.a 属性 -> 未定义 -> undefined
+
+		oEvent=ev || event;
+		oEvent=window.event || ev;
+
+	【克隆】
+		cloneNode(true);
+			true 深度克隆，连同子级一起克隆
+			id也会一起克隆所以把Id属性删了
+			obj.removeAttribute('id')
+
+	【鼠标滚轮】
+		非 FF
+			onmousewheel
+				oEvent.wheelDelta
+					> 0 上
+					< 0 下
+
+		FF
+			DOMMouseScroll
+				oEvent.detail
+					> 0 下
+					< 0 上
+		滚轮        return false 微软鼠标+FF 
+			会出BUG 不是代码问题是公司打架
+ 	【ready】
+		window.onload 代码 + 图片 + 视频 + 音频 ……
+		ready         代码
+
+		高级
+			DOMContentLoaded
+		所有
+			onreadystatechange
+				if (document.readyState == 'complete')
+				{
+					.....
+				}
+
+	【事件委托】
+		原理：冒泡，给父级加事件相当于给子级加事件。
+
+		非 FF
+		oEvent.srcElement   -> 触发事件源头对象
+
+		FF
+		oEvent.target
+
+		var oSrc=oEvent.srcElement || oEvent.target;
+
+		什么时候用？（3种）
+			1. 子级非常多
+			2. 给未来元素加事件 （创建的元素）
+			3. innerHTML 出问题
+		如果目标元素内部有子集 可以加这个样式
+		li.item >  * {
+		  pointer-events: none;鼠标事件被干掉
+		}
+
+	【标签名】
+		oSrc.tagName -> 'LI' 'UL' 'BODY' 
+		标签名都是大写的
+
+	【innerHTML 问题】
+		父级 innerHTML 发生改变，有可能子级事件会消失
+
+	【onmouseover  onmouseout 有问题】
+		obj.contains(对象) 检测对象是不是属于obj
+		true  false 
+		over
+			oEvent.fromElement   非FF
+			oEvent.relatedTarget FF
+
+		out
+			oEvent.toElement     非FF
+			oEvent.relatedTarget FF
+
+		over onmouseenter
+		out  onmouseleave
+			问题：非 W3C
+
+
+
+	【cookie】
+			特性
+			不能跨域
+			大小 4k 左右
+			可以被禁用
+			必须运行在服务器环境下
+			document.cookie='a=8; path=/; expires='+oDate.toGMTString();
+         +oDate.toUTCString();
+
+    【canvas】
+    	canvas.toDataURL("images/png"); 保存canvas的图片base64格式
+      
+	【jQuery】笔记在2016.3.4左右=============
+     	伪类：
+    	$('div:first')
+    	$('div:last')
+    	$('div:eq') -> 某一个(从0开始)
+    	$('div:odd')
+    	$('div:even')
+
+		属性选择器：
+   	 		input[type=text]
+          		class=xx
+
+		:contains(文本);
+		:has(标签);
+
+		this -> 原生js
+		$(this) -> jquery
+
+	【插件、组件】
+		$.fn.xxxx=function (){
+			this // jQ
+		};
+
+
+	【照片墙随机换】
+		* 随机排序数组
+			arr.sort(function (){
+				return Math.random()-0.5;
+			})
+
+	【圆】
+		弧度=PI/180*角度
+		角度=弧度*180/PI
+
+
+	【form】
+		<form method="post">
+			action="地址" http://
+
+			get
+				地址栏 URL
+				不安全
+				大小 32k
+				分享
+
+			post
+				head 头
+				相对安全
+				大小 1G
+				上传
+				敏感
+				没有缓存
+
+	【同步 异步概念】
+		异步 - 多件可以同时执行
+			setTimeout
+			setInterval
+
+		同步 - 一件事完事儿再执行下一件事情
+
+	【ajax】 - 获取数据 发送数据
+		注意：
+				1. 不关心后缀名
+				2. 编码必须统一
+					utf-8 gb2312
+				3. 有缓存 同一个地址只请求一次
+					?t=Math.random()
+					?t=oDate.getTime()
+				4. 不能跨域
+		写
+			new XMLHttpRequest()
+			new ActiveXObject('Microsoft.XMLHTTP')
+
+			oAjax.open('get', url, true)
+				true异步  false同步
+			oAja.send()
+
+			oAjax.onreadystatechange
+				oAjax.readyState == 4
+					oAjax.status>=200 && oAjax.status<300 || oAjax.status==304
+						oAjax.responseText
+跨域报错
+XMLHttpRequest cannot load http://demo098.3vzhuji.net/a.txt?FileMd5Key=0bf8fe6a1f2ecb374eeb78c7e3581dc9. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost' is therefore not allowed access.
+
+	oAjax.readyState
+		0	ajax对象准备完毕
+		1	发送完成
+		2	原始数据接收完成
+		3	正在解析数据(解编码、解密等)
+		4	数据完成
+
+	请列出您常见的http状态码？
+		200	OK
+		301	Moved Permanently
+		302	Moved Temporarily
+		304	Not Modified
+		403	Forbidden
+		404	Not Found
+		405	Not Allowed
+		414	Request-URI Too Large
+		500	Internal Server Error
+		502	Bad GateWay
+		504	Gateway timeout
+
+
+
+
+	【seajs】
+
+		seajs.use('路径',function(mod){
+			mod.show();
+		});
+		define(function(require,exports,module){
+			var move=require('move').move;//引入外部文件
+			exports.slide=function(){};
+			module.exports={
+				slide:function(){},
+				show:function(){}
+			};
+		});
+
+		<script src="js/sea.js" data-main="init"></script>
+
+		init入口模块路径
+
+
+obj.classList
+obj.dataset.xxx
+
+【移动端】
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+(function(global){
+    function remChange(){
+        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+    }
+    remChange();
+    global.addEventListener('resize',remChange,false);
+})(window);
+
+
+
+常用liunx命令：—没有提示，就是正确
+
+	列出当前目录下所有文件:    ls
+	清屏:		clear
+	查看文件内容:	cat 文件
+	退到上级:	cd ..
+	进入某个目录:   cd 目录名
+	创建文件:	touch 文件名
+	删除文件:       rm  文件名
+	创建目录:	mkdir	目录名
+	删除目录:	rmdir	目录名
+	创建文件并写入内容: echo 12345 > a.txt
+	编辑文件:	vi 文件 -> i -> esc -> :wq
+
+DOS命令：
+	清屏	cls
+	退回上一级  cd ..
+	查看目录下所有文件  dir
+	退出当前编辑环境   ctrl+c
+	切换盘符	d:
+	切换目录	cd 目录名
+
+
+【框架】
+	html5shiv.js  html5标签兼容低版本
+<!--[if lt IE 9]>
+  <script src="html5shiv.min.js"></script>
+<![endif]-->
+
+
+baidu.com -> 找缓存 -> 重定向 -> www.baidu.com -> 先找浏览器缓存 -> 本地缓存(hosts) -> 路由缓存 -> dns解析 -> IP地址 -> 
+请求服务器(发送请求(ajax等)) -> 服务器处理数据(接收、处理、判断、入库、返回) -> 响应给客户端(浏览器) -> 从上往下，从左往右，
+一点点输出->html(DOM树)、渲染树(css)(请求(ajax)) -> 页面
+
+【外部登录连接】
+var loginUrl ='http://gameapi.kuwo.cn:8080/oauth/login/game?uri='+window.location;
+    $('#thirdSina').click(function(){
+        var sinaAuth = 'https://api.weibo.com/oauth2/authorize?client_id=2972927130&response_type=code&redirect_uri=http://i.kuwo.cn/US/platform/weibo.jsp&display=popup';
+        qqSina(sinaAuth, 'sina', '新浪微博登录', 620, 491);
+    });
+    $('#thirdQQ').click(function(){
+        var qqAuth = 'https://graph.qq.com/oauth2.0/authorize?client_id=100243533&response_type=code&scope=get_user_info,add_share&redirect_uri=http://i.kuwo.cn/US/platform/qq.jsp';
+        qqSina(qqAuth, 'QQ', 'QQ账号登录', 502, 390);
+    });
+    function qqSina(auth, type, name, width, height){
+        window.open(auth, name, "width=" + width + ",height=" + height + ",menubar=0,scrollbars=1,status=1,titlebar=0,toobar=0,location=1,resizable=yes");
+    }
+
+
+
+  【2016/5】
+  	window.onload=function(){
+		var oCopy=document.getElementById('copy');
+		oCopy.onclick=function(){
+			var Url2=document.getElementById("textCopy");
+			Url2.select(); // 选择对象
+			document.execCommand("Copy"); // 执行浏览器复制命令
+			alert("已复制好，可贴粘。");
+		};
+	};
+	<input name="" id="textCopy" cols="30" rows="10">
+    <input type="button" value="复制" id="copy">
+
+    ////ZeroClipboard插件 不要用本地环境测试
+    var client = new ZeroClipboard( $('.clip_button') );
+
+	client.on( 'load', function(client) {
+	// alert( "movie is loaded" );
+
+	client.on( 'datarequested', function(client) {
+	  client.setText(this.innerHTML);
+	} );
+
+	client.on( 'complete', function(client, args) {
+	  alert("Copied text to clipboard: " + args.text );
+	} );
+	} );
+
+	client.on( 'wrongflash noflash', function() {
+	ZeroClipboard.destroy();
+	} );
+
+    【2016/6/2】
+    如何该表iscroll的滚动条样式  搜索bar.style.cssText   改变background就可以了
+
+
+【官网错位效果】
+    #portfolio{
+    background-image: url(../img/bg-pattern.png), url(../img/move_bg.jpg);
+    background-position: top left, center center;
+    background-size: auto, cover;
+    background-repeat: repeat, no-repeat;
+    background-attachment: fixed;
+  }
+
+  【改变滚动条样式】
+  .scroll_box::-webkit-scrollbar-thumb {
+	    width: 5px;
+	    border-radius: 5px;
+	    background: #d75b00;
+	    border: 0px solid #fff;
+	}
+	.scroll_box {
+	    overflow-x: hidden;
+	    overflow-y: scroll;
+	    visibility: visible;
+	    -webkit-overflow-scrolling: touch;
+	}
+
+	.scroll_box::-webkit-scrollbar { 
+	    display: block; 
+	}
+
+
+
+	switch()
+	{
+		case 2:
+	    case 3:
+	    	break;
+	}
+
+【控制浏览器窗口的大小】
+
+JS控制浏览器窗口的大小代码之一：
+<script>   
+window.moveTo(0, 0);//移动窗口   
+window.resizeTo(800, 600);//改变大小   
+window.onresize=new Function("window.resizeTo(800,   600);")   
+</script>
+
+JS控制浏览器窗口的大小代码之二：
+<SCRIPT>
+if (window != top) top.location.href = location.href;
+self.resizeTo(800,600);
+</SCRIPT>
+
+JS控制浏览器窗口的大小代码之三：
+<script language="javascript">
+  function openWin()
+  {
+     var i=0;
+     i = open("","","width=500,height=500");
+  }
+</script>
+
+
+JS控制浏览器窗口的大小代码之四：
+<SCRIPT language=JavaScript>
+  var new_width=800; //你要固定的浏览器宽度
+  var new_height=600; //你要固定的浏览器高度
+  function resizewindow()
+  {
+      window.resizeTo(new_width,new_height);
+  }
+  resizewindow();
+  </SCRIPT>
+
+
+
+
+
+  【git命令】
+    git remote -v  查看git克隆的远端地址
+	git init
+	git add .
+	git commit -m '注释'
+	git status
+	git push
+	git pull
+	git clone 'url'
+	git diff readme.txt  查看文件修改内容
+	git log  查看历史记录
+	git reset  –hard HEAD~100  [HEAD^] [版本号]回退版本命令
+	git branch 查看分支
+	git checkout –readme.txt  撤销修改
+	rm b.txt  删除
+	git checkout --b.txt  恢复文件
+	git checkout -b dev 创建并切换分支  等同  
+	git branch dev      创建分支
+	git checkout dev    切换分支
+	git merge name      合并某分支到当前分支
+	git branch –d name  删除分支
+	git cherry-pick  38361a68  可以用git log 查看
+	wq
+	【npm】
+	npm 是 Node 的模块管理器，功能极其强大。它是 Node 获得成功的重要原因之一。
+	npm install <packageName> 命令用来安装模块到node_modules目录。
+	npm install <packageName> --force 如果你希望，一个模块不管是否安装过，npm 都要强制重新安装，可以使用-f或--force参数。
+	npm update <packageName> 它会先到远程仓库查询最新版本，然后查询本地版本。如果本地版本不存在，或者远程版本较新，就会安装。
+	*这个网址后面跟上模块名，就会得到一个 JSON 对象，里面是该模块所有版本的信息。比如，访问 https://registry.npmjs.org/react，就会看到 react 模块所有版本的信息。
+
+
+	【unicode】
+<script type="text/javascript">
+var GB2312UnicodeConverter = { 
+	ToUnicode: function (str) {
+		return escape(str).toLocaleLowerCase().replace(/%u/gi, '\\u');
+	},
+	ToGB2312: function (str) {
+	    return unescape(str.replace(/\\u/gi, '%u'));
+	} 
+};
+    var str = '上海', unicode;
+  document.write(str + '<br/>');
+  unicode = GB2312UnicodeConverter.ToUnicode(str);
+  document.write('汉字转换为Unicode代码：' + unicode + '<br/><br/>');
+  document.write('Unicode代码转换为汉字：' + GB2312UnicodeConverter.ToGB2312(unicode));  
+</script>
+
+
+【下载图片】
+<a href="new.jpg" download></a>
+
+
+【收藏】
+<script>
+function AddFavorite(title,url){
+	if(document.all)
+	{
+		window.external.addFavorite(url,title);
+	}
+   	else if(window.sidebar)
+   	{
+   		if(window.sidebar.addPanel)
+   		{
+   			window.sidebar.addPanel(url,title,"");
+   		}
+   	}
+   	else{
+   		alert("对不起，您的浏览器不支持此操作!\n请您使用菜单栏或Ctrl+D收藏本页。");
+  	}
+}
+</script>
+ <a href="javascript:void(0);" onclick="AddFavorite('百度','http://www.baidu.com')">收藏本站</a>
+</body>
+
+【背景图错位效果】
+background:url(../img/move-bg.jpg) no-repeat center center; background-size: cover; background-attachment: fixed;
+
+【强制渲染到ie7】
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+
+<param name="wmode" value="transparent">控制flash层级
+<param name="wmode" value="opaque" />
+
+【ie兼容模式】
+ie的兼容模式console有问题可以加上
+<script type="text/javascript">
+    if(!window.console){
+        window.console = {};
+    }
+    if(!window.console.log){
+        window.console.log = function(msg){};
+    }
+</script>
+
+【接口里打开标签页不被拦截的方法】
+var newTab=window.open('about:blank');
+newTab.location.href=str;
+
+
+【If条件不同版本浏览器注释列表】
+<!--[if !IE]>除IE外都可识别<![endif]--> 
+<!--[if IE]> 所有的IE可识别 <![endif]-->
+<!--[if gt IE 5.0]> IE5.0以及IE5.0以上版本都可以识别 <![endif]--> 
+<!--[if IE 6]> 仅IE6可识别 <![endif]--> 
+<!--[if lt IE 6]> IE6以及IE6以下版本可识别 <![endif]--> 
+<!--[if gte IE 6]> IE6以及IE6以上版本可识别 <![endif]--> 
+<!--[if IE 7]> 仅IE7可识别 <![endif]--> 
+<!--[if lt IE 7]> IE7以及IE7以下版本可识别 <![endif]--> 
+<!--[if gte IE 7]> IE7以及IE7以上版本可识别 <![endif]-->
+
+
+【js获取服务器时间】
+	(function(){//这个获得的事世界标准时间
+        var req = new XMLHttpRequest();
+        req.open('GET', location, false);
+        req.send(null);
+        var times=req.getResponseHeader('Date');
+        console.log(times);
+        var oDate=new Date(times);
+        console.log(oDate.getHours());
+    })();
+
+ 【vue.js diff算法 虚拟(Virtual)DOM】IE9+
+https://github.com/livoras/blog/issues/13 深度剖析：如何实现一个 Virtual DOM 算法
+
+【IE6】
+a标签的JavaScript:; 会阻断$.getJSON 的执行 换成#
+
+【DOM start】
+JavaScript
+		ECMAScript	核心解释器
+			几乎兼容
+
+		DOM document object module 文档对象模型
+			有不兼容的东西，可以解决
+
+		BOM browser object module  浏览器对象模型
+			几乎不兼容
+
+
+
+【DOM】document object module 文档对象模型  有不兼容的东西，可以解决
+
+	【获取】
+		var aBox=document.querySelectorAll('.box');返回NodeList对象
+		可以通过：
+			var arr=Array.prototype.slice.call(aBox);=>Array.from(aBox);
+			NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+			// 或者
+			NodeList.prototype[Symbol.iterator] = [][Symbol.iterator];
+
+			[...document.querySelectorAll('div')]
+			可以使用数组的方法
+		document.querySelector  取第0个
+		children   获取直接子集
+		parentNode 获取子集的直接父集（父节点）
+		第一个子集
+			firstElementChild   高级浏览器
+			firstChild          低版本用//兼容所有 但在高级会识别文本节点object Text
+		最后一个子集
+			lastElementChild
+			lastChild
+		上一个子集
+			previousElementSibling
+			previousSibling
+		下一个
+			nextElementSibling
+			nextSibling
+		判断时要先判断高级浏览器如下：
+		var oL=oBox.lastElementChild || oBox.lastChild;
+		oL.style.background='red';
+	【创建】
+		document.createElement('标签名')
+		创建出来元素和页面获取元素是一样的。
+			必须是 document
+				1. getElementById
+				2. createElement
+		focus() 聚焦
+	【插入】有剪切的功能
+		父集.appendChild(子集对象)
+		父集.insertBefore(子集对象，谁);
+	【替换】
+		父集.replaceChild(newnode,oldnode);
+	【删除】
+		只有直接父集能删除
+		父集.removeChild(子集对象);
+		删除的时候不要用下标去控制对象；
+	【字符串换行】
+		1. 在字符串结束 \
+		2. 字符串拼接
+
+		obj.innerHTML='<a href="#">aa</a> \
+			<p>pppppp</p>'
+
++++++++++++++++++++++++++++++++++++++++++
+
+	【BOM】
+		地址
+			http://baidu.com/a/1.html?age=18&sex=1#abc
+
+			window.location 完整的URL
+			window.location.href='';
+			window.open('');
+			http: 协议       protocol
+			baidu.com 域名  host
+			/a/1.html  路径 	pathname
+			?age=18&sex=1 数据  search
+			#abc      锚点  hash //适用于ajax页面趋于传统化，如:ajax控制页面显示不同内容就可以通过变更hash来实现区别
+			window.onhashchange = function(){};//hash 监听事件IE8+
+
+		弹框
+			winodw.alert()
+			window.confirm('确认下载吗？')
+			window.prompt('你今天多大？')
+
+			模拟 ——> 设计不会放过你的！！！
+
+		历史
+			前进
+				window.history.go(1)
+				window.history.forward()
+
+			后退
+				window.history.go(-1)
+				window.history.back()
+
+		页面操作
+			打开指定页面
+				window.open(地址, target);
+				about:blank;空白页的网址
+				返回值是打开新窗口的window对象；
+
+			关闭页面
+				window.close();
+
+				通过js打开
+					兼容所有浏览器
+
+				直接手动打开 (安全)
+					IE  确认框
+					FF  报错
+					chorme 可以关闭
+
+预习
+----------------------
+	1. 可视区
+		高度
+			document.documentElement.clientHeight
+		宽度
+			document.documentElement.clientWidth
+
+	2. offset  只能用来获取不能设置
+		offsetParent 定位父集(位置用这个)
+			body的offsetParent是null；
+			body的parentNode-> html ->document ->null；
+			documentelement是html
+
+		offsetLeft 到定位父级的左边距离
+		offsetTop  到定位父级的上边距离
+
+		盒子模型=width/height + padding + border
+		offsetWidth  盒子模型宽度
+		offsetHeight 盒子模型高度
+		如果一个元素的display：none；获取不到所有的offset  其他的都能获取到
+
+
+		getStyle()  -> 仅仅是宽高   -> '200px'
+		offsetWidth -> 盒子模型大小 -> 200
+
+	3. 滚动距离
+		obj.scrollHeight//是内容的高度当小于offsetHeight时相等
+		document.body.scrollTop   			chrome
+		document.documentElement.scrollTop  IE FF
+
+
+	在设置scrollTop时
+		eg:document.body.scrollTop=dis;
+		当dis小于body的height-clientHeight时滚动距离就是dis
+		当dis大于body的height-clientHeight时滚动距离就是body的height-clientHeight
+	****如果一个元素的display：none；获取不到所有的scrollTop
+
+	4.获取/设置 行间自定义属性
+
+		obj.getAttribute();
+		obj.setAttribute('名','值');
+【DOM end】
+5. 堆栈
+	后进先出，先进后出 (LIFO)
+
+	盘子数列
+
+	arr.push() / arr.pop()
+
+	arr.unshift/ arr.shift()
+6. 队列
+	先进先出，后进后出
+
+	排队、下载队列
+
+	arr.push() / arr.shift()
+
+	arr.unshift() / arr.pop();
+
+	* 数组既是堆栈，又是队列
+
+----》 手动释放内存  就是在用完一个变量时--> obj=null;(解除引用)
+这并不是垃圾回收释放内存   只是为了垃圾收集器在执行时将其回收
+
+【递归】
+函数调用自身，称为递归。如果尾调用自身，就称为尾递归。
+递归非常耗费内存，因为需要同时保存成千上百个调用记录，很容易发生"栈溢出"错误（stack overflow）。但对于尾递归来说，由于只存在一个调用记录，所以永远不会发生"栈溢出"错误。
+function factorial(n, total) {
+  if (n === 1) return total;
+  return factorial(n - 1, n * total);
+}
+factorial(5, 1);
+ES6的尾调用优化只在严格模式下开启，正常模式是无效的。
+这是因为在正常模式下，函数内部有两个变量，可以跟踪函数的调用栈。
+arguments：返回调用时函数的参数。
+func.caller：返回调用当前函数的那个函数。
+
+	【二分法】
+	如何衡量算法好赖？
+	1. 时间
+	2. 空间	
+	请列出几个常见的排序算法？
+	1. 冒泡排序：每次比较相邻的两个数，如果后一个数比前一个数大，交换位置
+		bSort  bubbleSort
+	2. 选择排序: 每次站在自己位置上，后面选出来一个最小值，和当前换位置
+		sSort	selectionSort
+	3. 归并排序：采用二分法，左边数组，右面数组，每次比较左右数据第一项，小的放到一个新的数组里面
+		mSort	mergeSort
+	4. 快速排序:采用二分法，取出中间数(数组)，循环比较，比中间小的，放到左边，大的放到右面
+		qSort	quickSort
+
+	数据结构：数据的结构
+	数据结构比算法重要
+
+	二分查找，前提，数组有序	
+
+	一旦数据结构定死了，相应的算法
+
+	数据：
+		前提：不可能重复
+
+		增：银行存钱
+		删：银行账户注销
+		改：取钱、 百度快照
+		查：百度搜索
+	常见数据结构：
+	
+	1. 有序数组
+			查找	添加
+			5	5020
+			sort_find()
+			sort_add()
+	2. 无序数组
+			查找	添加
+			45	38
+
+			unsort_find()
+			unsort_add()
+	3. 二叉树
+			查找	添加
+			15	16
+
+		—靠谱一个数据结构
+
+		树：根、分支
+
+		二叉树： 最多有两个分支
+
+		左<根<右
+		小    大
+
+		bst_add();
+		bst_find()
+	4. 散列、哈希(hash)
+			查找	添加
+				311/4
+		'完美'数据结构
+
+		手动申请空间
+
+		var hash=[];
+		hash.length=10;
+
+		存储：
+			模映射  %
+
+			冲突：
+				敲隔壁
+
+			住满：
+				标志： 住满
+				
+				扩建
+					多少？
+					2倍扩建
+
+		hash_add();
+		hash_find()
+
+		* 用空间来换时间
+	5. 堆栈
+		后进先出，先进后出 (LIFO)
+
+		盘子数列
+
+		arr.push() / arr.pop()
+
+		arr.unshift/ arr.shift()
+	6. 队列
+		先进先出，后进后出
+
+		排队、下载队列
+
+		arr.push() / arr.shift()
+
+		arr.unshift() / arr.pop();
+
+		* 数组既是堆栈，又是队列
+【PHP】
+	php接收数据：
+		get:
+			$_GET['name']
+		post:
+			$_POST['name'];
+		file_get_contents('./a.txt'); 获取文件内容
+		file_put_contents('./a.txt', $_GET['data']); 改写文件内容
+		echo $origin_str; 输出
+	用php如何关联数据库？
+	a). 连接数据库
+		mysql_connect(数据库地址，数据库用户名，数据库密码)		
+	b). 选择一个数据库
+		mysql_select_db(数据库名)
+
+	sql语句：
+		增
+		删
+		改
+		查
+
+			
+		查询：
+			SELECT 字段 FROM 表
+			SELECT 字段,字段2 FROM 表
+			SELECT * FROM 表
+
+			SELECT username FROM user;
+
+			SELECT username,password FROM user;
+
+			SELECT * FROM user;
+
+			可以带条件：
+			SELECT * FROM user WHERE 条件
+
+			SELECT * FROM user WHERE username='admin';
+		增加：
+			INSERT INTO 表 VALUES(value1,value2...)
+
+			INSERT INTO user VALUES('ccc','123');
+
+
+【响应式 自适应 布局】Responsive design ＝ RWD//响应式 Adaptive design ＝ AWD //自适应
+	自适应暴露出一个问题，如果屏幕太小，即使网页能够根据屏幕大小进行适配，但是会感觉在小屏幕上查看，内容过于拥挤,或者选择舍弃一些功能
+	响应式可以自动识别屏幕宽度、并做出相应调整的网页设计，布局和展示的内容可能会有所变动
+
+	@media screen and (min-width:960px){
+	
+	}  媒体查询
+	(function(global){
+	    function remChange(){
+	        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+	    }
+	    remChange();
+	    global.addEventListener('resize',remChange,false);
+	})(window);
+
+【面向对象 构造函数】//极简主义法  constructor   instanceof
+http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html
+var Cat={
+	createNew:function(){
+		var cat={};
+		cat.name='发条';
+		cat.age=18;
+		return cat;
+	}
+};
+使用 var cat1=Cat.createNew();
+【原型链】
+ JS在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做__proto__的内置属性，用于指向创建它的函数对象的原型对象prototype。以上面的例子为例：
+
+  console.log(zjh.__proto__ === person.prototype) //true
+
+同样，person.prototype对象也有__proto__属性，它指向创建它的函数对象（Object）的prototype
+
+  console.log(person.prototype.__proto__ === Object.prototype) //true
+
+继续，Object.prototype对象也有__proto__属性，但它比较特殊，为null
+
+  console.log(Object.prototype.__proto__) //null
+Object.getPrototypeOf(zjh) === person.prototype  //true
+Object.setPrototypeOf(zjh,person.prototype); === zjh.__proto__=person.prototype;
+我们把这个有__proto__串起来的直到Object.prototype.__proto__为null的链叫做原型链
+原型链--》zjh.__proto__ --> person.prototype   __proto__ --> Object.prototype  __proto__ --> null
+
+
+【call bind apply】
+call apply 和 bind的主要区别就是执行函数没有
+1.   xb.say.call(this,arg[0],arg[1].....);
+2.   xb.say.apply(this,arguments);
+3.   xb.say.bind(this,arg[0],arg[1].....)();
+
+
+【报错】
+!function(){//可以报错
+	throw new Error('Missing parameter');
+}();
+
+
+【link meta】HTML5
+	<meta name="keywords" content="趣酷游戏盒子">
+	<meta name="description" content="趣酷游戏盒子">
+	<meta http-equiv="x-dns-prefetch-control" content="off"> off可以禁止隐式DNS预解析
+
+	<link href="base.css" rel="stylesheet">
+
+	<link rel="shortcut icon" href="/public/template1/images/favicon.png" type="image/png"> 
+
+	<link rel="dns-prefetch" href="http://img1.17kxstatic.com"> IE9+
+	典型的一次DNS解析需要耗费 20-120 毫秒
+	DNS Prefetch DNS预获取 是一种DNS 预解析技术，当你浏览网页时，浏览器会在加载网页时对网页中的域名进行解析缓存，这样在你单击当前网页中的连接时就无需进行DNS 的解析，减少用户等待时间，提高用户体验。 
+
+	我之前讲解过很多大型的网站，都会用N 个CDN 域名来做图片、静态文件等资源访问。比如新浪，我们经常会看到有下列域。
+
+	img1.sina.com.cn 、 img2.sina.com.cn 、img3.sina.com.cn 、img4.sina.com.cn 等等，包括天猫、京东等，都会这样去使用，这是为什么呢，还是出在DNS 解析和浏览器加载原理上，解析单个域名同样的地点加上高并发（极端）难免有点堵塞，再加上部分浏览器对相同域名去DNS 解析的时候会异步，导致速度下降，虽然这些速度上咱们可能看不上，但蚊子再小也是肉，优化就讲究极致。
+
+	默认情况下浏览器会对页面中和当前域名（正在浏览网页的域名）不在同一个域的域名进行预获取，并且缓存结果，这就是隐式的 DNS Prefetch。如果想对页面中没有出现的域进行预获取，那么就要使用显示的 DNS Prefetch 了。
+
+【video】//https://github.com/robinma/videoplayer
+	src ：视频的属性
+    poster：视频封面，没有播放时显示的图片
+    preload：预加载
+    autoplay：自动播放
+    loop：循环播放
+    controls：浏览器自带的控制条
+    width：视频宽度
+    height：视频高度
+    <video id="media" src="http://www.sundxs.com/test.mp4" controls width="400px" heigt="400px"></video>  
+
+    Media.error; //null:正常
+	Media.error.code; //1.用户终止 2.网络错误 3.解码错误 4.URL无效
+
+	//网络状态 
+	Media.currentSrc; //返回当前资源的URL
+	Media.src = value; //返回或设置当前资源的URL
+	Media.canPlayType(type); //是否能播放某种格式的资源
+	Media.networkState; //0.此元素未初始化 1.正常但没有使用网络 2.正在下载数据 3.没有找到资源
+	Media.load(); //重新加载src指定的资源
+	Media.buffered; //返回已缓冲区域，TimeRanges
+	Media.preload; //none:不预载 metadata:预载资源信息 auto:
+
+	//准备状态 
+	- Media.readyState;//1:HAVE_NOTHING 2:HAVE_METADATA 3.HAVE_CURRENT_DATA 4.HAVE_FUTURE_DATA 5.HAVE_ENOUGH_DATA
+	- Media.seeking; //是否正在seeking
+
+	//回放状态
+
+	Media.currentTime = value; //当前播放的位置，赋值可改变位置
+	Media.startTime; //一般为0，如果为流媒体或者不从0开始的资源，则不为0
+	Media.duration; //当前资源长度 流返回无限
+	Media.paused; //是否暂停
+	Media.defaultPlaybackRate = value;//默认的回放速度，可以设置
+	Media.playbackRate = value;//当前播放速度，设置后马上改变
+	Media.played; //返回已经播放的区域，TimeRanges，关于此对象见下文
+	Media.seekable; //返回可以seek的区域 TimeRanges
+	Media.ended; //是否结束
+	Media.autoPlay; //是否自动播放
+	Media.loop; //是否循环播放
+	Media.play(); //播放
+	Media.pause(); //暂停
+	//视频控制
+
+	Media.controls;//是否有默认控制条
+	Media.volume = value; //音量
+	Media.muted = value; //静音
+	TimeRanges(区域)对象
+	TimeRanges.length; //区域段数
+	TimeRanges.start(index) //第index段区域的开始位置
+	TimeRanges.end(index) //第index段区域的结束位置
+	//相关事件
+
+	var eventTester = function(e){
+		Media.addEventListener(e,function(){
+		 console.log((new Date()).getTime(),e)
+		},false);
+	}	
+	eventTester("loadstart"); //客户端开始请求数据
+	eventTester("progress"); //客户端正在请求数据
+	eventTester("suspend"); //延迟下载
+	eventTester("abort"); //客户端主动终止下载（不是因为错误引起）
+	eventTester("loadstart"); //客户端开始请求数据
+	eventTester("progress"); //客户端正在请求数据
+	eventTester("suspend"); //延迟下载
+	eventTester("abort"); //客户端主动终止下载（不是因为错误引起），
+	eventTester("error"); //请求数据时遇到错误
+	eventTester("stalled"); //网速失速
+	eventTester("play"); //play()和autoplay开始播放时触发
+	eventTester("pause"); //pause()触发
+	eventTester("loadedmetadata"); //成功获取资源长度
+	eventTester("loadeddata"); //
+	eventTester("waiting"); //等待数据，并非错误
+	eventTester("playing"); //开始回放
+	eventTester("canplay"); //可以播放，但中途可能因为加载而暂停
+	eventTester("canplaythrough"); //可以播放，歌曲全部加载完毕
+	eventTester("seeking"); //寻找中
+	eventTester("seeked"); //寻找完毕
+	eventTester("timeupdate"); //播放时间改变
+	eventTester("ended"); //播放结束
+	eventTester("ratechange"); //播放速率改变
+	eventTester("durationchange"); //资源长度改变
+	eventTester("volumechange"); //音量改变
+
+
+-----------------------------------------------------------------------------
+--------------------------E--S--6--------------------------------------------
+-----------------------------------------------------------------------------
+
+
+【箭头函数】
+var c=(a,b) => a+b;
+箭头函数内部没有this 所以他的this都指向外部的this；
+arguments、super、new.target。 这些在箭头函数内部也不存在
+// λ演算的写法
+fix = λf.(λx.f(λv.x(x)(v)))(λx.f(λv.x(x)(v)))
+
+// ES6的写法
+var fix = f => (x => f(v => x(x)(v)))
+               (x => f(v => x(x)(v)));
+
+
+
+【ES6】
+	ES6 声明变量的六种方法
+	ES5 只有两种声明变量的方法：var命令和function命令。ES6除了添加let和const命令，另外两种声明变量的方法：import命令和class命令。所以，ES6 一共有6种声明变量的方法。
+
+
+	Object.assign(target, source1, source2);
+	对象的合并 将源对象（source）的所有可枚举属性，复制到目标对象（target）
+	也可以用来处理数组Object.assign([1, 2, 3], [4, 5]) // [4, 5, 3]
+	Object.is()  方法 
+	和 === 的不同  Object.is(+0, -0) // false  Object.is(NaN, NaN) // true
+
+	ES6 属性遍历的规则
+	for...in / Object.keys(obj) / Object.getOwnPropertyNames(obj) / Object.getOwnPropertySymbols(obj) / Reflect.ownKeys(obj) / Object.values(obj) / Object.entries(obj)
+	以上的5种方法遍历对象的属性，都遵守同样的属性遍历的次序规则。
+
+		首先遍历所有属性名为数值的属性，按照数字大小排序。
+		其次遍历所有属性名为字符串的属性，按照生成时间排序。
+		最后遍历所有属性名为Symbol值的属性，按照生成时间排序。
+
+	ES5 引入了Object.keys方法，
+	返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名。
+	ES2017 Object.values(obj) Object.entries(obj)
+	Object.values方法返回一个数组，
+		成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+	Object.entries方法返回一个数组，
+		成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值对数组。
+		var obj = { foo: 'bar', baz: 42 };
+		Object.entries(obj);
+		// [ ["foo", "bar"], ["baz", 42] ]
+
+	“Null 传导运算符” ==> ?.	(只是一个提案)
+		const firstName = (message
+			  && message.body
+			  && message.body.user
+			  && message.body.user.firstName) || 'default';
+		==> const firstName = message?.body?.user?.firstName || 'default';
+
+		obj?.prop // 读取对象属性
+		obj?.[expr] // 同上
+		func?.(...args) // 函数或对象方法的调用
+		new C?.(...args) // 构造函数的调用
+
+	【js数据类型】	
+		//undefined null boolean number string Object
+		undefined null boolean number string 是js的5中基本数据类型
+		Object (Array Function) 属于引用类型
+
+	Symbol 
+		ES6引入了一种新的原始数据类型Symbol，表示独一无二的值
+		Symbol函数前不能使用new命令，否则会报错。这是因为生成的Symbol是一个原始类型的值，不是对象
+		Symbol.for(key)
+			它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的Symbol值。如果有，就返回这个Symbol值，否则就新建并返回一个以该字符串为名称的Symbol值。Symbol.for为Symbol值登记的名字，是全局环境的，可以在不同的 iframe 或 service worker 中取到同一个值。
+		Symbol.keyFor(sym2)
+			方法返回一个已登记的 Symbol 类型值的key。
+		Symbol()   -》没有登记机制  Symbol.for(key) ->有登记机制
+		let sym1=Symbol('abc'); 
+		sym1 == Symbol.for('abc') //false
+		Symbol.keyFor(sym1) // undefined
+		let sym2=Symbol.for('abc');
+		sym2 == Symbol.for('abc') //true
+		Symbol.keyFor(sym2) // 'abc'
+		iframe.contentWindow.Symbol.for('foo') === Symbol.for('foo')
+-----------------------------------------------------------------------------
+-------------------------E--S--6---------------------------------------------
+-----------------------------------------------------------------------------
+
+【react】
+http://www.ruanyifeng.com/blog/2015/03/react.html
+<script src="../build/react.js"></script>
+<script src="../build/react-dom.js"></script>
+<script src="../build/browser.min.js"></script>
+必须被先引入 	
+	react.js是核心库 
+	react-dom是DOM相关功能
+	browser.js是将JSX语法转换为js语法 非常耗时上线时将其放在服务器进行
+<script type="text/babel">  因为react是jsx语法所以要加上type="text/babel"
+    //代码	
+</script>
+{}里边用来执行js代码结尾不能用；  ---》{name}
+
+单标签--》 <input/> 必须有闭合符
+
+由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。
+在react中遍历元素时一定要加上 key属性
+react中的遍历一半用map完成以为map会返回一个return形成的数组而forEach不会反回
+组件第一个字母要大写  组件一定要有render用来输出组件返回值只能有一个顶层元素
+React.createClass({
+	render:function(){
+		return <h1>{this.props.name ? 'kongdehaha':this.props.name}</h1>
+	}
+});
+ReactDOM.render(
+	<HellowMessage name="hahawoyou"/>,
+	aLi[3]
+);
+
+
+
+【比较运算符 == 】
+如果x不是正常值（比如抛出一个错误），中断执行。
+如果y不是正常值，中断执行。
+如果Type(x)与Type(y)相同，执行严格相等运算x === y。
+如果x是null，y是undefined，返回true。
+如果x是undefined，y是null，返回true。
+如果Type(x)是数值，Type(y)是字符串，返回x == ToNumber(y)的结果。
+如果Type(x)是字符串，Type(y)是数值，返回ToNumber(x) == y的结果。
+如果Type(x)是布尔值，返回ToNumber(x) == y的结果。
+如果Type(y)是布尔值，返回x == ToNumber(y)的结果。
+如果Type(x)是字符串或数值或Symbol值，Type(y)是对象，返回x == ToPrimitive(y)的结果。
+如果Type(x)是对象，Type(y)是字符串或数值或Symbol值，返回ToPrimitive(x) == y的结果。
+返回false。
+ 0 == null //false
+
+
+【面试知识点】
+HTML&CSS：
+    对Web标准的理解、浏览器内核差异、兼容性、hack、CSS基本功：布局、盒子模型、选择器优先级、
+    HTML5、CSS3、Flexbox
+
+JavaScript：
+    数据类型、运算、对象、Function、继承、闭包、作用域、原型链、事件、RegExp、JSON、Ajax、
+    DOM、BOM、内存泄漏、跨域、异步装载、模板引擎、前端MVC、路由、模块化、Canvas、ECMAScript 6、Nodejs
+
+其他：
+    移动端、响应式、自动化构建、HTTP、离线存储、WEB安全、优化、重构、团队协作、可维护、易用性、SEO、UED、架构、职业生涯、快速学习能力
+
+***行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+	（1）行内元素有：a b span img input select strong em i（强调的语气）
+	（2）块级元素有：div ul ol li dl dt dd h1~h6 p ...
+
+	（3）常见的空元素：
+	<br> <hr> <img> <input> <link> <meta>
+	鲜为人知的是：
+	<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+
+
+***页面导入样式时，使用link和@import有什么区别？
+
+	（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;
+
+	（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
+
+	（3）import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题;
+	
+
+***常见的浏览器内核有哪些？
+
+	主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和JS引擎。 现在主要指渲染引擎
+	Trident内核：IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称MSHTML]
+	Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等
+	Presto内核：Opera7及以上。      [Opera内核原为：Presto，现为：Blink;]
+	Webkit内核：Safari,Chrome等。   [ Chrome的：Blink（WebKit的分支）]
+
+
+***简述一下你对HTML语义化的理解？
+
+	用正确的标签做正确的事情。
+	html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;
+	即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;
+	搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;
+	使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
+
+***HTML5的离线储存怎么使用，工作原理能不能解释一下？
+
+	在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
+	原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
+
+	如何使用：
+	1、页面头部像下面一样加入一个manifest的属性；<html lang="en" manifest="index.manifest">
+	2、在cache.manifest文件的编写离线存储的资源；
+	    CACHE MANIFEST
+	    #v0.11
+	    CACHE:
+	    js/app.js
+	    css/style.css
+	    NETWORK:
+	    resourse/logo.png
+	    FALLBACK:
+	    / /offline.html
+	3、在离线状态时，操作window.applicationCache进行需求实现。
+
+***请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+
+	cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。
+	cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。
+	sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+
+	存储大小：
+	    cookie数据大小不能超过4k。
+	    sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+
+	有期时间：
+	    localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
+	    sessionStorage  数据在当前浏览器窗口关闭后自动删除。
+	    cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
+
+
+***介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？
+
+	（1）有两种， IE 盒子模型、W3C 盒子模型；
+	（2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border)；
+	（3）区  别： IE的content部分把 border 和 padding计算了进去;
+
+***CSS选择符有哪些？哪些属性可以继承？
+
+    1.id选择器（ # myid）
+    2.类选择器（.myclassname）
+    3.标签选择器（div, h1, p）群组选择器
+    4.相邻选择器（h1 + p）
+    5.子选择器（ul > li）
+    6.嵌套选择器（li a）
+    7.通配符选择器（ * ）
+    8.属性选择器（a[rel = "external"]）
+    9.伪类选择器（a:hover, li:nth-child）
+
+	可继承的样式： font-size font-family color, UL LI DL DD DT;
+
+	不可继承的样式：border padding margin width height ;
+
+***CSS优先级算法如何计算？
+
+	优先级就近原则，同权重情况下样式定义最近者为准;
+	载入样式以最后载入的定位为准;
+
+	优先级为:
+	    同权重: 内联样式表（标签内部）> 嵌入样式表（当前文件中）> 外部样式表（外部文件中）。
+	    !important >  id > class > tag
+	    important 比 内联优先级高
+
+***CSS3新增伪类有那些？
+
+    举例：
+    p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
+    p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
+    p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素。
+    p:only-child        选择属于其父元素的唯一子元素的每个 <p> 元素。
+    p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元素。
+
+    :after          在元素之前添加内容,也可以用来做清除浮动。
+    :before         在元素之后添加内容
+    :enabled        
+    :disabled       控制表单控件的禁用状态。
+    :checked        单选框或复选框被选中。
+
+
+***浏览器是怎样解析CSS选择器的？
+
+	样式系统从关键选择器开始匹配，然后左移查找规则选择器的祖先元素。
+	只要选择器的子树一直在工作，样式系统就会持续左移，直到和规则匹配，或者是因为不匹配而放弃该规则。
+
+***元素竖向的百分比设定是相对于容器的高度吗?
+	对于height属性取值百分比，是现对于容器高度的；
+	对于margin-top、margin-bottom、padding-top、padding-bottom这些竖直方向的内外边距属性的百分比取值，参考的其实是容器的宽度。
+
+***如何修改chrome记住密码后自动填充表单的黄色背景 ？
+
+	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+	  background-color: rgb(250, 255, 189); /* #FAFFBD; */
+	  background-image: none;
+	  color: rgb(0, 0, 0);
+	}
+
+***让页面里的字体变清晰，变细用CSS怎么做？
+
+    -webkit-font-smoothing: antialiased;
+
+***如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）
+
+	多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60＊1000ms ＝ 16.7ms
+
+**说几条写JavaScript的基本规范？
+
+	1.不要在同一行声明多个变量。
+	2.请使用 ===/!==来比较true/false或者数值
+	3.使用对象字面量替代new Array这种形式
+	4.不要使用全局函数。
+	5.Switch语句必须带有default分支
+	6.函数不应该有时候有返回值，有时候没有返回值。
+	7.For循环必须使用大括号
+	8.If语句必须使用大括号
+	9.for-in循环中的变量 应该使用var关键字明确限定作用域，从而避免作用域污染。
+
+***什么是window对象? 什么是document对象?
+
+	window对象是指浏览器打开的窗口。
+	document对象是Documentd对象（HTML 文档对象）的一个只读引用，window对象的一个属性
+	documentElement --> html
+
+***闭包的特性：
+
+	1.函数内再嵌套函数
+	2.内部函数可以引用外层的参数和变量
+	3.参数和变量不会被垃圾回收机制回收
+
+***那些操作会造成内存泄漏？
+
+	内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。
+	垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
+
+	setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
+	闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+
+**用js实现千位分隔符?(来源：前端农民工，提示：正则+replace)
+
+	参考：http://www.tuicool.com/articles/ArQZfui
+	function commafy(num) {
+	    return num && num
+	        .toString()
+	        .replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
+	            return $1 + ",";
+	        });
+	}
+	console.log(commafy(1234567.90)); //1,234,567.90
+
+***事件捕获/事件冒泡
+	我们给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
+
+	如果这个元素是目标元素那么先绑定的先执行，如果是目标元素的父节点则先执行捕获 向下捕获过程结束后 再从目标元素向上执行冒泡；
+
+	所有事件的顺序是：其他元素捕获阶段事件 -> 本元素代码顺序事件 -> 其他元素冒泡阶段事件 。
+
+	冒泡：冒泡是从下向上，DOM元素绑定的事件被触发时，此时该元素为目标元素，目标元素执行后，它的的祖元素绑定的事件会向上顺序执行。
+	捕获：捕获则和冒泡相反，目标元素被触发后，会从目标元素的最顶层的祖先元素事件往下执行到目标元素为止。
+
+	blur: 在元素失去焦点时触发，该事件不支持冒泡
+	focus: 在元素获得焦点时触发，该事件不支持冒泡
+	mouseenter: 当鼠标移入元素时触发，该事件不支持冒泡
+	mouseleave: 当鼠标移出元素时触发，该事件不支持冒泡
+	.....
+
+***什么叫优雅降级和渐进增强？
+
+	优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会针对旧版本的IE进行降级处理了,使之在旧式浏览器上以某种形式降级体验却不至于完全不能用。
+	如：border-shadow
+
+	渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新版本浏览器才支持的功能,向页面增加不影响基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。
+	如：默认使用flash上传，但如果浏览器支持 HTML5 的文件上传功能，则使用HTML5实现更好的体验；
+
+***对Node的优点和缺点提出了自己的看法？
+
+	（优点）因为Node是基于事件驱动和无阻塞的，所以非常适合处理并发请求，
+	  因此构建在Node上的代理服务器相比其他技术实现（如Ruby）的服务器表现要好得多。
+	  此外，与Node代理服务器交互的客户端代码是由javascript语言编写的，
+	  因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。
+
+	（缺点）Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，
+	  而且缺少足够多的第三方库支持。看起来，就像是Ruby/Rails当年的样子。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Angular与node：链接：http://pan.baidu.com/s/1hsNknGS 密码：4qqb
+html5系列：链接：http://pan.baidu.com/s/1boIu1rx 密码：0jz2
+前端各类书籍：链接：http://pan.baidu.com/s/1slQVBXz 密码：e8vz
+微信开发：链接：http://pan.baidu.com/s/1jHUr2yq 密码：n0fl
+前端响应式开发：链接：http://pan.baidu.com/s/1dEOwcLz 密码：var1
+传智播客2015前端：链接：http://pan.baidu.com/s/1o8LCeee 密码：e0mz
+达内前端1：链接：http://pan.baidu.com/s/1qYQrGRE 密码：m6rg
+达内前端2：链接：http://pan.baidu.com/s/1jIPhZW6 密码：xz1l
+智能社前端：链接：http://pan.baidu.com/s/1slUZx3f 密码：s0a1
+ajax系列视频：链接：http://pan.baidu.com/s/1kVAmSa7 密码：7m7o
+光开发：链接：http://pan.baidu.com/s/1kUYZgZd 密码：p3f2
+韩顺平系列(linux、Java、php)：链接：http://pan.baidu.com/s/1o8vnEYI 密码：q2bx
+css教程：http://www.cnblogs.com/coco1s/p/5899089.html 
+bootstrap实战：https://pan.baidu.com/s/1i47wTqH 密码：hu6n
+angularJS教程：https://pan.baidu.com/s/1hr6IY5A 密码：7vp8
+nodeJs教程：https://pan.baidu.com/s/1qYzr8Aw 密码：2dwq
+nodejs电子书：https://pan.baidu.com/s/1sl4hbvn  密码：kzjk
+reactJs教程：http://pan.baidu.com/s/1jIlqSeU 密码：688n
+
+
+
+//趣酷
+QukaeGame-22	2168608366
+
+酷狗ID：863660562
+renhaojie@quakegame.cn
+酷狗后台
+账号： admin@quakegame.cn
+密码： qukukeji@123
+
+renhaojie     svn
+sdshf@WEFR
+
+酷狗平台迁移测试账号
+lajinimade   renhao110
+lichunpeng1-12  lcp0578
+
+chrome扩展目录
+C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\Extensions 
+
+天我手起刀落 id:918850711
+
+wanshen002
+a837351335
+老酷狗测试账号
+kugougametest
+kugou001
+
+lajinimade  2147483670
+
+VIP有两种类型
+vip、豪华VIP
+xcxcxc011/123321
+xcxcxc010/123321
+你试下这两个账号
+
+
+svn://10.0.0.88/quake_client/游戏盒子/
+renhaojie
+ssdfsdfsd@dsf
+http://183.136.205.214/svndata/php/php/project/main
+svn://42.51.131.6/kugou
+
+git提交注释规范
+[ADD]	表示添加	add	[ADD]提交的描述信息
+[MOD]	表示修改	modify	[MOD]提交的描述信息
+[BUG]	表示修复bug	fix bug	[BUG]提交的描述信息
+[DEL]	表示删除	delete	[DEL]提交的描述信息
+[REF]	表示重构	refactory	[REF]提交的描述信息
+
+
+https://tinypng.com/  图片压缩网址
+
+https://github.com/sorrycc/awesome-javascript  github  资源
+
+http://electron.atom.io/   js来开发桌面应用
+
+http://wrapbootstrap.com/preview/WB0G819K1  官网效果
+
+http://huodong.37.com/zt/platform/2016019313vip/?=game 37砸蛋
+
+
+http://www.jeffjade.com/2016/03/30/104-front-end-tutorial/  前端资源汇集
+
+https://github.com/FelisCatus/SwitchyOmega/releases/download/v2.3.19/SwitchyOmega.crx 翻墙插件
+
+D:\Software\Tencent\Tencent Files\1016510857\Image\Group   QQ资源中心
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***http状态码有那些？分别代表是什么意思？
+
+    简单版
+    [
+        100  Continue   继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息
+        200  OK         正常返回信息
+        201  Created    请求成功并且服务器创建了新的资源
+        202  Accepted   服务器已接受请求，但尚未处理
+        301  Moved Permanently  请求的网页已永久移动到新位置。
+        302 Found       临时性重定向。
+        303 See Other   临时性重定向，且总是使用 GET 请求新的 URI。
+        304  Not Modified 自从上次请求后，请求的网页未修改过。
+
+        400 Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
+        401 Unauthorized 请求未授权。
+        403 Forbidden   禁止访问。
+        404 Not Found   找不到如何与 URI 相匹配的资源。
+
+        500 Internal Server Error  最常见的服务器端错误。
+        503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
+    ]
+
+  完整版
+  1**(信息类)：表示接收到请求并且继续处理
+    100——客户必须继续发出请求
+    101——客户要求服务器根据请求转换HTTP协议版本
+
+  2**(响应成功)：表示动作被成功接收、理解和接受
+    200——表明该请求被成功地完成，所请求的资源发送回客户端
+    201——提示知道新文件的URL
+    202——接受和处理、但处理未完成
+    203——返回信息不确定或不完整
+    204——请求收到，但返回信息为空
+    205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件
+    206——服务器已经完成了部分用户的GET请求
+
+  3**(重定向类)：为了完成指定的动作，必须接受进一步处理
+    300——请求的资源可在多处得到
+    301——本网页被永久性转移到另一个URL
+    302——请求的网页被转移到一个新的地址，但客户访问仍继续通过原始URL地址，重定向，新的URL会在response中的Location中返回，浏览器将会使用新的URL发出新的Request。
+    303——建议客户访问其他URL或访问方式
+    304——自从上次请求后，请求的网页未修改过，服务器返回此响应时，不会返回网页内容，代表上次的文档已经被缓存了，还可以继续使用
+    305——请求的资源必须从服务器指定的地址得到
+    306——前一版本HTTP中使用的代码，现行版本中不再使用
+    307——申明请求的资源临时性删除
+
+  4**(客户端错误类)：请求包含错误语法或不能正确执行
+    400——客户端请求有语法错误，不能被服务器所理解
+    401——请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用
+    HTTP 401.1 - 未授权：登录失败
+    　　HTTP 401.2 - 未授权：服务器配置问题导致登录失败
+    　　HTTP 401.3 - ACL 禁止访问资源
+    　　HTTP 401.4 - 未授权：授权被筛选器拒绝
+    HTTP 401.5 - 未授权：ISAPI 或 CGI 授权失败
+    402——保留有效ChargeTo头响应
+    403——禁止访问，服务器收到请求，但是拒绝提供服务
+    HTTP 403.1 禁止访问：禁止可执行访问
+    　　HTTP 403.2 - 禁止访问：禁止读访问
+    　　HTTP 403.3 - 禁止访问：禁止写访问
+    　　HTTP 403.4 - 禁止访问：要求 SSL
+    　　HTTP 403.5 - 禁止访问：要求 SSL 128
+    　　HTTP 403.6 - 禁止访问：IP 地址被拒绝
+    　　HTTP 403.7 - 禁止访问：要求客户证书
+    　　HTTP 403.8 - 禁止访问：禁止站点访问
+    　　HTTP 403.9 - 禁止访问：连接的用户过多
+    　　HTTP 403.10 - 禁止访问：配置无效
+    　　HTTP 403.11 - 禁止访问：密码更改
+    　　HTTP 403.12 - 禁止访问：映射器拒绝访问
+    　　HTTP 403.13 - 禁止访问：客户证书已被吊销
+    　　HTTP 403.15 - 禁止访问：客户访问许可过多
+    　　HTTP 403.16 - 禁止访问：客户证书不可信或者无效
+    HTTP 403.17 - 禁止访问：客户证书已经到期或者尚未生效
+    404——一个404错误表明可连接服务器，但服务器无法取得所请求的网页，请求资源不存在。eg：输入了错误的URL
+    405——用户在Request-Line字段定义的方法不允许
+    406——根据用户发送的Accept拖，请求资源不可访问
+    407——类似401，用户必须首先在代理服务器上得到授权
+    408——客户端没有在用户指定的饿时间内完成请求
+    409——对当前资源状态，请求不能完成
+    410——服务器上不再有此资源且无进一步的参考地址
+    411——服务器拒绝用户定义的Content-Length属性请求
+    412——一个或多个请求头字段在当前请求中错误
+    413——请求的资源大于服务器允许的大小
+    414——请求的资源URL长于服务器允许的长度
+    415——请求资源不支持请求项目格式
+    416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段
+    417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长。
+
+  5**(服务端错误类)：服务器不能正确执行一个正确的请求
+    HTTP 500 - 服务器遇到错误，无法完成请求
+    　　HTTP 500.100 - 内部服务器错误 - ASP 错误
+    　　HTTP 500-11 服务器关闭
+    　　HTTP 500-12 应用程序重新启动
+    　　HTTP 500-13 - 服务器太忙
+    　　HTTP 500-14 - 应用程序无效
+    　　HTTP 500-15 - 不允许请求 global.asa
+    　　Error 501 - 未实现
+  HTTP 502 - 网关错误
+  HTTP 503：由于超载或停机维护，服务器目前无法使用，一段时间后可能恢复正常

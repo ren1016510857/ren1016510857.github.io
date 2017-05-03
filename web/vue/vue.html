@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任豪杰的代码</title>
+<style>
+	#vue2_5{ width:100px; height:100px; background: red; opacity:0.5;}
+	#vue2_5.cur{ background:blue;}
+	#vue2_5.opacity{ opacity:1; width:200px; border-radius: 5px;}
+</style>
+</head>
+<body>
+	<!-- <div class="vue_1.0">
+   		<div id="app">
+			{{message}}
+		</div>
+		<div id="app_2">
+			<span :title="title">
+				鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+		</div>
+		<div id="app_3">
+			<p>{{message}}</p>
+			<input type="text" v-model="message">
+		</div>
+		<ul id="app_4">
+			<li v-for="todo in todos">
+				{{todo.text}}
+			</li>
+		</ul>
+		<div id="app_5">
+			<p>{{message}}</p>
+			<button v-on:click="reversemsg">reversemsg</button>
+		</div>
+		<div id="app_6">
+			<input type="text" v-model="message" v-on:keyup.enter="addtodos">
+			<ul>
+				<li v-for="todo in todos">
+					<span>{{todo.text}}</span>
+					<button v-on:click="removetodos($index)">removetodos</button>
+				</li>
+			</ul>
+		</div>
+   	</div> -->
+	<div class="vue_2.0">
+		<div id="vue2_0">{{a}} || <span v-once>{{a}}</span></div>
+   		<div id="vue2_1">
+   			<ol>
+	   			<todo-item v-for="item in itemlist" :todo="item"></todo-item>	
+	   		</ol>
+   		</div>
+   		<div id="vue2_2">
+   			{{message | reversemsg | doublemsg(3-1)}}
+   		</div>
+   		<div id="vue2_3">
+   			<p>Original message: "{{ message }}"</p>
+   			<p>Computed reversed message: "{{ reversedMessage }}"</p>
+   		</div>
+   		<div id="vue2_4">
+   			Ask a yes/no question:
+   			<input type="text" v-model="question">
+   			<p>{{ answer }}</p>
+   		</div>
+   		<div id="vue2_5" :class="classobject">
+   			
+   		</div>
+   		<div id="vue2_6">
+   			<template v-if="type == 'username'">
+   				<label>UserName</label>
+   				<input type="text" placeholder="Enter your username" key="username">
+   			</template>	
+   			<template v-else>
+   				<label>Email</label>
+   				<input type="text" placeholder="Enter your email" key="email">
+   			</template>	
+   			<button v-on:click="tabType">Toggle login type</button>
+   		</div>
+   		<div id="vue2_7">
+   			<li v-for="(item,key,index) in items">
+   				{{item}}-{{index}}--{{key}}
+   			</li>
+   		</div>
+   		<div id="vue2_8">
+   			<my-component class=" todo foo"></my-component>
+   		</div>
+   		<div id="vue2_9">
+   			<input type="text" v-model="newtodo" @keyup.enter="addTodo">
+   			<ul>
+   				<li is="todo-item" v-for="(todo,index) in todos" :title="todo" :index="index" @remove="removeTodo(index)"></li>
+   			</ul>
+   		</div>
+   		<div id="vue2_10">
+   			<input type="checkbox" id="jock" value="jock" v-model="checkedNames">
+   			<label for="jock">jock</label>
+   			<input type="checkbox" id="mick" value="mick" v-model="checkedNames">
+   			<label for="mick">mick</label>
+   			<input type="checkbox" id="baoluo" value="baoluo" v-model="checkedNames">
+   			<label for="baoluo">baoluo</label>
+   			<br>
+   			<span>checkedNames is:{{checkedNames}}</span>
+   			<br>
+   			<input type="radio" id="one" value="one" v-model="picked">
+   			<label for="one">one</label>
+   			<br>
+   			<input type="radio" id="two" value="two" v-model="picked">
+   			<label for="two">two</label>
+   			<br>
+   			<span>Picked : {{picked}}</span>
+   			<hr>
+   			<select v-model="selected">
+   				<option value="A">A</option>
+   				<option value="B">B</option>
+   				<option value="C">C</option>
+   				<option value="D">D</option>
+   			</select>
+   			<br>
+   			<span>selected:{{selected}}</span>
+   		</div>
+   		<div id="vue2_11">
+   			<my-counter></my-counter>
+   			<my-counter></my-counter>
+   			<my-counter></my-counter>
+   		</div>
+   		<div id="vue_id1"></div>
+   		<div id="vue_id2"></div>
+
+	</div>
+<script src="vue2.0.js"></script>
+<script src="axios.min.js"></script>
+<script src="lodash.min.js"></script>
+<script>
+	Vue.config.devtools=true;//配置是否允许 vue-devtools 检查代码。
+	console.log('Helo World');
+	
+	var data={a:1,b:2};
+	var vm=new Vue({
+		el:'#vue2_0',
+		data:data,
+		created:function(){
+			this.a--;
+		}
+	});
+	vm.$watch('a',function(newval,oldval){
+		this.a<3 ? console.log(newval+oldval) : null;
+	});
+	setInterval(function(){
+		vm.a++;
+	},1000);
+
+	Vue.component('todo-item',{
+		props:['todo'],
+		template:'<li>{{todo.text}}</li>'
+	});
+	var twoApp1=new Vue({
+		el:'#vue2_1',
+		data:{
+			itemlist:[
+				{text:'hahah'},
+				{text:'hahdadah'},
+				{text:'haqerwewah'},
+				{text:'haeqweqweah'}
+			]
+		}
+	});
+	var twoApp2=new Vue({
+		el:'#vue2_2',
+		data:{
+			message:'不听话，打死你'
+		},
+		filters:{
+			reversemsg:function(val){
+				return val.split('').reverse().join('');
+			},
+			doublemsg:function(val,n){
+				n=n || 1;
+				for(var i=0;i<n;i++){
+					val+='#'+val;
+				}
+				return val;
+			}
+		}
+	});
+	var twoApp3=new Vue({
+		el:'#vue2_3',
+		data:{
+			message:'Hello'
+		},
+		computed:{
+			reversedMessage:function(){
+				return this.message.split('').reverse().join('');
+			}
+		}
+	});
+	var twoApp4=new Vue({
+		el:'#vue2_4',
+		data:{
+			question:'',
+			answer:'I cannot give you an answer until you ask a question!'
+		},
+		watch:{
+			question:function(newval){
+				this.answer='Waiting for you to stop typing...';
+				this.getAnswer();
+			}
+		},
+		methods:{
+			getAnswer:function(){
+				var vm=this;
+				vm.answer='Think...';
+				axios.get('/web/vue/a.php?data='+vm.question).then(function(response){
+					vm.answer=response.data;
+				}).catch(function(response){
+					vm.answer=response.data;
+				});
+			}
+		}
+	});
+	let twoApp5=new Vue({
+		el:'#vue2_5',
+		data:{
+			isActive:true,
+			error:false
+		},
+		computed:{
+			classobject:function(){
+				return {
+					cur: this.isActive && this.error,
+					opacity: this.isActive && !this.error
+				}
+			}
+		}
+	});
+	setInterval(function(){
+		twoApp5.isActive=!twoApp5.isActive;
+	},500);
+
+
+	var twoApp6=new Vue({
+		el:'#vue2_6',
+		data:{
+			type:'username'
+		},
+		methods:{
+			tabType:function(newval){
+				this.type == 'username' ? this.type='email' : this.type='username';
+			}
+		}
+	});
+	var twoApp7=new Vue({
+		el:'#vue2_7',
+		data:{
+			items:{
+				a:'laoli',
+				b:'laogao',
+				c:'laowang'
+			}
+		}
+	});
+
+	Vue.component('my-component',{
+		template:'<p class="foo todo">Hello</p>'
+	});
+	var twoApp8=new Vue({
+		el:'#vue2_8'
+	});
+
+	Vue.component('todo-item',{
+		props:['title'],
+		template:'<li>  \
+				{{title}}  \
+				<button @click="$emit(\'remove\')">X</button>  \
+			</li>'
+	});
+	var twoApp9=new Vue({
+		el:'#vue2_9',
+		data:{
+			newtodo:'',
+			todos:[
+				'daskjdklasjdklqweqwe1',
+				'daskjdklasjdklqweqwe2',
+				'daskjdklasjdklqweqwe3'
+			]
+		},
+		methods:{
+			addTodo:function(){
+				this.todos.push(this.newtodo);
+				this.newtodo='';
+			},
+			removeTodo:function(index){
+				this.todos.splice(index,1);
+			}
+		}
+	});
+	
+	var twoApp10=new Vue({
+		el:'#vue2_10',
+		data:{
+			checkedNames:[],
+			picked:'',
+			selected:'A'
+		}
+	});
+	var counterJson={counter:0};
+	var twoApp11=new Vue({
+		el:'#vue2_11',
+		components:{
+			'my-counter':{
+				template:'<button @click="addCounter">{{counter}}</button>',
+				data:function(){
+					return {
+						counter:0
+					};
+				},
+				methods:{
+					addCounter:function(){
+						this.counter+=1;
+					}
+				}
+			}
+		}
+	});
+
+
+
+	var Profile= Vue.extend({
+		template:'<p style="color:red; border:1px solid #ccc;">让{{firstname}}打{{nextname}}一顿，打狠一点{{bossname}}看着呢</p>',
+		data:function(){
+			return {
+				firstname:'强子',
+				nextname:'华子',
+				bossname:'老大'
+			}
+		}
+	});
+	new Profile().$mount('#vue_id1');
+	var Comp= Vue.extend({
+		props:['msg','size','color'],
+		template:'<p :style="{fontSize:size+"px",color:color}">{{msg}}</p>'
+	});
+	new Comp({
+		propsData:{
+			mag:'爱吃小龙虾',
+			size:'20',
+			color:'pink'
+		}
+	}).$mount('#vue_id2');
+
+	
+
+
+function vue1(){
+	//vue1.0
+	var vmApp=new Vue({
+		el:'#app',
+		data:{
+			message:'Hello world'
+		}
+	});
+	var vmApp2=new Vue({
+		el:'#app_2',
+		data:{
+			title:'会变哦'+new Date()
+		}
+	});
+	setInterval(function(){
+		vmApp2.title='会变哦'+new Date();
+	},1000);
+	var vmApp3=new Vue({
+		el:'#app_3',
+		data:{
+			message:'你好啊！'
+		}
+	});
+	var vmApp4=new Vue({
+		el:'#app_4',
+		data:{
+			todos:[
+				{text:'jkdshdjkahjk'},
+				{text:'jkddasdasdas er'},
+				{text:'jkdshdjkahjkasdas'}
+			]
+		}
+	});
+	var vmApp5=new Vue({
+		el:'#app_5',
+		data:{
+			message:'Hello vue.js!'
+		},
+		methods:{
+			reversemsg:function(){
+				this.message = this.message.split('').reverse().join('');
+			}
+		}
+	});
+	var vmApp6=new Vue({
+		el:'#app_6',
+		data:{
+			message:'',
+			todos:[
+				{text:'Add some todos' }
+			]
+		},
+		methods:{
+			addtodos:function(){
+				var newtodo=this.message.trim();
+				if(newtodo){
+					this.todos.push({text:newtodo});
+					this.message='';
+				}
+			},
+			removetodos:function(index){
+				console.log(index);
+				this.todos.splice(index,1);
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>
