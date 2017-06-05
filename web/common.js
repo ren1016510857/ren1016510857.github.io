@@ -904,5 +904,29 @@ Object.defineProperty(Object, 'is', {
 	}
 })();
 (function(){
+	var A = {n: 999};
+	var B = function(){ this.n = 888;};
+	var C = function(){ var n = 666;};
+	B.prototype = A ;
+	C.prototype = A ;
+	var b = new B();
+	var c = new C();
+	A.n ++;
+	console.log(b.n);//888
+	console.log(c.n);//1000
 	
+	B的this.n是自有属性，在没作为构造函数之前，默认this为window，所以直接运行B()，会undefined，
+	C中n是变量，非属性。后面修改了B,C的原型，指向对象为A，从而继承了A的n。之后实例化了b,c，b中的this指向B，运行了A.n++,A.n为1000。
+	此时在查找b.n和c.n。优先查找自有属性，若无，则往原型链方向找。所以b.n为888，c无n属性，则指向A.n。此时delete b.n，再输出b.n，为4400
+
+})();
+(function() {
+	var a = 'test';
+	a.len = 4;
+	var b = a.len;//undefined
+
+	字符串并不是对象 为什么会有属性呢？ 
+	只要引用了字符串a 的属性 js就会通过new String(a) 的方法转换成对象 这个对象继承了字符串的方法 ，并用来处理属性的引用 一旦引用结束就会销毁这个对象
+
+	数字 布尔值 也是这样；
 })();

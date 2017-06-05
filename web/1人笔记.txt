@@ -546,6 +546,14 @@ jq笔记在12.18
    1 em 单位名称 - 一个字的大小  浏览器默认字体大小-16像素
  	相对于自己的字体大小
 
+border 问题解决
+li:after{ content: ""; display: block; position: absolute; left: -50%; width: 200%; height: 1px; background: #ededed; -webkit-transform:scale(0.5); }
+/*border-top*/
+box-shadow: inset 0 1px 1px -1px #D8D8D8;
+/*border-bottom*/
+box-shadow: inset 0 -1px 1px -1px #D8D8D8;
+
+
  bootstrap 
  //移动端 打电话 发短信 写邮件
 <a href="tel:0755-10086">打电话给:0755-10086</a>
@@ -557,7 +565,7 @@ jq笔记在12.18
 <input type=file accept="video/*">
 
 ...................................................................................
-h5：
+HTML5：
 	H5标签
 		header
 		section
@@ -577,6 +585,10 @@ h5：
 		week
 		color
 		range
+<mark>milk</mark> 标记默认字体黄色 Internet Explorer 9+
+<dialog open></dislog> 窗口 chrome 支持
+<meter value="3" min="0" max="10">十分之三</meter> 度量值 Internet Explorer 不支持 meter 标签。
+<progress value="22" max="100"></progress>  进度条 Internet Explorer 9 以及更早的版本不支持
 	
 css3：
 	圆角  border-radius
@@ -720,7 +732,7 @@ function getStyle(obj,sName)
 
 =====================================================================================================
 	【正则】
-	
+		let ID = /^[1-9]\d{9}((0[1-9])|(1[0-2]))((0[1-9])|([1-2]\d)|(3[0-1]))\d{3}(\d|[xX])$|^[1-9]\d{7}((0[1-9])|(1[0-2]))((0[1-9])|([1-2]\d)|(3[0-1]))\d{3}$/;
 		nameReg=/^([a-zA-Z0-9\u4e00-\u9fa5\·]{1,10})$/;
 		phoneReg=/^1[3|4|5|7|8][0-9]{9}$/;
 		变量 '/'+obj+'/'
@@ -767,7 +779,7 @@ function getStyle(obj,sName)
  
 	【数组】 里边最好存同类型的东西或者批量处理的东西；
 		有些方法改变数组本身：
-		有的不变：jion concat
+		有的不变：join concat
 		arr.map(x => x+1)  返回值是一个数组
 		arr.filter(x => x>1)  返回值是一个数组
 		arr.forEach((value,key,arr) => value+1)  没有返回值
@@ -1372,7 +1384,9 @@ obj.dataset.xxx
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 (function(global){
     function remChange(){
-        document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+    	setTimeout(function(){
+			document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+    	},300);
     }
     remChange();
     global.addEventListener('resize',remChange,false);
@@ -1414,23 +1428,25 @@ baidu.com -> 找缓存 -> 重定向 -> www.baidu.com -> 先找浏览器缓存 ->
 请求服务器(发送请求(ajax等)) -> 服务器处理数据(接收、处理、判断、入库、返回) -> 响应给客户端(浏览器) -> 从上往下，从左往右，
 一点点输出->html(DOM树)、渲染树(css)(请求(ajax)) -> 页面
 
-【外部登录连接】
-var loginUrl ='http://gameapi.kuwo.cn:8080/oauth/login/game?uri='+window.location;
-    $('#thirdSina').click(function(){
-        var sinaAuth = 'https://api.weibo.com/oauth2/authorize?client_id=2972927130&response_type=code&redirect_uri=http://i.kuwo.cn/US/platform/weibo.jsp&display=popup';
-        qqSina(sinaAuth, 'sina', '新浪微博登录', 620, 491);
-    });
-    $('#thirdQQ').click(function(){
-        var qqAuth = 'https://graph.qq.com/oauth2.0/authorize?client_id=100243533&response_type=code&scope=get_user_info,add_share&redirect_uri=http://i.kuwo.cn/US/platform/qq.jsp';
-        qqSina(qqAuth, 'QQ', 'QQ账号登录', 502, 390);
-    });
-    function qqSina(auth, type, name, width, height){
-        window.open(auth, name, "width=" + width + ",height=" + height + ",menubar=0,scrollbars=1,status=1,titlebar=0,toobar=0,location=1,resizable=yes");
-    }
 
 
 
   【2016/5】
+  	//移动端复制功能实现
+  	function Copy(str){
+	    var save = function(e){
+	        e.clipboardData.setData('text/plain', str);
+	        e.preventDefault();
+	    }
+	    document.addEventListener('copy', save);
+	    document.execCommand('copy');
+	    document.removeEventListener('copy',save);
+	    alert('复制成功！');
+	}
+	$('#cardList').on('click', function(){
+	    Copy(text);
+	});
+
   	window.onload=function(){
 		var oCopy=document.getElementById('copy');
 		oCopy.onclick=function(){
@@ -1639,9 +1655,7 @@ ie的兼容模式console有问题可以加上
     }
 </script>
 
-【接口里打开标签页不被拦截的方法】
-var newTab=window.open('about:blank');
-newTab.location.href=str;
+
 
 
 【If条件不同版本浏览器注释列表】
@@ -1769,13 +1783,16 @@ JavaScript
 
 			后退
 				window.history.go(-1)
-				window.history.back()
+				window.history.back();return false; //支持所有
 
 		页面操作
 			打开指定页面
 				window.open(地址, target);
 				about:blank;空白页的网址
 				返回值是打开新窗口的window对象；
+			接口里打开标签页不被拦截的方法
+				var newTab=window.open('about:blank');
+				newTab.location.href=str;
 
 			关闭页面
 				window.close();
@@ -1790,12 +1807,56 @@ JavaScript
 
 预习
 ----------------------
+
+	obj.getBoundingClientRect() 这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。分别表示元素各边与页面上边和左边的距离。
+	IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
+	//IE 低版本 6 7 有问题(2,2)
+	document.documentElement.clientTop;  // 非IE为0，IE为2
+
+	document.documentElement.clientLeft; // 非IE为0，IE为2
+
+	function gGetRect (element) {
+
+	    var rect = element.getBoundingClientRect();
+
+	    var top = document.documentElement.clientTop;
+
+	    var left= document.documentElement.clientLeft;
+
+	    return{
+
+	        top    :   rect.top - top,
+
+	        bottom :   rect.bottom - top,
+
+	        left   :   rect.left - left,
+
+	        right  :   rect.right - left
+
+	    }
+
+	}
+
+	document.compatMode用来判断当前浏览器采用的渲染方式。
+
+	官方解释：
+
+	BackCompat：标准兼容模式关闭。
+	CSS1Compat：标准兼容模式开启。
+
+	当document.compatMode等于BackCompat时，浏览器客户区宽度是document.body.clientWidth；
+	当document.compatMode等于CSS1Compat时，浏览器客户区宽度是document.documentElement.clientWidth。
+
+	浏览器客户区高度、滚动条高度、滚动条的Left、滚动条的Top等等都是上面的情况。
+
 	1. 可视区
 		高度
 			document.documentElement.clientHeight
 		宽度
 			document.documentElement.clientWidth
 
+		网页上的每个元素，都有clientHeight和clientWidth属性。
+		这两个属性指元素的内容部分再加上padding的所占据的视觉面积，不包括border和滚动条占用的空间。
 	2. offset  只能用来获取不能设置
 		offsetParent 定位父集(位置用这个)
 			body的offsetParent是null；
@@ -1819,6 +1880,9 @@ JavaScript
 		document.body.scrollTop   			chrome
 		document.documentElement.scrollTop  IE FF
 
+	[HTML5]
+	scrollIntoView 可以在事件中让页面滚动到元素的顶部或者底部齐平；
+	aDiv[3].scrollIntoView(true);
 
 	在设置scrollTop时
 		eg:document.body.scrollTop=dis;
@@ -2285,6 +2349,18 @@ ReactDOM.render(
 	aLi[3]
 );
 
+【vue】
+	├── build              // 构建服务和webpack配置
+	├── config             // 项目不同环境的配置
+	├── dist               // 项目build目录
+	├── index.html         // 项目入口文件
+	├── package.json       // 项目配置文件
+	├── src                // 生产目录
+	│   ├── assets         // 图片资源
+	│   ├── common          // 公共的css js 资源
+	│   ├── components     // 各种组件
+	│   ├── App.vue         // 主页面
+	│   └── main.js        // Webpack 预编译入口
 
 
 【比较运算符 == 】
@@ -2537,10 +2613,26 @@ JavaScript：
 	（缺点）Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，
 	  而且缺少足够多的第三方库支持。看起来，就像是Ruby/Rails当年的样子。
 
+***为什么很多网站的内容储存（css/js/img）用别的域名？有什么好处？
+	1. CDN缓存更方便
+	2. 突破浏览器并发限制 (你随便挑一个 G家的 url: https://lh4.googleusercontent.com/-si4dh2myPWk/T81YkSi__AI/AAAAAAAAQ5o/LlwbBRpp58Q/w497-h373/IMG_20120603_163233.jpg, 把前面的 lh4换成 lh3,lh6啥的，都照样能够访问，像地图之类的需要大量并发下载图片的站点，这个非常重要。)
+	3. Cookieless, 节省带宽，尤其是上行带宽 一般比下行要慢。。。
+	还有另外两个非常规原因: 
+	4. 对于UGC的内容和主站隔离，防止不必要的安全问题( 上传js窃取主站cookie之类的) 。
+	正是这个原因要求用户内容的域名必须不是自己主站的子域名，而是一个完全独立的第三方域名。
+	5. 数据做了划分，甚至切到了不同的物理集群，通过子域名来分流比较省事. ^_^ 这个可能被用的不多。
+	PS: 关于Cookie的问题，带宽是次要的，安全隔离才是主要的。
+	关于多域名，也不是越多越好，虽然服务器端可以做泛解释，浏览器做dns解释也是耗时间的，而且太多域名，如果要走 https的话，还有要多买证书和部署的问题。
 
 
+*项目版本命名 
+	1.0.0项目开始，尽管有些项目在npm不符合这个规则。
 
+	之后，变更应处理如下：
 
+	错误修正和其他微小变化：修补程序释放，增加最后一个数字，例如1.0.1
+	不破坏现有功能的新功能：轻微释放，增加中间数字，例如1.1.0
+	破坏向后兼容性的更改：主要版本，增加第一个数字，例如2.0.0
 
 
 
@@ -2657,8 +2749,9 @@ D:\Software\Tencent\Tencent Files\1016510857\Image\Group   QQ资源中心
 
 
 
+babel-polyfill插件
 
-
+	Babel 默认只转换新的 JavaScript 句法（ syntax ），而不转换新的 API ，比如 Iterator Generator Set Maps Proxy Reflect  Symbol Promise 等全局对象，以及一些定义在全局对象上的方法（比如  Object.assign ）都不会转码。<code>Babel</code> 默认不转码的 <code>API</code> 非常多，详细清单可以查看 <a href="https://github.com/babel/babel/blob/master/packages/babel-plugin-transform-runtime/src/definitions.js" target="_blank" rel="nofollow">definitions.js</a> 文件</p>
 
 
 
