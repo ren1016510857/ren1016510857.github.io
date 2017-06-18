@@ -1,243 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>任豪杰--求职前端开发</title>
-<link type="text/css" rel="stylesheet" href="css/common.css">
-<link type="text/css" rel="stylesheet" href="css/home.css">
-<link type="text/css" rel="stylesheet" href="css/website.css">
-<link type="text/css" rel="stylesheet" href="css/resume.css">
-<link type="text/css" rel="stylesheet" href="css/about.css">
-<link type="text/css" rel="stylesheet" href="css/modular.css">
-<link type="text/css" rel="stylesheet" href="css/webQQ.css">
-<link type="text/css" rel="stylesheet" href="css/games/games.css">
-<link type="text/css" rel="stylesheet" href="css/games/games_plane.css">
-<script src="js/sea.js"></script>
-<!--[if IE]>
-   <style type="text/css">
-   .color-block {
-       background:transparent;
-       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000050,endColorstr=#99000050);
-       zoom: 1;
-    } 
-    </style>
-<![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>任豪杰的代码</title>
+<link rel="stylesheet" href="web/base.css">
 <style>
+	.container{ max-width:1200px; margin:0 auto;}
+	header{ padding:20px; border-bottom:1px solid #ccc;}
+	header h1{ font-size: 24px; line-height: 50px; height:50px; position: relative;}
+	header p{ width:250px; color:#999; font-size: 14px; line-height: 20px;}
 
+    @keyframes test {
+        from{
+            background-position: -200px;
+        }
+        to{
+            background-position: 220px;
+        }
+    }
+    header h1 span{
+        position: absolute;
+        left:0;
+        top:0;
+        height:50px; 
+        line-height: 50px;
+    }
+    header h1 span.mask{
+        background: -webkit-linear-gradient(-45deg,rgba(255,255,255,0) 40%,rgba(255,255,255,1) 55%,rgba(255,255,255,0) 65%);
+
+        background-position: -200px;
+
+        -webkit-background-clip: text;
+        color: rgba(0,0,0,0);
+
+        animation: 3s test ease infinite;
+    }
+    .header_nav{ width:70%;}
+
+    .content{ width:70%; padding:20px 0; box-sizing: border-box; font-size:18px; border-right:1px solid #ccc; margin:30px 2% 0 0; min-height:500px;}
+
+
+    .sidebar{ width:28%; margin-top:30px;}
+    .sidebar a{ width:100px; height:100px; border-radius: 10px; line-height: 100px; text-align: center; margin:0 10px 10px 0;}
+    .sidebar a span{ background:rgba(142, 253, 145, 0.8); color:#fff; display: inline-block; font-size: 14px; line-height: 20px;vertical-align: middle;}
 </style>
-<script>
-
-function domReady (fn)
-{
-	if(document.addEventListener)
-	{
-		document.addEventListener('DOMContentLoaded',function()
-		{
-			fn && fn();
-		},false);
-	}else{
-		document.attachEvent('onreadystatechange',function()
-		{
-			if(document.readyState=='complete')
-			{
-				fn && fn();
-			}
-		});
-		/*document.onreadystatechange=function()
-		{
-			if(document.readyState=='complete')
-			{
-				fn && fn();
-			}
-		};*/
-	}
-}
-
-domReady(function ()
-{
-	var oBody=document.getElementById('body');
-	oBody.style.width=document.documentElement.clientWidth+'px';
-	oBody.style.height=document.documentElement.clientHeight+'px';
-	
-	var oHome=document.getElementById('home');
-	var oClock=document.getElementById('clock');
-	var oFireme=document.getElementById('fireme');
-	
-	//图片预加载
-	
-	var loadImgStart=(new Date()).getTime();
-	var loadImgEnd;
-	var loadImgFailed=false;
-	
-	var oPreLoadBg=document.getElementById('preLoadBg');
-	var oPreLoad=document.getElementById('preLoad');
-	var oPreLoadSpan=oPreLoad.getElementsByTagName('span')[0];
-	var oPreLoadTxt=oPreLoad.getElementsByTagName('p')[0];
-	
-	oPreLoadBg.style.width=document.documentElement.clientWidth+'px';
-	oPreLoadBg.style.height=document.documentElement.clientHeight+'px';
-	
-	seajs.use(['aUrl.js', 'common_pure.js'], function (AUrl, Common)
-	{
-		/*Common.addEvent(window, 'resize', function ()
-		{
-			window.location.reload();
-		});*/
-	
-		var aUrl=AUrl.aUrlExceptGame();
-		
-		var count=0;
-		
-		var loadSucc=false;
-		for(var i=0; i<aUrl.length; i++)
-		{
-			Common.loadImg(aUrl[i], function ()
-			{
-				var loadImgEnd=(new Date()).getTime();
-				if((loadImgEnd-loadImgStart)>20000)
-				{
-					if(!loadImgFailed)
-					{
-						loadImgFailed=true;
-						count=aUrl.length;
-					}
-				}
-				else
-				{
-					count++;		
-				}
-				
-				oPreLoadSpan.style.width=(count/aUrl.length)*oPreLoad.offsetWidth+'px';
-				oPreLoadTxt.innerHTML='已加载'+((count/aUrl.length)*100).toFixed(0)+'%';
-				
-					
-				if(oPreLoadSpan.offsetWidth==(oPreLoad.offsetWidth)&&!loadSucc)
-				{
-					loadSucc=true;
-					
-					var oFortressBox=Common.getByClass(document, 'fortressBox')[0];
-					
-					Common.startMove(oPreLoadBg, {opacity: 0}, {end: function ()
-					{
-						oPreLoadBg.style.display='none';
-					}});
-					Common.startMove(oPreLoad, {opacity: 0}, {end: function ()
-					{
-						oPreLoad.style.display='none';
-						Common.startMove(oBody, {opacity: 100});
-					}});
-					document.body.style.background='url(img/background/body_bg.jpg) 0 -60px repeat';
-					
-					//加载剩下的图片
-					/*
-					var aUrlOther=AUrl.aUrlOther();
-					for(var i=0; i<aUrlOther.length; i++)
-					{
-						Common.loadImg(aUrlOther[i]);
-					}
-					*/
-					showMyWeb();
-				}
-			});
-		}
-
-	
-		
-	});	
-//展示页面
-function showMyWeb ()
-{
-	if(!(/(CHROME)|(SAFARI)|(MSIE\s8)|(MSIE\s9)|(MSIE\s10)|(FIREFOX)/).test(window.navigator.userAgent.toUpperCase()))
-	{
-		seajs.use('common_pure.js', function (main)
-		{
-			
-			var oTestBg=document.getElementById('testUserAgentBg');
-			var oTestUserAgent=document.getElementById('testUserAgent');
-			var oNoTip=document.getElementsByTagName('a')[0];
-			var oClose=main.getByClass(oTestUserAgent, 'close')[0];
-			
-			oTestBg.style.height=document.documentElement.clientHeight+'px';
-			oTestBg.style.width=document.documentElement.clientWidth+'px';
-			
-			
-			oClose.onclick=oNoTip.onclick=function ()
-			{
-				main.startMove(oTestBg, {opacity: 0}, {end: function ()
-				{
-					oTestBg.style.display='none';
-				}});
-				main.startMove(oTestUserAgent, {opacity: 0}, {end: function ()
-				{
-					oTestUserAgent.style.display='none';
-				}});
-			};
-		
-			oTestBg.style.display='block';
-			oTestUserAgent.style.display='block';
-			main.startMove(oTestBg, {opacity: 50});
-			main.startMove(oTestUserAgent, {opacity: 100});
-		});
-	}
-	
-	seajs.use('home.js', function (main)
-	{
-		main.home();
-	});
-}
-	
-});
-
-	/*
-	*/
-</script>
 </head>
-
 <body>
-
-
-<div id="preLoadBg"></div>
-<div id="preLoad"><span></span><p>已载入0%</p></div>
-<div id="body">
-<div id="testUserAgent">
-	<h3>您的浏览器版本过低</h3>
-	<p>本网站使用了部分只有高级浏览器支持的效果，所以低版本浏览器将无法展现网站的全部效果<br />建议您使用Chrome、Firefox、Safari、IE 8.0+ 浏览器进行访问</p>
-	<a href="javascript:;"></a>
-    <span class="close"></span>
-</div>
-<div id="testUserAgentBg"></div>
-
-<span id="packup"><em>收<br/>起</em></span>
-<span id="fireme"></span>
-<span id="fireTarget"></span>
-<div id="gameBg"></div>
-<div id="modularBg"></div>
-
-<div id="home">
-	<div class="sideBar">
-    	<!--<span class="target target1"></span>
-        <span class="target target2"></span>
-        <span class="target target3"></span>-->
-    </div>
-	
-	<div class="nav resume">我的简历<span class="string"></span></div>
-	<div class="nav works">作品集<span class="string"></span></div>
-	<div class="nav tel">关于本站<span class="string"></span></div>
-	<!--<div class="nav about">关于本站</div>-->
-    
-    <div class="fortressBox">
-    	<div class="fortress">
-        	<div class="muzzle"></div>
+    <div class="container clearfix">
+    	<header>
+    		<h1>
+                <span>任豪杰的农场</span>
+                <span class="mask">
+                    任豪杰的农场
+                </span>
+            </h1>
+    		<p class="clearfix">叶子随已飘起，但风总会停下<br><span class="fr">－农场主</span></p>
+            <ul class="header_nav">
+                <li>博客</li>
+                <li>分类</li>
+                <li></li>
+                <li></li>
+            </ul>
+    	</header>
+        <div class="content fl">
+            <ul>
+               <li>农场主比较懒还没有留下什么</li> 
+            </ul>
+        </div>
+        <div class="sidebar fr clearfix">
+            <a class="fl" href="html/demo.html">
+                <span>mydemo</span>
+            </a>
+            <a class="fl" href="web/ren/ES6浏览器支持性测试..html">
+                <span>ES6浏览器支持性测试</span>
+            </a>
+            <a class="fl" href="web/ren/ES6Demo.html">
+                <span>ES6</span>
+            </a>
+            <a class="fl" href="web/ren/ReactDemo.html">
+                <span>react</span>
+            </a>
         </div>
     </div>
-</div> 
-
-<div id="clock">
-	<span class="hour"></span>
-	<span class="min"></span>
-	<span class="sec"></span>   
-    <span class="cen"></span>
-</div>
-</div>
+<script>
+    var aSidebarA = document.querySelectorAll('.sidebar a');
+    for(var i=0;i<aSidebarA.length; i++) {
+        aSidebarA[i].style.backgroundColor = rndColor();
+    }
+    function rndColor()
+    {
+        return 'rgba('+rnd(0,255)+','+rnd(0,255)+','+rnd(0,255)+','+rnd(2,10)/10+')';
+    }
+    function rnd(n, m)
+    {
+        return Math.floor(Math.random()*(m-n)+n);
+    }
+    document.body.style.background = '-webkit-linear-gradient('+runBodyBg()+')';
+    function runBodyBg() {
+        var n = rnd(5, 10);
+        var arr = [];
+        for(var i=0;i<n;i++) {
+            arr.push(rndColor());
+        }
+        return rnd(-90, 90)+'deg,'+arr.join(',');
+    }
+</script>
 </body>
 </html>
