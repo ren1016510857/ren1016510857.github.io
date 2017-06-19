@@ -132,7 +132,10 @@ function getStyle(obj,sName)
 {
 	return (obj.currentStyle || getComputedStyle(obj,false))[sName];
 }
-
+//判断一个对象是不是数组
+function isArray(a) {
+  Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
+}
 
 //获取对象到页面的距离 obj为对象
 function getPos(obj)
