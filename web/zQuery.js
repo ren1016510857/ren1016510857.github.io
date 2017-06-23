@@ -29,9 +29,13 @@ function ZQuery(arg)
 			}
 			break;
 	}
+	for(var i=0;i<this.ele.length;i++) {
+		this[i] = this.ele[i];
+	}
 }
 function $(arg)
 {
+	//if ( window == this ) 先mark下来
 	return new ZQuery(arg);
 }
 //方法

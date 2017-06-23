@@ -126,7 +126,15 @@ function zeroFill(n)
 {
 	return n<10 ? '0'+n : ''+n;
 }
-
+// 千位分隔符
+function commafy(num) {
+	return num && num
+		.toString()
+		.replace(/(\d)(?=(\d{3})+\.)/g, function($0, $1) {
+		  return $1 + ",";
+	});
+}
+console.log(commafy(1234567.90)); //1,234,567.90
 //获取行间样式
 function getStyle(obj,sName)
 {

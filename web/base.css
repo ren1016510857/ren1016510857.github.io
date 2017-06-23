@@ -1,12 +1,12 @@
 ﻿@charset "utf-8";
-/* 基础css */
+/* 基础css 初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。*/
 
-*{ padding:0; margin:0; /*line-height:100%;*/}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
 body{ font-size:12px; line-height:12px;}
 ul,ol{ list-style:none;}
 a{ color:#000; text-decoration:none;}
-h1,h2,h3,h4,h5,h6{ font-size:12px; font-weight:normal;}
-i,em{ font-style:normal;}
+h1,h2,h3,h4,h5,h6{ font-size:100%;}
+address, cite, dfn, em, var, i{ font-style:normal;}
 b,strong{ font-weight:normal;}
 a img{ border:none;}
 img{ vertical-align:top;}/*清除图片的BUG*/
@@ -39,3 +39,67 @@ legend { color:#000; }
 fieldset, img { border:0; }
 button, input, select, textarea { font-size:100%; }
 table { border-collapse:collapse; border-spacing:0; } */
+
+
+
+/*flex 布局*/
+/*.col {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px;
+}
+
+.col.col-3 {
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
+  width: 25%;
+}
+
+.cols {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.cols.cols-middle {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.cols.cols-bottom {
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+.cols.cols-center {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.cols.cols-right {
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  margin-left: auto;
+}
+.cols.cols-space-between {
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.cols.cols-space-around  {
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}*/
