@@ -142,8 +142,11 @@ function getStyle(obj,sName)
 }
 //判断一个对象是不是数组
 function isArray(a) {
-  Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
+  return Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
 }
+isArray = Array.isArray || function(obj) {
+	return Object.prototype.toString.call(obj) === '[object Array]';
+};
 
 //获取对象到页面的距离 obj为对象
 function getPos(obj)
@@ -305,6 +308,34 @@ hash_add(88); alert(hash);
 alert(hash_find(55));
 
 
+//大神的快速排序
+// （1）在数据集之中，找一个基准点
+// （2）建立两个数组，分别存储左边和右边的数组
+// （3）利用递归进行下次比较
+function quickSort(arr){
+    if(arr.length<=1){
+        return arr;//如果数组只有一个数，就直接返回；
+    }
+
+    var num = Math.floor(arr.length/2);//找到中间数的索引值，如果是浮点数，则向下取整
+
+    var numValue = arr.splice(num,1);//找到中间数的值
+    var left = [];
+    var right = [];
+
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]<numValue){
+            left.push(arr[i]);//基准点的左边的数传到左边数组
+        }
+        else{
+           right.push(arr[i]);//基准点的右边的数传到右边数组
+        }
+    }
+
+    return quickSort(left).concat([numValue],quickSort(right));//递归不断重复比较
+}
+
+alert(quickSort([32,45,37,16,2,87]));//弹出“2,16,32,37,45,87”
 //二分法排序
 var arr=[56,10,-100,300,90,8];
 
@@ -379,13 +410,29 @@ function findMinIndex(start, arr)
 //事件绑定兼容函数 sEv：事件不带on； fn是执行函数
 function addEvent(obj,sEv,fn)
 {
-	if(obj.attachEvent)
+	if(obj.addEventListener)
 	{
-		obj.attachEvent('on'+sEv,fn);
+		obj.addEventListener(sEv,function(ev){
+			var oEvent=ev || event;
+			var rd=fn.call(obj,oEvent);
+			if(rd==false)
+			{
+				oEvent.stopPropagation();
+				oEvent.preventDefault();
+			}
+		},false);
 	}else{
-		obj.addEventListener(sEv,fn,false);
+		obj.attachEvent('on'+sEv,function(ev){
+			var oEvent=ev || event;
+			var rd=fn.call(obj,oEvent);
+			if(rd==false)
+			{
+				oEvent.cancelBubble=true;
+				return false;
+			}
+		});
 	}
-};
+}
 
 //解除事件绑定 fn要传命名函数的函数名
 function removeEvent(obj,sEv,fnName){

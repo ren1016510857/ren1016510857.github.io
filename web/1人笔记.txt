@@ -1,6 +1,15 @@
 硬盘里边window默认一个存储空间是4kb且只能放一个东西；
 切图片切4kb以内尽量大；效率高渲染次数少
 
+[置顶]-----------------------------
+
+
+px=dp*(ppi/160)
+HVGA屏320*480，一般是3.5寸，计算点密度为√ (320^2 + 480^2) / 3.5 = 164，约等于160，1pd=1px
+
+
+----------------------------------------------
+
 火狐浏览器配上微软的鼠标会出BUG无法解决；
 
 JS开启严格模式'use strict';可以放在函数里边
@@ -259,7 +268,7 @@ constructor: 检测直接父级
 
 	第一行，我们创建了一个空对象obj
 	第二行，我们将这个空对象的__proto__成员指向了Base函数对象prototype成员对象
-	第三行，我们将Base函数对象的this指针替换成obj；
+	第三行，我们将Base函数对象的this指针替换成obj,并执行；
 ....................................................
 
 绝对居中的块：(水平垂直居中)
@@ -609,11 +618,11 @@ box-shadow: inset 0 -1px 1px -1px #D8D8D8;
 
 ...................................................................................
 HTML5：
+	canvas
 	webscoket 一个长握手协议
-	web Workers 多线程
+	webWorker 多线程  postMessage(data,origin)  解决跨域、跨窗口消息传递
 	geolocation 地理位置
 	localstorage 本地存储  不同于cookie-》cookie可以和服务器进行交互 localstorage只能在本地操作
-	postMessage(data,origin)  解决跨域、跨窗口消息传递
 	window.history   网页前进和后退
 
 	H5标签
@@ -721,6 +730,11 @@ CSS3 过渡
 
 	animation:run 1s infinite;
 
+
+IE8/IE7/IE6支持通过document.createElement方法产生的标签，
+可以利用这一特性让这些浏览器支持HTML5新标签，
+浏览器支持新标签后，还需要添加标签默认的样式。
+或者使用html5.js
 .................................................................................................
 严格判断 判断值和类型
 switch(a){
@@ -833,7 +847,7 @@ function getStyle(obj,sName)
 	【数组】 里边最好存同类型的东西或者批量处理的东西；
 		//判断数组
 		function isArray(a) {
-		  Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
+		  return Array.isArray ? Array.isArray(a) : Object.prototype.toString.call(a) === '[object Array]';
 		}
 
 		有些方法改变数组本身：
@@ -1004,6 +1018,9 @@ function getStyle(obj,sName)
 			全局变量在定义之后（比如在上一个script标签中的 事件/定时器 中能调用下边script中定义的变量）是能在整个页面中调用的；
 			这和预解析并不冲突；
 
+
+		作用域分： 词法作用域 动态作用域   js中一般都是词法作用域(看书写位置而不是调用位置);
+
 	*【异常】
 		用：应急！处理线上bug，快速解决
 		缺点：
@@ -1024,7 +1041,7 @@ function getStyle(obj,sName)
 
 	**【字符编码】
 		字符串 -> 编码
-			'abc'.charCodeAt(下标)
+			'abc'.charCodeAt(下标) 中文大于255
 			'abc'.codePointAt(下标) 可以识别大于 \u0000--\uFFFF的字符
 		编码 -> 字符串
 			String.fromCharCode(编码);
@@ -1423,7 +1440,8 @@ obj.dataset.xxx
 【移动端】
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+									设备宽度        初始缩放比     最大限度         最小限度         用户可缩放
 (function(global){
     function remChange(){
     	setTimeout(function(){
@@ -1821,7 +1839,7 @@ JavaScript
 			baidu.com 域名  host
 			/a/1.html  路径 	pathname
 			?age=18&sex=1 数据  search
-			#abc      锚点  hash //适用于ajax页面趋于传统化，如:ajax控制页面显示不同内容就可以通过变更hash来实现区别
+			#abc      锚点  hash //适用于ajax页面趋于传统化，如:ajax控制页面显示不同内容就可以通过变更hash来实现区别 不支持IE6/7
 			window.onhashchange = function(){};//hash 监听事件IE8+
 
 		弹框
@@ -1878,7 +1896,7 @@ JavaScript
 	    （8） 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢。
     对普通的网站有一个统一的思路，就是尽量向前端优化、减少数据库操作、减少磁盘IO。向前端优化指的是，在不影响功能和体验的情况下，能在浏览器执行的不要在服务端执行，能在缓存服务器上直接返回的不要到应用服务器，程序能直接取得的结果不要到外部取得，本机内能取得的数据不要到远程取，内存能取到的不要到磁盘取，缓存中有的不要去数据库查询。减少数据库操作指减少更新次数、缓存结果减少查询次数、将数据库执行的操作尽可能的让你的程序完成（例如join查询），减少磁盘IO指尽量不使用文件系统作为缓存、减少读写文件次数等。程序优化永远要优化慢的部分，换语言是无法“优化”的。
 	【js性能优化】
-		1.缓存获取的DOM对象；
+		1.缓存获取的DOM对象和ajax数据；
 		2.用innerHTML代替append等操作；
 		3.直接拼接字符串代替 arr.join('');//有1.4倍的差距
 		4.使用 firstChild 和 nextSibling 代替 childNodes 遍历 dom 元素 ;
@@ -2183,7 +2201,26 @@ var Cat={
 		return cat;
 	}
 };
+、、、、、、、、
 使用 var cat1=Cat.createNew();
+function Suv() {
+	
+}
+var jeep = {};
+jeep.prototype = new Suv();
+jeep.prototype.constructor = jeep;
+、、、、、、、、
+var blogModule = (function (my) {
+
+    // 添加一些功能   这样每个单独分离的文件都保证这个结构，那么我们就可以实现任意顺序的加载，所以，这个时候的var就是必须要声明的，因为不声明，其它文件读取不到的。缺点: 没办法重写你的一些属性或者函数，也不能在初始化的时候就是用Module的属性。
+
+    return my;
+} (blogModule || {}));
+
+【MVC MVVM】
+model  view constructor
+model view viewModel
+
 【原型链】
  JS在创建对象（不论是普通对象还是函数对象）的时候，都有一个叫做__proto__的内置属性，用于指向创建它的函数对象的原型对象prototype。以上面的例子为例：
 
@@ -2489,11 +2526,11 @@ JavaScript：
 	<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
 
 
-***页面导入样式时，使用link和@import有什么区别？
+***页面导入样式时，使用link和@import有什么区别？  
 
 	（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;
 
-	（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
+	（2）页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载(onload);
 
 	（3）import是CSS2.1 提出的，只在IE5以上才能被识别，而link是XHTML标签，无兼容问题;
 	
@@ -2546,7 +2583,7 @@ JavaScript：
 
 	有期时间：
 	    localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
-	    sessionStorage  数据在当前浏览器窗口关闭后自动删除。
+	    sessionStorage  数据在当前浏览器窗口关闭后自动删除。可以再同一个窗口间通信不能再多标签页间通信
 	    cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
 
 
@@ -2654,6 +2691,17 @@ JavaScript：
 
 	setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
 	闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+
+***什么是BFC
+	在 BFC 中，物品的摆放是不受外界影响的
+	在 BFC 中，块盒与行盒（行盒由一行中所有的内联元素组成）都会垂直地沿着其父元素的边框排列
+	BFC 元素可以清除浮动
+怎样产生 BFC？
+
+	浮动元素
+	绝对定位元素
+	非块级盒子：inline-blocks、table-cells、table-captions
+	块级盒子：overflow 值不为 visible
 
 **用js实现千位分隔符?(来源：前端农民工，提示：正则+replace)
 
@@ -3015,7 +3063,8 @@ babel-polyfill插件
 
 
 
-
+URLSearchParams.append()
+FormData()
 
 
 

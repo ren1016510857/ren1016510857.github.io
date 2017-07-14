@@ -10,7 +10,7 @@ address, cite, dfn, em, var, i{ font-style:normal;}
 b,strong{ font-weight:normal;}
 a img{ border:none;}
 img{ vertical-align:top;}/*清除图片的BUG*/
-.clearfix:after{display:block; content:''; clear:both;}/*清浮动*/
+.clearfix:after{display:block; content:''; clear:both; height:0; visibility: hidden;}/*清浮动*/
 .clearfix{ zoom:1;}
 a,input,textarea{outline:none;}/*清除input边框变色*/ 
 input:focus,textarea:focus,select:focus{ outline:none;}

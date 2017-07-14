@@ -417,7 +417,7 @@ function addEvent(obj,sEv,fn)
 			var rd=fn.call(obj,oEvent);
 			if(rd==false)
 			{
-				oEvent.cancelBubble=true;
+				oEvent.stopPropagation();
 				oEvent.preventDefault();
 			}
 		},false);
@@ -613,7 +613,6 @@ function move(obj,json,options)
 		}
 	},30);
 }
-//版权 北京智能社©, 保留所有权利
 //t  当前时间
 //b  初始值
 //c  总距离

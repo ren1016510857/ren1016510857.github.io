@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex布局</title>
+    <style>
+        *{margin:0; padding:0;}
+        .box1{ 
+            background: #000;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .saizi{
+            margin: 16px;
+            padding: 4px;
+            
+            background-color: #e7e7e7;
+            width: 104px;
+            height: 104px;
+            /*object-fit: contain;*/
+            
+            box-shadow:
+                inset 0 5px white, 
+                inset 0 -5px #bbb,
+                inset 5px 0 #d7d7d7, 
+                inset -5px 0 #d7d7d7;
+            
+            border-radius: 10%;
+        }
+        .pip{
+            width: 24px; 
+            height: 24px; 
+            border-radius: 50%;
+            margin: 4px;
+            background: #333;
+            box-shadow: inset 0 3px #111, inset 0 -3px #555;
+        }
+        .flex2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex3{ 
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex3 .pip:nth-of-type(2){
+            align-self: flex-end;
+        }
+
+        .flex4{
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex4 .pip:nth-of-type(2){
+            align-self: center;
+        }
+        .flex4 .pip:nth-of-type(3){
+            align-self: flex-end;
+        }
+
+        .flex5{
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex5 .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .flex6{
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex6 .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .flex6 .column:nth-of-type(2){
+            justify-content: center;
+        }
+
+        .flex7{
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex7 .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+
+ 
+        .grid_cell{
+            margin: 5px;
+            padding: 10px 0; 
+            background: #ccc;
+        }
+        .grid{
+            display: flex;
+            width:100%;
+        }
+        .grid .grid_cell{
+            flex: 1;
+        }
+
+        .grid2{
+            display: flex;
+        }
+        .grid2 .grid_cell{
+            flex:1;
+        }
+        .grid2 .grid_cell:nth-of-type(1){
+            flex: 0 0 50%;
+        }
+
+        .grid3{
+            display: flex;
+            min-height: 100px;
+            flex-direction: column;
+        }
+
+        header,footer{
+            flex:1;
+            background: #ccc;
+        }
+        .grid3 .content{
+            display: flex;
+            flex: 1;
+        }
+        .grid3 .content .center{
+            flex:1;
+        }
+        .grid3 .content .left,.grid3 .content .right{
+            width: 50px;
+            background:red;
+        }
+        .grid3 .content .left{
+            order: -1;
+        }
+        @media (max-width: 500px) {
+            .grid3 .content{
+                flex: 1;
+                flex-direction: column;
+            }
+            .grid3 .content>*{
+                flex: auto;
+            }
+        }
+
+        .grid4{
+            display: flex;
+            flex-direction: column;
+            min-height:200px;
+        }
+        .grid4 div:nth-of-type(2){
+            flex:1;
+        }
+
+        .grid5{
+            min-height:200px; 
+            background: #000;
+            display: flex;
+            flex-flow: row wrap;
+            align-content: flex-start;
+        }
+        .grid5 div{
+            height:50px;
+            flex: 0 0 25%;
+            border:1px solid red;
+            background: #fff;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="saizi flex2">
+            <span class="pip"></span>
+        </div>
+        <div class="saizi flex3">
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+        <div class="saizi flex4">
+            <span class="pip"></span>
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+        <div class="saizi flex5">
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+        </div>
+        <div class="saizi flex6">
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+            <div class="column">
+                <span class="pip"></span>
+            </div>
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+        </div>
+        <div class="saizi flex7">
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="grid">
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+        <div class="grid_cell">
+            啦啦啦德玛西亚啦啦啦德玛西亚啦啦啦德玛西亚啦德玛西亚啦啦啦德
+        </div>
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+    </div>
+    <div class="grid2">
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+    </div>
+
+    <div class="grid3">
+        <header>头</header>
+        <div class="content">
+            <div class="center">啦啦啦德玛西亚啦啦啦德玛西亚啦啦啦德玛西亚啦德玛西亚啦啦啦德啦啦啦德玛西亚啦啦啦德玛西亚啦啦啦德玛西亚啦德玛西亚啦啦啦德啦啦啦德玛西亚啦啦啦德玛西亚啦啦啦德玛西亚啦德玛西亚啦啦啦德啦啦啦德玛西亚啦啦啦德玛西亚啦啦啦德玛西亚啦德玛西亚啦啦啦德</div>
+            <div class="left">左边</div>
+            <div class="right">右边</div>
+        </div>
+        <footer>底</footer>
+    </div>
+    <div class="grid4">
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+        <div class="grid_cell"></div>
+    </div>
+    <div class="grid5">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+<!--
+   容器的属性 
+flex-direction  方向 row row-reverse column column-reverse
+flex-wrap   换行 nowrap wrap wrap-reverse
+flex-flow   (flex-direction flex-wrap)的简写 默认值 row nowarp
+justify-content   主轴对齐方式  flex-start flex-end center space-between(两端对齐) space-around 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+align-items   交叉轴对齐方式 flex-start flex-end center baseline stretch(默认值：如果项目未设置高度或设为auto，将占满整个容器的高度。)
+align-content  多根轴线的对齐方式(交叉轴方向)，如果项目只有一根轴线，该属性不起作用。flex-start flex-end center space-between space-around stretch
+
+
+    item的属性
+order   item的排序(0) 
+flex-grow   放大比例(0) 即如果存在剩余空间，也不放大。
+flex-shrink  缩小比例(1) 即如果空间不足，该项目将缩小负值对该属性无效。
+flex-basis   在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间(auto)
+flex  (flex-grow flex-shrink flex-basis)的简写(0 1 auto)该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)
+align-self   (auto)表示继承父元素的align-items属性 如果没有父元素，则等同于stretch   auto flex-start flex-end center baseline stretch
+-->
+</html>
