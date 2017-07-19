@@ -308,7 +308,7 @@ hash_add(88); alert(hash);
 alert(hash_find(55));
 
 
-//大神的快速排序
+//快速排序
 // （1）在数据集之中，找一个基准点
 // （2）建立两个数组，分别存储左边和右边的数组
 // （3）利用递归进行下次比较
@@ -317,7 +317,7 @@ function quickSort(arr){
         return arr;//如果数组只有一个数，就直接返回；
     }
 
-    var num = Math.floor(arr.length/2);//找到中间数的索引值，如果是浮点数，则向下取整
+    var num = Math.floor(arr.length/2)[0];//找到中间数的索引值，如果是浮点数，则向下取整
 
     var numValue = arr.splice(num,1);//找到中间数的值
     var left = [];
@@ -339,7 +339,7 @@ alert(quickSort([32,45,37,16,2,87]));//弹出“2,16,32,37,45,87”
 //二分法排序
 var arr=[56,10,-100,300,90,8];
 
-function mySort(arr,s,e){
+function mySort(arr,s,e){//有问题
     if(s>e){
         return [];
     }else if(s==e){

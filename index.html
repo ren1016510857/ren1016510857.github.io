@@ -42,6 +42,14 @@
     .sidebar{ width:28%; margin-top:30px;}
     .sidebar a{ width:100px; height:100px; border-radius: 10px; line-height: 100px; text-align: center; margin:0 10px 10px 0;}
     .sidebar a span{ background:rgba(142, 253, 145, 0.8); color:#fff; display: inline-block; font-size: 14px; line-height: 20px;vertical-align: middle;}
+
+    .html_ul{opacity:0; height: 0; width:0; background: rgba(0,0,0,0.75); transition:all .5s ease; position:fixed; left:0; top:0; display: flex; overflow: hidden; flex-wrap:wrap; justify-content:space-around; align-content:space-around;}
+    .html_ul_show{opacity:1; height:100vh; width:100%; }
+    .html_ul li{ }
+    .html_ul a{width: 260px; height: 200px; display: block; position: relative; overflow: hidden;}
+    .html_ul img{ width:100%; height:100%;}
+    .html_ul p{  width: 100%; height: 100px; position: absolute; left: 0; top: 150px; background: rgba(0,0,0,0.4); color: #fff; font-size: 20px; font-weight: bold; text-align: center; line-height: 50px; transition: .5s all ease; }
+    .html_ul a:hover p{ top:100px;}
 </style>
 </head>
 <body>
@@ -58,6 +66,7 @@
                 <li><a href="#">博客</a></li>
                 <li><a href="#">分类</a></li>
                 <li><a href="#">实验田</a></li>
+                <li><a href="#" class="html_click">静态页</a></li>
                 <li><a href="#">其他</a></li>
             </ul>
     	</header>
@@ -86,6 +95,44 @@
                 <span>flex</span>
             </a>
         </div>
+        <ul class="html_ul">       
+            <li>
+                <a href="webpage/jd/index.html" target="_blank">
+                    <img src="img/webpage/jd.jpg" alt="">
+                    <p>京东</p>
+                </a>
+            </li>     
+            <li>
+                <a href="webpage/Beautiful/index.html" target="_blank">
+                    <img src="img/webpage/mls.jpg" alt="">
+                    <p>美丽说</p>
+                </a>
+            </li>        
+            <li>
+                <a href="webpage/Guokr/index.html" target="_blank">
+                    <img src="img/webpage/guoke.jpg" alt="">
+                    <p>果壳</p>
+                </a>
+            </li>       
+            <li>
+                <a href="webpage/EchoOFSoul/index.html" target="_blank">
+                    <img src="img/webpage/lhhx.jpg" alt="">
+                    <p>灵魂回响</p>
+                </a>
+            </li>     
+            <li>
+                <a href="webpage/MonaLisa/index.html" target="_blank">
+                    <img src="img/webpage/mnls.jpg" alt="">
+                    <p>蒙娜丽莎</p>
+                </a>
+            </li>       
+            <li>
+                <a href="webpage/juhuasuan/index.html" target="_blank">
+                    <img src="img/webpage/jhs.jpg" alt="">
+                    <p>聚划算</p>
+                </a>
+            </li>   
+        </ul>
     </div>
 <script>
     var aSidebarA = document.querySelectorAll('.sidebar a');
@@ -109,6 +156,10 @@
         }
         return rnd(-90, 90)+'deg,'+arr.join(',');
     }
+
+    document.querySelector('.html_click').onclick = function() {
+         document.querySelector('.html_ul').className = 'html_ul html_ul_show';
+    };
 </script>
 </body>
 </html>

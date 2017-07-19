@@ -865,7 +865,7 @@ function getStyle(obj,sName)
 		arr.pop()    后删除  //函数返回值是 删除的那个东西
 		arr.shift()  前删除
 		arr.slice()  可以得到一个不是引用关系的数组
-		arr.splice() //函数返回值是 删除的那个数组
+		arr.splice() //函数返回值是 删除的那个数组[]
 			删除
 				splice(开始下标, 个数)
 			替换
@@ -2474,7 +2474,7 @@ ReactDOM.render(
 	aLi[3]
 );
 
-【vue】
+【vue】 双向绑定原理-> 数据劫持
 	├── build              // 构建服务和webpack配置
 	├── config             // 项目不同环境的配置
 	├── dist               // 项目build目录
@@ -2730,6 +2730,18 @@ JavaScript：
 	mouseenter: 当鼠标移入元素时触发，该事件不支持冒泡
 	mouseleave: 当鼠标移出元素时触发，该事件不支持冒泡
 	.....
+
+***实现一个圆形的点击区域
+	map area标签
+	js计算
+	<img src ="planets.gif" alt="Planets" usemap ="#planetmap" />
+
+	<map name="planetmap" id="planetmap">
+	  <area shape="rect" coords="0,0,110,260" href="sun.htm" alt="Sun" />
+	  <area shape="circle" coords="129,161,10" href="mercur.htm" alt="Mercury" />
+	  <area shape="circle" coords="180,139,14" href="venus.htm" alt="Venus" />
+	</map>			圆				x  y   r
+
 
 ***什么叫优雅降级和渐进增强？
 
