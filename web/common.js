@@ -1,4 +1,18 @@
-
+/**
+ * 获取相应位数的随机字符串
+ * 
+ */
+randomTokenFn(n) {
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    if (str.length < n) {
+      str += Math.random().toString(36).substring(2)
+    } else {
+      break
+    }
+  }
+  return str.substring(0, n)
+},
 /**
  * 批量设置对象样式
  * @param obj   object   被设置样式的对象
@@ -12,6 +26,16 @@ function setStyle(obj, json)
 	}
 }
 
+function getByteLen(val) {    //传入一个字符串
+	var len = 0;
+	for (var i = 0; i < val.length; i++) {
+	    if (val[i].match(/[^\x00-\xff]/ig) != null) //全角
+	        len += 2; //如果是全角，占用两个字节
+	    else
+	        len += 1; //半角占用一个字节
+	}
+	return len;
+} 
 /**
  * 通过class名字获取元素
  * @param oParent   object   指定父级
@@ -109,7 +133,27 @@ function rndColor()
 {
 	return 'rgb('+rnd(0,255)+','+rnd(0,255)+','+rnd(0,255)+')';
 }
-//时间戳处理
+function randomTokenFn(n) {
+//输出一个n位的hash随机值
+  let str = ''
+  for (let i = 0; i < n; i++) {
+    if (str.length < n) {
+      str += Math.random().toString(36).substring(2)
+    } else {
+      break
+    }
+  }
+  return str.substring(0, n)
+}
+//时间戳处理 Date.now()
+getNowWeekSTimeStamp(currentTime) {
+	// 获取下周开始时间戳
+  let date = this.dateConversion(currentTime).t
+  let time = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
+  time = time - 8 * 60 * 60 * 1000 //转换成北京时间0点
+  time = time + (date.getDay() == 0 ? 1 : 8 - date.getDay()) * HOUR_24
+  return time
+}
 function getDate(time)
 {
 	var oDate=new Date();
@@ -121,10 +165,41 @@ function getDate(time)
 	var s=oDate.getSeconds();
 	return zeroFill(m+1)+'-'+zeroFill(d)+'&nbsp;'+zeroFill(h)+':'+zeroFill(f)+':'+zeroFill(s);
 }
+// 处理在不同时区时 服务器时间展示为北京时间 480 表示北京的时区补植
+// Date.UTC(2000, 0) 可以获得0分0秒的时间戳  (UTC时间)
+function getZeroMinSecons(y = 1970, m = 0, d = 1) {
+	// 获得当地时间的 2019年
+	let date = new Date(Date.UTC(y, m, d))
+	return date.getTime() + date.getTimezoneOffset() * 60 * 1000
+}
+function dateConversion(timeStamp = 0) {
+  let mapWeek = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
+  let TIME_OFFSET = (new Date(timeStamp).getTimezoneOffset() + 480) * 60 * 1000
+  let TIME_DIFF = (new Date(timeStamp + TIME_OFFSET).getTimezoneOffset() - new Date(timeStamp).getTimezoneOffset()) * 60 * 1000
+  let t = new Date(timeStamp + TIME_OFFSET + TIME_DIFF)
+  return {
+    day: mapWeek[t.getDay()],
+    year: t.getFullYear(),
+    month: this.addZero(t.getMonth() + 1),
+    date: this.addZero(t.getDate()),
+    timeHourMin: this.addZero(t.getHours()) + ':' + this.addZero(t.getMinutes()),
+    openbooktime: `${t.getFullYear()}-${this.addZero(t.getMonth() + 1)}-${this.addZero(t.getDate())} ${this.addZero(t.getHours())}:${this.addZero(t.getMinutes())}`
+  }
+}
+function addZero(num) {
+  return num < 10 ? '0' + num : '' + num
+},
 //补零函数
 function zeroFill(n)
 {
 	return n<10 ? '0'+n : ''+n;
+}
+function addZero(num) {
+  if (num >= 0) {
+    return num < 10 ? '0' + num : '' + num
+  } else {
+    return num > -10 ? '-0' + Math.abs(num) : '' + num
+  }
 }
 // 千位分隔符
 function commafy(num) {

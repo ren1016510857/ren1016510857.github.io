@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3时钟</title>
+    <style>
+        html,body{
+            overflow: hidden;
+        }
+        .box{
+            width:300px;
+            height:300px;
+            border: 1px solid #000;
+            background: #ccc;
+            border-radius: 50%;
+            box-shadow:inset 0 0 5px #000;
+            position: absolute;
+            left:100px;
+            top:100px;
+        }
+        .cap{
+            width:20px;
+            height:20px;
+            background: -webkit-radial-gradient(#ccc,#000);
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin: -10px 0 0 -10px;
+            border-radius: 50%;
+        }
+        .box div{
+            transform-origin: bottom center;
+        }
+        .hour{
+            width:14px;
+            height:80px;
+            background: #000;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -7px;
+            margin-top: -80px;
+            border-radius: 50% 50% 0 0;
+        }
+        .min{
+            width:10px;
+            height:100px;
+            background: #000;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -5px;
+            margin-top: -100px;
+            border-radius: 50% 50% 0 0;
+        }
+        .sec{
+            width:2px;
+            height:120px;
+            background: #f00;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -1px;
+            margin-top: -120px;
+        }
+        .scale{
+            width:2px;
+            height:10px;
+            background: #000;
+            position:absolute;
+            left:50%;
+            margin-left: -1px;
+            transform-origin: center 150px;
+        }
+        .bS{
+            width:4px;
+            height:12px;
+            background: #000;
+            position:absolute;
+            left:50%;
+            margin-left: -2px;
+            transform-origin: center 150px;
+        }
+        .bS strong{
+            width:100px;
+            text-align: center;
+            position: absolute;
+            left:50%;
+            margin-left: -50px;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oDiv=document.querySelector('.box');
+            var oH=document.querySelector('.hour');
+            var oM=document.querySelector('.min');
+            var oS=document.querySelector('.sec');
+            var iSpeedX=0;
+            var iSpeedY=0;
+            var lastX=0;
+            var lastY=0;
+            var timer=null;
+            //画刻度
+            var N=60;
+            for(var i=0; i<N; i++){
+                var oSpan=document.createElement('span');
+                if(i%5==0){
+                    oSpan.className='bS';
+                    var n=i/5==0?12:i/5;
+                    oSpan.innerHTML='<strong>'+n+'</strong>';
+                    oSpan.children[0].style.transform='rotate('+-i*6+'deg)';
+                }else{
+                    oSpan.className='scale';
+                }
+                oSpan.style.transform='rotate('+i*6+'deg)';
+                oDiv.appendChild(oSpan);
+            }
+            function tick(){
+                var oDate=new Date();
+                var h=oDate.getHours();
+                var m=oDate.getMinutes();
+                var s=oDate.getSeconds();
+                var ms=oDate.getMilliseconds();
+                oH.style.transform='rotate('+(h*30+m/60*30)+'deg)';
+                oM.style.transform='rotate('+(m*6+s/60*6)+'deg)';
+                oS.style.transform='rotate('+(s*6+ms/1000*6)+'deg)';
+            }
+            tick();
+            setInterval(tick,30);
+            oDiv.onmousedown=function(ev){
+                var oEvent=ev || event;
+                var disX=oEvent.clientX-oDiv.offsetLeft;
+                var disY=oEvent.clientY-oDiv.offsetTop;
+                clearInterval(timer);
+                document.onmousemove=function(ev){
+                    var oEvent=ev || event;
+                    oDiv.style.left=oEvent.clientX-disX+'px';
+                    oDiv.style.top=oEvent.clientY-disY+'px';
+                    iSpeedX=oEvent.clientX-lastX;
+                    iSpeedY=oEvent.clientY-lastY;
+                    lastX=oEvent.clientX;
+                    lastY=oEvent.clientY;
+                };
+                document.onmouseup=function(){
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                    doMove2();
+                };
+                return false;
+            };
+            function doMove2(){
+                timer=setInterval(function(){
+                    iSpeedY+=3;
+                    var l=oDiv.offsetLeft+iSpeedX;
+                    var t=oDiv.offsetTop+iSpeedY;
+                    if(t>=document.documentElement.clientHeight-oDiv.offsetHeight){
+                        t=document.documentElement.clientHeight-oDiv.offsetHeight;
+                        iSpeedY*=-0.8;
+                        iSpeedX*=0.8;
+                    }
+                    if(t<=0){
+                        t=0;
+                        iSpeedY*=-0.8;
+                        iSpeedX*=0.8;
+                    }
+                    if(l>=document.documentElement.clientWidth-oDiv.offsetWidth){
+                        l=document.documentElement.clientWidth-oDiv.offsetWidth;
+                        iSpeedX*=-0.8;
+                        iSpeedY*=0.8;
+                    }
+                    if(l<=0){
+                        l=0;
+                        iSpeedX*=-0.8;
+                        iSpeedY*=0.8;
+                    }
+                    oDiv.style.left=l+'px';
+                    oDiv.style.top=t+'px';
+                    if(Math.abs(iSpeedX)<1)iSpeedX=0;
+                    if(Math.abs(iSpeedY)<1)iSpeedY=0;
+                    if(iSpeedX==0 && iSpeedY==0 && t==document.documentElement.clientHeight-oDiv.offsetHeight){
+                        clearInterval(timer);
+                    }
+                },30);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+        <div class="cap"></div>
+
+    </div>
+</body>
+</html>

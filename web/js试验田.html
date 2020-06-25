@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="base-type">
+
+  </div>
+  <script>
+    let baseBox = document.querySelector('.base-type')
+    function creatDiv(js) {
+      let div = document.createElement('DIV')
+      div.innerHTML = js + '~' + JSON.stringify(js)
+      baseBox.appendChild(div)
+    }
+    creatDiv(!![] == true) // true -> 有布尔值先转为数字比较
+    creatDiv(![] == true) // false
+    creatDiv(![] == []) // true  false == []  0 == 0
+    creatDiv([].toString()) // ""
+    creatDiv([].valueOf()) // []
+    creatDiv(Number([])) // 0
+    creatDiv(Boolean([])) // true
+
+    class CreatUser {
+      constructor(name) {
+        this.name = name
+        this.getName()
+      }
+      getName() {
+        return this.name
+      }
+    }
+    var proxyMode = (function() {
+      var instance = null;
+      return function(name) {
+        if (!instance) {
+          instance = new CreatUser(name)
+        }
+        return instance
+      }
+    })()
+    var a = proxyMode('aaa')
+    var b = proxyMode('bbb')
+    console.log(a.name)
+    console.log(b.name)
+
+    let sque = (function() {
+      let _width = Symbol()
+      class Squery {
+        constructor(arg) {
+          this[_width] = arg
+        }
+        foo() {
+          console.log(this[_width])
+        }
+      }
+      return Squery
+    })()
+    let ss = new sque(20)
+    ss.foo()
+
+    // 深度克隆
+    // 此方法只适用于对象内部没有方法时使用 有方法时方法会失去
+    let threeObj = {
+      list: {
+        num: 1,
+        abc() {
+          console.log('oneabc')
+        },
+        list: {
+          num: 2,
+          abc() {
+            console.log('twoabc')
+          },
+          list: {
+            num: 3,
+            abc: () => {
+              console.log('threeabc')
+            }
+          }
+        }
+      }
+    }
+    let threeObjCopy = JSON.parse(JSON.stringify(threeObj))
+    console.log(threeObjCopy == threeObj, threeObjCopy)
+
+    // add(1)(2)(3)
+    function add(n) {
+      let fn = function(m) {
+        return add(n + m)
+      }
+      fn.valueOf = function() {
+        console.log(n)
+        return n
+      }
+      fn.toString = function() {
+        console.log(n)
+        return n + ''
+      }
+      return fn
+    }
+    console.log(typeof add(1)(2)(3))
+  </script>
+</body>
+</html>

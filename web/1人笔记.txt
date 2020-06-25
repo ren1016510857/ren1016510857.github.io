@@ -1,5 +1,6 @@
 硬盘里边window默认一个存储空间是4kb且只能放一个东西；
 切图片切4kb以内尽量大；效率高渲染次数少
+客户端 --> CDN --> SLB --> WAF --> Nginx --> 业务集群
 
 [置顶]-----------------------------
 
@@ -35,6 +36,9 @@ html解析的时候没有read到space的话    会认为是一个word
 <a href="mailto:hrm@quakegame.cn;" class="job_apply">申请职位</a>
 
 z-index= 2 的 32 次方；
+
+css中的层叠关系
+	层叠上下文(background、border) -》 z-index < 0 -》 block块级水平盒子 -》 float浮动盒子 -》 inline/inline-block水平盒子 -》 z-index auto / 0 -》 z-index > 0
 
 alert(null==undefined) 	true
 alert(NaN==undefined) 	false
@@ -260,7 +264,7 @@ constructor: 检测直接父级
  $('#button').click();
 
  22 : css3的 pointer-events:none; auto 其他值都被应用在SVG上
- 	这个样式可以让元素身上的鼠标事件被干掉；
+ 	这个样式可以让元素身上的鼠标事件被干掉；  点击无效
  	ie11+
 
 23: new 的时候都干了什么
@@ -570,20 +574,28 @@ jq笔记在12.18
    1 em 单位名称 - 一个字的大小  浏览器默认字体大小-16像素
  	相对于自己的字体大小
 
+为什么1像素变成了2像素呢？因为你用了viewport的meta标签，所有定义的px都变成了设备像素而非网页像素，也就是说实际上这个设备上的1px高度是由2个网页像素构成。关于这个，你可以了解一下viewport干了些什么。
+device-width 这个宽度指设备独立像素
+window.devicePixelRatio  物理像素和设备独立像素比
 border 问题解决
 li:after{
-	content: " ";
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 1px;
-    border-top: 1px solid #D9D9D9;
-    color: #D9D9D9;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: auto;
+	right: auto;
+	width: 100%;
+	height: 1px;
+	background-color: @color;
+	display: block;
+	z-index: 1;
+	html.pixel-ratio-2 & {
+	  .transform(scaleX(0.5));
+	}
+	html.pixel-ratio-3 & {
+	  .transform(scaleX(0.33));
+	}
 }
 li:after{    
 	content: " ";
@@ -604,6 +616,116 @@ li:after{
 box-shadow: inset 0 1px 1px -1px #D8D8D8;
 /*border-bottom*/
 box-shadow: inset 0 -1px 1px -1px #D8D8D8;
+/******
+	vuex 对border的处理
+******/
+.vux-1px,
+.vux-1px-t,
+.vux-1px-b,
+.vux-1px-tb,
+.vux-1px-l,
+.vux-1px-r {
+  position: relative;
+}
+.vux-1px:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 1px;
+  border: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  height: 200%;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+.vux-1px-t:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.vux-1px-b:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.vux-1px-tb:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.vux-1px-tb:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.vux-1px-l:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+.vux-1px-r:after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid #C7C7C7;
+  color: #C7C7C7;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
 
 
  bootstrap 
@@ -793,6 +915,10 @@ function getStyle(obj,sName)
 	{ alert('是IE6')}
 	else{alert('非IE6')}
 
+	let userAgent = navigator.userAgent
+  	let isIphone = /iPhone/i.test(userAgent)
+  	let isAndroid = /Android/i.test(userAgent)
+  	let isWechat = /micromessenger/i.test(userAgent)
 
 =====================================================================================================
 	【正则】
@@ -800,6 +926,7 @@ function getStyle(obj,sName)
 		nameReg=/^([a-zA-Z0-9\u4e00-\u9fa5\·]{1,10})$/;
 		phoneReg=/^1[3|4|5|7|8][0-9]{9}$/;
 
+		String.replace(/^(\s|\u00A0)+/,'').replace(/(\s|\u00A0)+$/,'')  过滤两边空格
 
 		script 标签的匹配 /<script[^>]*>.*(?=<\/script>)<\/script>/gi  有小问题
 		变量 '/'+obj+'/'
@@ -821,7 +948,7 @@ function getStyle(obj,sName)
 		var str='<a href="javascript:;" onclick="clickBtn(\'_gogame\',\'http://www.baidu.com\');">点击</a>';
 		encodeURI(中文); 
 		decodeURI(编码);
-
+		encodeURIComponent
 		escape()中文转码
 		unescape()
 
@@ -838,7 +965,7 @@ function getStyle(obj,sName)
 		str.split('-')	字符串 -> 数组
 		str.slice(start,end)不包含结束下标 截取字符串
 		str.substring()截取
-			substring(开始下标)   从开始截取到最后一个下标
+			substring(开始下标)   从开始截取到最后一个下标PI
 			substring(开始下标, 结束下标)   
 				不包含结束下标
 		str.charCodeAt(下标)字符串 -> 编码
@@ -864,7 +991,7 @@ function getStyle(obj,sName)
 		arr.indexOf() 返回下标 没有返回-1
 		arr.pop()    后删除  //函数返回值是 删除的那个东西
 		arr.shift()  前删除
-		arr.slice()  可以得到一个不是引用关系的数组
+		arr.slice()  可以得到一个不是引用关系的数组  浅拷贝 如果数组里边有对象还是引用关系
 		arr.splice() //函数返回值是 删除的那个数组[]
 			删除
 				splice(开始下标, 个数)
@@ -1096,7 +1223,7 @@ function getStyle(obj,sName)
 		调用
 			show();
 
-		封闭空间 - 自执行匿名函数
+		封闭空间 - 自执行匿名函数 立即执行函数
 			(function (){})();
 			+function (){}();
 			-function (){}();
@@ -1205,6 +1332,14 @@ function getStyle(obj,sName)
 				return false 不能阻止默认事件
 				oEvent.preventDefault && oEvent.preventDefault();高级
 				阻止默认事件
+				UI事件包括： 这种时间属于通知事件 所以不能阻止默认
+					load、unload
+					abort
+					error
+					select
+					resize
+					scroll
+
 
 			2. attachEvent 有瑕疵
 				this 不能用了总是指向 window
@@ -1240,7 +1375,9 @@ function getStyle(obj,sName)
 			true 深度克隆，连同子级一起克隆
 			id也会一起克隆所以把Id属性删了
 			obj.removeAttribute('id')
-
+			
+    //深度克隆对象 此方法只适用于对象内部没有方法时使用 有方法时方法会失去
+		JSON.parse(JSON.stringify(threeObj))
 	【鼠标滚轮】
 		非 FF
 			onmousewheel
@@ -1320,9 +1457,10 @@ function getStyle(obj,sName)
 			必须运行在服务器环境下
 			document.cookie='a=8; path=/; expires='+oDate.toGMTString();
          +oDate.toUTCString();
+         	两个相同的cookie  path越重优先级越高  可以同一path下设置不同path的cookie
 
-    【canvas】
-    	canvas.toDataURL("images/png"); 保存canvas的图片base64格式
+	【canvas】
+	    	canvas.toDataURL("images/png"); 保存canvas的图片base64格式
       
 	【jQuery】笔记在2016.3.4左右=============
      	伪类：
@@ -1451,7 +1589,7 @@ obj.dataset.xxx
     remChange();
     global.addEventListener('resize',remChange,false);
 })(window);
-
+fontS
 element.scrollIntoViewIfNeeded()  方法用来将不在浏览器窗口的可见区域内的元素滚动到浏览器窗口的可见区域。 如果该元素已经在浏览器窗口的可见区域内，则不会发生滚动。 此方法是标准的Element.scrollIntoView()方法的专有变体。
 //解决移动端输入法遮挡输入框的问题
 
@@ -1468,7 +1606,7 @@ element.scrollIntoViewIfNeeded()  方法用来将不在浏览器窗口的可见�
 	删除目录:	rmdir	目录名
 	创建文件并写入内容: echo 12345 > a.txt
 	编辑文件:	vi 文件 -> i -> esc -> :wq
-
+	pwd  查看当前路径
 DOS命令：
 	清屏	cls
 	退回上一级  cd ..
@@ -1569,8 +1707,13 @@ baidu.com -> 找缓存 -> 重定向 -> www.baidu.com -> 先找浏览器缓存 ->
 	.scroll_box::-webkit-scrollbar { 
 	    display: block; 
 	}
-
-
+	//隐藏手机上的滚动条
+	-webkit-overflow-scrolling: touch
+    &::-webkit-scrollbar
+      height: 0
+      width: 0
+      display: none
+      background: transparent
 
 	switch()
 	{
@@ -1609,8 +1752,8 @@ JS控制浏览器窗口的大小代码之四：
   var new_width=800; //你要固定的浏览器宽度
   var new_height=600; //你要固定的浏览器高度
   function resizewindow()
-  {
-      window.resizeTo(new_width,new_height);
+  {commit
+      window.resizeTo(new_width,neflew_height);
   }
   resizewindow();
   </SCRIPT>
@@ -1629,26 +1772,207 @@ JS控制浏览器窗口的大小代码之四：
 	git pull
 	git clone 'url'
 	git diff readme.txt  查看文件修改内容
-	git log  查看历史记录
+	git log  查看历史记录  q 退出状态
 	git reset  –hard HEAD~100  [HEAD^] [版本号]回退版本命令
 	git branch 查看分支
 	git checkout –readme.txt  撤销修改
-	rm b.txt  删除
+	rm b.txt  删除git 
 	git checkout --b.txt  恢复文件
 	git checkout -b dev 创建并切换分支  等同  
-	git branch dev      创建分支
+	git branch dev      创建分支  -vv 可以查看分支的详细信息
 	git checkout dev    切换分支
 	git merge name      合并某分支到当前分支
-	git branch –d name  删除分支
-	git cherry-pick  38361a68  可以用git log 查看
+	git rebase master 更新master主线上的东西到该分支上
+	git branch –d name  删除分支  git push origin :name
+	git cherry-pick 38361a68  可以用git log 查看  多了用 --no-commit  只修改一次commit
 	wq
-	【npm】
+	git reflog show --date=iso order-center  查看分支创建时间
+
+	git reset 4e1ea705b2994aab703ff7eac073ff3eee48814f  回到这个commit
+	//解决冲突的办法
+
+	Git fetch vfe(别名)
+
+	Git rebase vfe(别名) /master
+
+	//修改冲突的代码
+
+	git add 修改的文件
+
+	git rebase —continue
+
+	Git push (如果报错)
+
+	Git push -f
+【npm】
 	npm 是 Node 的模块管理器，功能极其强大。它是 Node 获得成功的重要原因之一。
 	npm install <packageName> 命令用来安装模块到node_modules目录。
 	npm install <packageName> --force 如果你希望，一个模块不管是否安装过，npm 都要强制重新安装，可以使用-f或--force参数。
 	npm update <packageName> 它会先到远程仓库查询最新版本，然后查询本地版本。如果本地版本不存在，或者远程版本较新，就会安装。
 	*这个网址后面跟上模块名，就会得到一个 JSON 对象，里面是该模块所有版本的信息。比如，访问 https://registry.npmjs.org/react，就会看到 react 模块所有版本的信息。
+【Linux】
+	ls     显示文件或目录
+        -l  列出文件详细信息l(list)
+        -a  列出当前目录下所有文件及目录，包括隐藏的a(all)
+	mkdir  创建目录
+	   -p  创建目录，若无父目录，则创建p(parent)   
+	cd     切换目录
+	touch  创建空文件
+	echo   创建带有内容的文件。
+	cat    查看文件内容
+	cp     拷贝
+	mv     移动或重命名
+	rm     删除文件
+	   -r  递归删除，可删除子目录及文件
+	   -f  强制删除
+	find   在文件系统中搜索某文件
+	wc     统计文本中行数、字数、字符数
+	grep   在文本文件中查找某个字符串
+	rmdir  删除空目录
+	tree   树形结构显示目录，需要安装tree包
+	pwd    显示当前目录
+	ln     创建链接文件
+	more、less   分页显示文本文件内容
+	head、tail   显示文件头、尾内容
+	ctrl+alt+F1  命令行全屏模式
 
+
+	sudo  -> ssh -> 进入
+			ssh 后边跟一个空格
+	 nano 编辑文件 ctrl+x  退出
+【vim】
+	 Vim 的模式有3种，分为一般模式，编辑模式，命令行切换模式。
+
+	（1）：一般模式下的按键说明：
+
+		h 建向左移动
+
+		j 向下移动
+
+		k 向上移动
+
+		l 向右移动
+
+		CTRL f 向下移动一页
+
+		CTRL b向上移动一页
+
+		CTRL d 向下移动半页
+
+		CTRL u 向上移动半页
+
+		+ 光标移动到非空格的下一行
+
+		-光标移动到非空格的上一行
+
+		n <space> n表示数字，加上空格，向当前移动多少个字符。
+
+		0 <space>移动到改行的开始处
+
+		H 移动到上行的第一个字符，
+
+		M 移动到中间那行的第一个字符。
+
+		L 移动到屏幕最下方那一行的第一个字符。
+
+		G 移动到文件最后一行（常用）
+
+		nG移动到文件第几行
+
+		gg移动到这个文件的第一行。
+
+		n<enter> 光标移动到这个文件的第一行
+
+		/word 查找文件为WOED 的字符。向下
+
+		?word 向上寻找一个味WORD 的字符。
+
+		n 此按键位英文按键，表示继续重复前一个查找动作，
+
+		N 此按键为英文按键，表示继续相反地方向重复前一个查找动作。
+
+		:n1,n2s/word1/word2/g表示n1-n2行的word1被替换为word2
+
+		:n1,$s/word1/word2/g 便是从n1-末行的word1被替换为word2
+
+		:n1,$s/word1/word2/gc 功能同上给予确认的替换。
+
+		x 删除光标所在的的后面一个字符。相当于DEL键
+
+		nx 此处n为数字，表示删除n个字符。
+
+		dd 删除光标所在行
+
+		ndd 删除光标所在行下面n行
+
+		d1G删除光标所在行到第一行的所有数据。
+
+		dG 删除光标所在行到最后一行的所有数据。
+
+		d$ 删除光标所在处到该行的所有数据。
+
+		d0 删除光标所在行到第一行的所有数据
+
+		c重复删除多个数据，
+
+		yy 复制光标所在那一行的所有数据
+
+		nyy 复制光标所在的所在的向下n行，n为数字
+
+		y1G 复制光标所在行到第一行的所有数据。
+
+		yG 复制光标所在行到最后一行的搜有数据。
+
+		y0 复制光标处到第一行的所有数据。
+
+		y$ 复制光标到末行的所有数据。
+
+		p 将复制的数据向下面一行粘贴
+
+		P将复制的数据向上面粘贴
+
+		J 将光标所在行与下一行结合成一行。
+
+		u 复原上一个操作。
+
+		Ctrl +r 重复上面一个操作。
+	（1）：编辑模式：
+
+		进入到编辑模式的常用命令。
+
+		i 从目前光标所在处插入。
+
+		I 从目前光标所在处第一个非空格开始插入。
+
+		a 从光标所在处的下一个字符开始插入。
+
+		A 从光标所在处行的最后一个字符卡是插入
+
+		o 从目前光标所在处的下一行插入新的一行。
+
+		O 为在目前光标所在处的上面一行插入新的一行。
+
+		r 进入一次替换插入，即在目前光标的下一行插入新的一行。
+
+		R 一直替换插入，直到按下esc为止。
+
+	（2）：命令模式
+
+		:wq保存文本，并且退出，如果文件没有指定文件名字，则需要:wq 文件名，
+
+		:w 写入
+
+		:wq! 强制写入。
+
+		:set nu 显示行号
+
+		:set nonu 取消行号
+
+		:n1,n2 w <filename> 将n1,n2的内容保存到filename 这个文件。
+
+		:r <filename> 将filename 这个文件的内容读到当前这个光标所在行的最后。
+
+		:! Commad command 为命令即离开暂时离开当前进入命令模式。
 
 	【unicode】
 <script type="text/javascript">
@@ -1842,7 +2166,7 @@ JavaScript
 			?age=18&sex=1 数据  search
 			#abc      锚点  hash //适用于ajax页面趋于传统化，如:ajax控制页面显示不同内容就可以通过变更hash来实现区别 不支持IE6/7
 			window.onhashchange = function(){};//hash 监听事件IE8+
-
+			window.location.replace('/home') 可以再不产生history记录的情况下改变URL
 		弹框
 			winodw.alert()
 			window.confirm('确认下载吗？')
@@ -1971,7 +2295,7 @@ JavaScript
 
 		盒子模型=width/height + padding + border
 		offsetWidth  盒子模型宽度
-		offsetHeight 盒子模型高度
+		offsetHeight 盒子模型高度 (如果发现值不准确 应该是img加载的问题)
 		如果一个元素的display：none；获取不到所有的offset  其他的都能获取到
 
 
@@ -1982,6 +2306,7 @@ JavaScript
 		obj.scrollHeight//是内容的高度当小于offsetHeight时相等
 		document.body.scrollTop   			chrome
 		document.documentElement.scrollTop  IE FF
+		document.documentElement.scrollTop || document.body.scrollTop
 
 	[HTML5]
 	scrollIntoView 可以在事件中让页面滚动到元素的顶部或者底部齐平；
@@ -2210,6 +2535,19 @@ function Suv() {
 var jeep = {};
 jeep.prototype = new Suv();
 jeep.prototype.constructor = jeep;
+function Drag() {
+	
+}
+function Drag2()
+{
+	Drag.apply(this,arguments);
+}
+Drag2.prototype=new Drag();
+Drag2.prototype.constructor=Drag2;
+var _move=Drag2.prototype.move;
+Drag2.prototype.move=function(oEvent){
+	_move.apply(this,arguments);
+	if(this.oDiv.offsetLeft<=0){this.oDiv.style.left=0;}
 、、、、、、、、
 var blogModule = (function (my) {
 
@@ -2246,6 +2584,23 @@ call apply 和 bind的主要区别就是执行函数没有
 2.   xb.say.apply(this,arguments);
 3.   xb.say.bind(this,arg[0],arg[1].....)();
 
+【各种console】
+console.log("%d年%d月%d日",2011,3,26)  ->2011年3月26日
+console.time()
+console.timeEnd()
+console.info('信息')
+console.warn('警告')
+console.error('错误')
+//打印信息分组
+console.group("第二组信息");
+	console.log("第二组第一条:程序爱好者QQ群： 80535344");
+	console.log("第二组第二条:欢迎你加入");
+console.groupEnd();
+
+console.dir() //显示一个对象的所有属性和方法
+console.dirxml()//显示一个元素的节点
+console.assert()//用来判断一个表达式或变量是否为真。如果结果为否，则在控制台输出一条相应信息，并且抛出一个异常
+console.trace()//用来追踪函数的调用轨迹。
 
 【报错】
 !function(){//可以报错
@@ -2487,6 +2842,8 @@ ReactDOM.render(
 	│   ├── components     // 各种组件
 	│   ├── App.vue         // 主页面
 	│   └── main.js        // Webpack 预编译入口
+
+	watch 监听 obj.name  要用引号包起来
 
 
 【比较运算符 == 】
@@ -2780,6 +3137,25 @@ JavaScript：
   	浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；
   	载入解析到的资源文件，渲染页面，完成。
 
+  	1.在浏览器地址栏输入地址 https://www.qingyidai.com
+
+	2.如果页面使用强缓存，并且缓存未过期，使用本地缓存
+
+	3、域名解析（DNS）获取相应的ip
+
+  	9.进行TCP连接（三次握手） 连接成功 发送HTTP请求
+
+	10.请求经过应用层，传输层，网络层，数据链路层，物理层，最终将数据送到目的主机的目的端口
+
+	11.服务器收到请求，在服务器空间中查找对应的资源，返回HTTP相应
+
+	12.浏览器接收HTTP相应，解析相应头信息，如404显示错误页面， 304使协议缓存， 200就行下一步解析渲染
+
+	13.如果页面使用了强缓存或协议缓存，先缓存资源。如果不使用缓存，直接进行下一步
+
+	14.解析html代码，如果html中有请求js/css/image等资源，向服务器请求这些资源。将html，css解析成DOM树，CSS树，执行js代码
+
+	15.渲染页面样式，对定义的样式进行计算，绘制
 
 ***SEO优化
 	最常用的就是这两个标签  一个是关键词，和描述
@@ -3087,7 +3463,8 @@ FormData()
 
 
 
-
+webview.getSettings().setTextZoom(100);
+webview  字体会跟着手机系统设置字体大小改变
 
 
 
